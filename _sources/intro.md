@@ -1,9 +1,14 @@
 # Welcome to my book PPW
 
-230411100195 MOHAMMAD ARIEL RIFQI AHSAN
+NIM : 230411100195 
 
-email : arielahsan05@gmail.com
+Nama : MOHAMMAD ARIEL RIFQI AHSAN
 
+Email : arielahsan05@gmail.com
+
+Penambangan web adalah teknik untuk menggali dan mengambil data dari internet, yang kemudian dapat dimanfaatkan perusahaan sebagai dasar pengambilan keputusan yang lebih tepat.
+
+Penambangan web memanfaatkan teknik penambangan data untuk menemukan dan mengambil informasi dari layanan web secara otomatis.Tujuan penambangan web adalah mengungkap pola atau informasi penting dari struktur tautan, konten halaman web, dan aktivitas pengguna.
 
 
 
