@@ -401,34 +401,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting builtwith
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading builtwith-1.3.4.tar.gz (34 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Preparing metadata (setup.py) ... ?25ldone
-?25hRequirement already satisfied: six in /home/codespace/.local/lib/python3.12/site-packages (from builtwith) (1.17.0)
-Building wheels for collected packages: builtwith
-<span class=" -Color -Color-Yellow">  DEPRECATION: Building &#39;builtwith&#39; using the legacy setup.py bdist_wheel mechanism, which will be removed in a future version. pip 25.3 will enforce this behaviour change. A possible replacement is to use the standardized build interface by setting the `--use-pep517` option, (possibly combined with `--no-build-isolation`), or adding a `pyproject.toml` file to the source tree of &#39;builtwith&#39;. Discussion can be found at https://github.com/pypa/pip/issues/6334</span>
-
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Building wheel for builtwith (setup.py) ... ?25l-
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
-?25h  Created wheel for builtwith: filename=builtwith-1.3.4-py3-none-any.whl size=36121 sha256=13e983e6ff6a028193cc77048a5b9dc44367e2940eee232f6360e0fc7bbb4f7d
-  Stored in directory: /home/codespace/.cache/pip/wheels/7f/2d/b2/606e3df914d4aeeab99c4a4e3e9a61673d2293c2e346db00c8
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully built builtwith
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: builtwith
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed builtwith-1.3.4
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: builtwith in /usr/local/python/3.12.1/lib/python3.12/site-packages (1.3.4)
+Requirement already satisfied: six in /home/codespace/.local/lib/python3.12/site-packages (from builtwith) (1.17.0)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">25.1.1</span> -&gt; <span class=" -Color -Color-Green">25.2</span>
@@ -845,356 +819,6 @@ Abstrak Inggris: Satisfaction is feeling level of someone to service after compa
 Keywords: Satisfaction of Service Quality, IPA Integration and Kano Model.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Data #6 ---
-Prodi: Teknik Industri
-Penulis: Asri Maslihatin
-Judul: Perencanaan Penjadwalan Dan Rute Terpendek Distribusi Premium PT. PERTAMINA Camplong Menggunakan Metode Distribution Requirement Planning (DRP)Dan Algoritma Dijkstra
-Pembimbing 1: Heri Awalul Ilhamsah, S.T.M.T
-Pembimbing 2: Khamdi Mubarok, S.T.M.Eng
-Abstrak Indonesia: PT. Pertamina Terminal BBM (TBBM) Camplong adalah anak perusahaan Pertamina yang melayani pendistribusian BBM untuk wilayah Madura. Jumlah SPBU yang dilayani TBBM Camplong adalah 37 SPBU. Permintaan BBM untuk tiap SPBU per harinya tidak dapat dipastikan, sehingga distribusi BBM dengan keterbatasan jumlah mobil tangki yang ada tidak optimal. Untuk itu diperlukan penelitian penjadwalan distrbusi agar dapat mengoptimalkan pendistribusian BBM ke semua SPBU.
-Dalam penelitian ini digunakan metode Distribution Requirement Planning (DRP) dan Algoritma Djikstra untuk membuat penjadwalan distribusi BBM. Langkah pertama adalah menginputkan data permintaan 60 periode (hari) sebelumnya untuk membuat peramalan permintaan 10 periode berikutnya. Langkah berikutnya menghitung besarnya lot untuk tiap SPBU dengan menggunakan teknik lot sizing EOQ. Selanjutnya disusun DRP Worksheet. Dengan demikian TBBM Camplong dapat melakukan penjadwalan distribusi yang optimal. Setelah dilakukan penjadwalan kemudian dicari rute terpendek yang akan dilalui oleh tiap mobil tangki dengan menggunakan Algoritma Dijkstra. Hasilnya menunjukkan untuk permintaan 24 kL lintasan terpendeknya adalah TBBM – SPBU – TBBM, sementara untuk permintaan 8 kL dan 16 kL bisa dua rute yaitu TBBM – SPBU – TBBM dan TBBM – SPBU1 – SPBU2 – TBBM. Dengan demikian, 22 mobil tangki dapat digunakan secara maksimal untuk memenuhi kebutuhan 37 SPBU di seluruh wilayah Madura.
-Kata kunci : Peramalan, EOQ, Distribution Requirement Planning (DRP), Algoritma Dijktra.
-Abstrak Inggris: PT. Pertamina Terminal BBM (TBBM) Camplong is a subsidiary of PT Pertamina which serving fuel distribution in Madura region. The number of gas stations that served TBBM Camplong is 37 gas stations (SPBU). Fuel demand for each stasion per day can not be ascertained, so that the fuel distribution is not optimal due to the limited number of fuel tank cars. Therefore, it requires a research on distribution scheduling to optimize the distribution of fuel to all SPBU in the region.
-This study used Distribution Requirements Planning (DRP) method and Djikstra Algorithm to solve distribution scheduling problem. First step is using data history of 60 periods (days) of demand to make demand forecasting for the next 10 periods. Second step is to calculate lot for each SPBU by using EOQ lot sizing, therefore DRP Worksheet is then be constructed. Thus, TBBM Camplong can perform optimal scheduling of distribution. After scheduling, then sought the shortest routefor each tank car using Dijkstra&#39;s algorithm. The results show for 24 kL demand, the shortest path is TBBM - SPBU - TBBM, while the demand for 8 kL and 16 kL can be two routes, TBBM - SPBU - TBBM and TBBM - SPBU1 - SPBU2 - TBBM. Thus, 22 tank cars can be used optimally to meet demands of 37 SPBU in Madura.
-Keywords: Forecasting, EOQ, Distribution Requirement Planning (DRP), Dijktra Algorithm.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Data #7 ---
-Prodi: Teknik Industri
-Penulis: NINA ARIS RIANA
-Judul: USULAN PERBAIKAN PADA PROSES PRODUKSI BOTOL KACA DNGAN MENGGUNAKAN METODE LEAN SIX SIGMA (Studi Kasus : di PT. IGLAS Gresik)
-Pembimbing 1: M. IMRON MUSTAJIB., S.T., M.T
-Pembimbing 2: ARI BASUKI., S.T., M.T
-Abstrak Indonesia: Penelitian ini membahas tentang penggunaan metode  lean six sigma  pada proses produksi botol PANJI 275 ml di PT. IGLAS. Selama proses produksi ditemukan pemborosan-pemborosan yang terjadi.  Pemborosan yang terjadi antara lain,  lead time  proses produksi yang terlalu lama,  dan terjadinya  defect  yang tinggi.  Tujuan dari penelitian ini  yaitu mengetahui penyebab  terjadinya  waste. Setelah diketahui penyebab-penyebab terjadinya  waste, maka selanjutnya dilakukan usulan perbaikan untuk mengurangi terjadinya  waste.  Dari hasil penelitian yang dilakukan, maka didapat nilai sigma sebesar 2,3703 untuk periode I dan 2,2786 untuk periode II. Sedangkan dengan usulan pada aktivitas proses produksi yaitu dengan menggabungkan aktivitas sortir dengan pendinginan (annealing) maka, dapat mengurangi waktu  lead time  periode I dari 215,45 jam menjadi 170,30 jam atau selisih sebesar 41,15 jam, dan untuk periode II yaitu 261,82 jam menjadi 201,70 jam atau selisih 60,12 jam.
-Kata kunci: lean six sigma, big picture mapping, proses produksi
-Abstrak Inggris: This study discusses  the use of  lean six  sigma  in  the production process  at  PANJI 275 ml bottles at PT. IGLAS. During the production process discovered waste that occurs.  The wastes  that  occurs  among others,  the  manufacturing  lead time  is too long, and the high defects. The purpose of this research is to know the cause of the waste.  Having known  the causes of  the  waste, the  proposed  improvements  is then performed  to reduce  the  waste.  Based on  the research  conducted, the  obtained value of  sigma  of  2.3703  and  2.2786  for the  period I  to  period  II.  While  the process improvement propossed  on the activity of  the  production process  by  combining  sorting  activity  with  cooling  (annealing)  hence,  can  reduce the time period I lead time of 215.45 hours to 170.30 hours or a difference of 41.15 hours and for the  second  period  is  261.82  hours  to  201.70  hours or  60.12  hour difference.
-Keywords: lean six sigma, big picture mapping, the production process
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Data #8 ---
-Prodi: Teknik Industri
-Penulis: DINKA DAMIANA ULVA
-Judul: PERENCANAAN AGREGAT PRODUKSI PLYWOOD DENGAN TEKNIK GOAL PROGRAMMING (Studi Kasus : PT. TIRTA MAHAKAM RESOUCES Tbk, Gresik)
-Pembimbing 1: M. IMRON MUSTAJIB., S.T., M.T
-Pembimbing 2: HERI AWALUL ILHAMSAH., S.T., M.T
-Abstrak Indonesia: Penelitian ini membahas tentang penerapan metode goal programming pada perencanaan produksi di PT.Tirta Mahakam. Rencana produksi di perusahaan tersebut selama ini ditentukan berdasarkan jumlah pesanan yang ada tanpa memperhitungkan optimalisasi faktor produksi yang digunakan. Tujuan penerapan metode goal programming pada perencanaan produksinya adalah memaksimalkan keuntungan, memaksimalkan utilisasi mesin, dan meminimalkan biaya kualitas. Model goal programming yang digunakan merupakan pengembangan dari model optimalisasi perencanaan produksi yang dibuat oleh Leung dan Chan (2009). Hasil penelitian ini mengkonfirmasikan rencana produksi dengan menggunakan metode goal programming diperoleh keuntungan sebesar Rp 53.586.920.776,89. Besaran keuntungan tersebut melebihi target yang ditentukan perusahaan sebesar Rp 2.021.166.759,02. Selisih keuntungan tersebut dicapai dari penggunaan utilitas mesin selama 4.568,921 jam per tahun, dan biaya kualitas sebesar Rp 69.604.662.
-Kata kunci: rencana produksi , model, goal programming, optimalisasi
-Abstrak Inggris: This study discusses the implementation of goal programming method production planning at PT. Tirta Mahakam. The current production planning for the company is determined by the amount of order without considering the optimalization of production needed. The purpose of goal programming method in the production planning is maximizing profits, maximizing machine utilization, and minimizing the cost of quality. The goal programming models used is shows that a Leung and Chan (2009) model. This result production planning by using goal programming method get profit at 53,586,920,776.89 rupiahs. The amount of such gain exceeds its specified targets 2,021,166,759.02 rupiahs. The profit margin achieved from the use of machine tools during 4568.921 hours per year, at a cost of quality is 69,604,662 rupiahs.
-Keywords: production planning, model, goal programming, optimization
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Data #9 ---
-Prodi: Teknik Industri
-Penulis: LAILI EKA WULANDARI
-Judul: Pengaruh analisa jabatan terhadap motivasi kerja karyawan Fakultas Teknik Universitas Trunojoyo Madura
-Pembimbing 1: RETNO INDRIARTININGTIAS.,ST.,MT
-Pembimbing 2: FITRI AGUSTINA.,ST.,MT
-Abstrak Indonesia: Universitas Trunojoyo Madura mempunyai beberapa Fakultas salah satunya adalah 
-Fakultas Teknik.  Fakultas Teknik sendiri terdiri dari 5 program studi  yaitu  Teknik 
-Informatika, Teknik Industri, Menejemen Informatika, Mekatronika, Multimedia dan 
-Jaringan.  Setiap tahunnya  perkembangan  jumlah mahasiswa semakin bertambah  juga 
-menyebabkan bertambahnya tugas  dan tanggung jawab karyawan Fakultas Teknik, dilain 
-pihak jumlah pegawai cenderung tetap dan belum ada rekrutmen ataupun penambahan 
-jumlah karyawan.  Tujuan penelitian ini adalah untuk merancang skenario perpindahan 
-jabatan (job design) pada karyawan yang  diketahui memiliki beban kerja mental tinggi. 
-Metode yang digunakan untuk mengetahui pengaruh analisa jabatan terhadap motivasi  kerja
-yaitu component based SEM (Partial Least Square/PLS) sedangkan untuk menghitung beban 
-kerja mental menggunakan metode NASA  TLX.  Berdasarkan hasil didapatkan nilai T-statistik 
-hubungan antara analisa jabatan dengan motivasi kerja sebesar  18,286 (18,286&gt;1,96)  yang 
-membuktikan bahwa  terdapat pengaruh analisa jabatan terhadap motivasi dan hasil dari 
-pengukuran beban kerja mental  menggunakan  NASA-TLX  terdapat tiga karyawan fakultas 
-teknik yang memiliki beban kerja mental kategori tinggi (50-79) adalah Achmad Besuni, 
-Tjahja Sirtu Virlaili, dan Harumi Berlianti. Sehingga perlunya dilakukan skenario 
-perpindahan pekerjaan agar karyawan  yang beban mentalnya tinggi dapat berkurang menjadi 
-kategori sedang (10-29) dan nantinya dapat memimalisasi adanya pekerjaan yang kurang 
-optimal.
-Kata Kunci  : Analisa Jabatan, Motivasi, NASA-TLX, Partial Least Square (PLS)
-Abstrak Inggris: Madura Trunojoyo University has several faculty one of which is the College of 
-Engineering. Faculty consists of five courses is Computer Science, Industrial Engineering, 
-Information management, Mechatronics, Multimedia and Networking. Each year the number 
-of students increasing development also led to the increase in duties and responsibilities of 
-the employees of the Faculty of Engineering, on the other hand tend to be fixed and the 
-number of employees has been no recruitment or increase the number of employees. The 
-purpose of this research is to design a scenario of displacement position (job design) to 
-employees who are known to have high mental workload. The method used to determine the 
-effect of post analysis of the motivation that is component-based SEM (Partial Least Square / 
-PLS) while calculating mental workload using the NASA TLX. Based on the obtained value of 
-T-statistic analysis of the relationship between the office of the motivation of 18.286 
-(18.286&gt; 1.96) which proves that there is a position  to analyze the influence of motivation 
-and the results of measurements of mental workload using the NASA-TLX are three 
-engineering faculty employees who have high mental workload category (50-79) is Achmad 
-Besuni, Tjahja Virlaili gravel, and Harumi Berlianti. So the need for migration scenarios that 
-employees work a high mental load can be reduced to a medium category (10-29) and will be 
-memimalisasi the job less than optimal. 
-Keywords: Job Analysis, Motivation, NASA-TLX, Partial Least Square (PLS)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Data #10 ---
-Prodi: Teknik Industri
-Penulis: Valentine Megasari Sihombing
-Judul: Pendekatan Quality Risk Management (QRM) Untuk Usulan Mengurangi Cacat Produk 
-Pada Pt.Sumber Mas Indah Plywood,Gresik
-Pembimbing 1: Fitri Agustina ST.,MT
-Pembimbing 2: Retno Indriartiningtias, S.T., S.E., M.T
-Abstrak Indonesia: Cacat merupakan salah satu bentuk penyimpangan kualitas, untuk mengurangi cacat diperlukan pengendalian dalam tiap tahap proses produksinya. PT.Sumber Mas Indah Plywood Gresik memiliki departemen plywood yang mempunyai output produksi terbesar serta cacat terbanyak. Untuk meminimasi cacat dilakukan pendekatan Quality Rsik Management (QRM) yang merupakan proses sistematis untuk menilai, mengidentifikasi, mengontrol dan meninjau risiko pada kualitas produk. QRM menggunakan tool Failure Model Effect Analysis (FMEA) yang berfungsi untuk mengidentifikasi sumber dan akar penyebab dari masalah kualitas, dan metode Grey Theory yang berfungsi untuk menghilangkan subjektifitas dari preferensi penilaian severity, occurrence dan detection pada FMEA. Berdasarkan penilaian risiko didapatkan 42 potensial failure mode dengan RPN tertinggi sebesar 384 yakni tumpukan plywood yang jatuh dan RPN terendah sebesar 54 yaitu penentuan titik pusat kayu yang tidak tepat saat pembubutan, potongan kasar pada bagian permukaan dan tepi  kayu lapis dan penyusunan veneer face yang kurang tepat. Dari pemetaan level risiko ada 9 risiko yang berada pada daerah risk mitigation dimana 6 risiko mempunyai RPN yang sama. Salah satu prioritas pengendalian risiko adalah penyambungan veneer tumpang tindih, peniliti mengusulkan untuk memperbaharui alat srtipping tip dan penambahan 1 operator pada departemen repair 2, hal ini diusulkan untuk mengurangi cacat core lumpuk sebanyak 35,14 % selain itu pengendalian risiko untuk pelicinan permukaan yang tidak rata peneliti mengusulkan memperbaharui mata pahat pisau mesin press agar mengurangi cacat sarder sebanyak 20,32 %.
-Abstrak Inggris: Disability is a form of deviance quality control required to reduce defects in every stage of the production process. PT.Sumber Mas Indah Plywood Gresik has a department that has the greatest production output as well as the most flawed. To minimize defects approaches Rsik Quality Management (QRM), which is a systematic process to assess, identify, control and review the risks on product quality. QRM use tool Failure Model Effect Analysis (FMEA), which serves to identify the source and root cause of quality problems, and the method of Grey Theory, which serves to eliminate the subjectivity of preference ratings severity, occurrence and detection FMEA. Based on the risk assessment found 42 potential failure modes with the highest RPN stack of plywood for the 384 that fell and the lowest RPN for 54 the determination of the center of the wood that is not right when turning, rough cut on the surface and edges of plywood and face veneer preparation improper . From mapping the risk level there are 9 who are at risk of risk mitigation areas which 6 have RPN same risk. One priority of risk control is overlapping veneer grafting, researcher proposes to renew srtipping tool tip and the addition of one operator at second repair department, it is proposed to reduce the defect core lumpuk much as 35.14% in addition to the risk control pelicinan uneven surfaces researchers propose to renew the eyes chisel blade press machine in order to reduce as much as 20.32% Sarder defect.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Data #11 ---
-Prodi: Teknik Industri
-Penulis: Iman Nuvi Alfian Budi Utomo
-Judul: Analisis Pengendalian dan Perbaikan Kualitas dengan Pendekatan Metode Six Sigma
-Dan 5w+1h Sebagai Upaya Peningkatan Kualitas Produk
-Pembimbing 1: Sugeng Purwoko,ST.,MT
-Pembimbing 2: Fitri Agustina,ST.,MT
-Abstrak Indonesia: Abstrak
-Permasalahan kualitas bukan hanya sesuatu yang harus dipenuhi oleh suatu perusahaan, tapi telah 
-menjadi suatu strategi untuk bersaing dalam menarik konsumen.  PT. Tirta Mahakam  Resources  tbk Gresik 
-mempunyai pasar utama di luar negeri  (ekspor)  sebanyak (90%), sedangkan sisanya 10% adalah pasar dalam 
-negeri.  Tentunya kualitas menjadi prioritas dalam proses produksinya. Tujuan dari penelitian ini adalah upaya 
-peningkatan kualitas dengan pendekatan metode  Six Sigma,  Fault Tree Analysis  dan 5W+1H.  Six Sigma
-digunakan untuk mencari kapabilitas sigma pada proses produksi, Fault Tree Analysis digunakan untuk mencari 
-akar penyebab masalah, sedangkan 5W+1H digunakan untuk memberikan usulan perbaikan pada proses 
-produksi untuk peningkatan kualitas produk. Hasil dari penelitian ini diperoleh cacat yang terjadi adalah cacat 
-permukaan kurang halus, cacat perubahan corak, cacat lebar veener, cacat terdapat pin hole, cacat terdapat mata 
-kayu. Level sigma yang didapatkan nilai rata-rata DPMO dari empat periode sebesar 6.845 dengan level sigma 
-2.71. Target kinerja sigma adalah 2.73 dengan prosentase peningkatan sebesar 0.738%. untuk usulan 
-perbaikannya adalah membuat display jadwal pemeriksaan dan penggantian pisau potong. Membuat ukuran 
-setingan log yang pas. membuat ukuran setingan mesin yang pas. Memilih log yang akan direbus sehingga 
-ketika log dipotong tidak keras. Memberikan  headset  pada operator mesin. Memberikan masker pada operator 
-mesin. memberikan fentilasi udara yang cukup
-Kata kunci : Six Sigma, Fault Tree Analysis, 5W+1H
-Abstrak Inggris: Abstrack
-The problem  of quality  is not just  something that  must be met  by a company, but it has become an 
-attractive strategy to compete in the consumer. PT. Tirta Mahakam Resources Tbk Gresik has major markets 
-abroad (exports) as many (90%), while the remaining 10% of the domestic market. Of course, quality is a 
-priority in the production process.  The purpose  of this research is  improving the quality of  the  Six Sigma
-method approach,  Fault Tree Analysis  and  5W +1  H.  Six Sigma  is used  to search for  sigma  capability  in  the 
-production process, Fault Tree Analysis is used to find the root cause of the problem,  while the 5W +1 H is used
-to  propose  improvements in  the production process  to improve  product quality.  Results from this study were 
-obtained defects that occur are less smooth surface defects, defect pattern changes, defects veener width, defects 
-there are pin holes, knots are defects.  Sigma levels obtained DPMO average value of the four periods of 6845 to
-2.71  sigma  level.  Sigma  performance target  is  2.73  with a percentage  increase of  0738%.  for the proposed
-improvement  is to make the  display  schedule  inspection  and replacement  cutting blade.  Make  the right  size  log
-settings. Make the size that fits the machine settings. Choosing to be boiled so that the log when the log is cut is 
-not hard.  Provide  a headset  on  the machine  operator.  Giving  mask  on  the machine  operator.  provide  sufficient 
-air fentilation.
-Key word : Six Sigma, Fault Tree Analysis, 5W+1H
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Data #12 ---
-Prodi: Teknik Industri
-Penulis: Vita Ariesta Ramandhani
-Judul: ANALISA PRODUKTIVITAS DAN KINERJA LINGKUNGAN PADA PROSES
-PRODUKSI PUPUK UREA DENGAN PENDEKATAN GREEN PRODUCTIVITY
-(Studi Kasus: PT. Petrokimia Gresik)
-Pembimbing 1: Ari Basuki, ST., MT.
-Pembimbing 2: Nachnul Anshori, ST., MT.
-Abstrak Indonesia: Pupuk urea adalah salah satu jenis produk yang dihasilkan PT. Petrokimia Gresik. Dalam menjalankan proses produksi, selain menghasilkan produk utama, perusahaan tersebut juga menghasilkan limbah  cair. Limbah tersebutberpotensi mempengaruhi kinerja lingkungannya. Tujuan dilakukannya penelitian ini yaitu untuk menganalisa produktivitas dan kinerja lingkungan dari proses produksi pupuk urea di PT. Petrokima Gresik dengan pendekatan Green Productivity. Langkah yang dilakukan pertama kali adalah mengidentifikasi sumber penyebab limbah, menetukan tujuan dan target, dan memilih alternatif solusi Green Productivity. Dengan menggunakan analisa deret seragam, alternatif yang dipilih dalam penelitian ini adalah melakukan pengisolasian pipa yang bocor pada mesin EA 101 dan mesin DC 101. Meskipun biaya yang dikeluarkan cukup mahal untuk perbaikan pipa tapi perbaikan mengurangi kadar limbah COD hingga 2 persen dan meningkatkan nilai EPI (Environmental Performance Indicator) dengan kondisi awal 1,7 menjadi 2,1. Selain itu alternative ini juga mampu meningkatkan indeks produktivitas perusahaan dengan kondisi awal indeks sebesar 11,97% menjadi 12,07%.
-
-Kata kunci : KinerjaLingkungan,Green Productivity, Indeks EPI, Produktivitas
-Abstrak Inggris: Urea is one kind of products produced by PT. Petrokimia Gresik. In carrying out the production process, instead of
-producing primary product, this company also produces liquid waste. This waste has potential effect to its environmental performance. The aim of this research isto analyze productivity and environmental performance of
-production process of urea. At PT. Petrokimia Gresik using Green Productivity method. The first steps in Green Productivity is identifying the causes of waste, determining goals and targets, and selecting alternative solutions. By using annual worth analysis, alternative selected in this study is isolating the leaking pipeon the engine EA101 and DC101. Even though the cost needed to implement this alternativeis quite expensive, but it can reduce the harmful level of liquid waste to its environment by reducing COD value up to 2%. Implementing this alternative will increase the value of EPI (Environmental Performance Indicators) as well,  from 1.7 to 2.1 point. Moreover, this alternative
-will increase the company&#39;s productivity index (11.97% to 12.07%).
-
-Key words : Enviroment Performance, Green Productivity, EPI Index, Productivity
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Data #13 ---
-Prodi: Teknik Industri
-Penulis: Bertha Primaria Bainana
-Judul: Identifikasi Preferensi Konsumen Dalam Minat Beli Rumah Dengan Pendekatan Metode Decision Tree (Studi Kasus : Perumahan Permata Indah Bangkalan)
-Pembimbing 1: Ari Basuki, ST., MT.
-Pembimbing 2: Dr. Rachmad Hidayat, ST., MT.
-Abstrak Indonesia: Salah satu dampak dari pembangunan jembatan Suramadu adalah meningkatnya jumlah urbanisasi ke wilayah kabupaten Bangkalan, sehingga juga mengakibatkan peningkatan kebutuhan terhadap produk rumah. Untuk bisa memenuhi kebutuhan konsumen tersebut, perlu dilakukan suatu kajian tentang keinginan konsumen terhadap bentuk dan kondisi perumahan yang diminati oleh konsumen. Penelitian ini dilakukan untuk mengetahui berbagai pola keinginan minat beli konsumen terhadap perumahan tipe 45 dengan melibatkan 7 atribut yang dijadikan pertimbangan yaitu kedekatan lokasi dengan fasilitas disekitar perumahan, ketersediaan bentuk pagar perumahan, fasilitas keamanan, bentuk pembayaran rumah, ketersediaan fasilitas air, bentuk jalan perumahan, model rumah. Proses identifikasi keinginan konsumen dilakukan dengan menggunakan metode decision tree, dan menghasilkan 8 macam pola keinginan konsumen. Selanjutnya pengembang rumah akan menentukan prioritas pola keinginan konsumen yang akan diwujudkan lebih dahulu dengan menggunakan metode AHP. Hasilnya, yaitu perumahan tipe 45 yang lokasinya dekat dengan jalan raya dan pasar tradisional.
-
-Kata kunci:Minat beli konsumen, decision tree, AHP
-Abstrak Inggris: One of the impacts of Suramadu bridge is the incrasing number of urbanization to Bangkalan regency area, and resulting the demand rise of housing product as well. In order to meet the consumer needs, it is necessary to conduct a research about consumer needs for type and housing condition which is preferred by consumers. The aim of this research is to investigate the customer preferences for housing of type 45, and seven attributes are taken into consideration,which are  the closeness of
-housing location with facilities surrounding, the availability and form of residence fence, security
-facilities, type of payment, the availability of water supply, form of road, shape of the house. It is used decision tree method to identify the customer needs, and resulting 8 various patterns of consumer needs. In addition, developer will determine the priority of consumer need patterns using AHP method, which type of housing will be build first. And, the result is residence  of type 45 which is close to main road and traditional market will be build first.
-
-Key words :Buying consumer preference, decision tree, AHP.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Data #14 ---
-Prodi: Teknik Industri
-Penulis: Devi Narulita Putri
-Judul: PERANCANGAN MODEL KONSEPTUAL PENGARUH KEEFEKTIFAN KNOWLEDGE TRANSFER TERHADAP COMPETITIVE ADVANTAGE IKM  DI BANGKALAN
-Pembimbing 1: Retno Indriartiningtias, ST., MT.
-Pembimbing 2: Sabarudin Akhmad, ST., MT.
-Abstrak Indonesia: Transfer pengetahuan merupakan proses berpindahnya pengetahuan dari sumber ke penerima. Perkembangan industri kecil di Indonesia khususnya di Bangkalan tidak terlepas dari peranan proses transfer pengetahuan yang diterima oleh industri kecil melalui berbagai macam pelatihan. Kelemahan yang dimiliki oleh  industri kecil akan teratasi dengan  adanya proses transfer pengetahuan sehingga industri kecil mampu bersaing dengan kompetitornya. Penelitian ini bertujuan untuk mengetahui faktor-faktor yang mempengaruhi keefektifan transfer pengetahuan dan keunggulan bersaing industri kecil. Jumlah minimal responden yang dibutuhkan dalam penelitian ini sebanyak 130 responden. Berdasarkan studi literatur yang ada, terbentuk 6 variabel laten dan 26 indikator yaitu : mekanisme transfer (pelatihan, seminar, penyuluhan, pendampingan), sumber transfer (kemampuan sumber, pengalaman sumber, komunikasi yang efektif, asal sumber transfer), bentuk transfer (pemasaran, proses produksi, manajemen organisasi, keuangan), lingkungan(kebijakan pemerintah, cara pandang, bahasa, cara hidup, kebiasaan masyarakat, kondisi tempat kerja), keefektifan transfer knowledge (performansi sdm, performansi produksi , performansi keuangan) dan competitive advantage (kualitas produk, kualitas layanan, ketepatan pengiriman, kemampuan berinovasi, mengikuti perkembangan)
-Abstrak Inggris: Knowledge transfer is the process of transfer of knowledge from the source to the receiver. Development of small industries in Indonesia, especially in Bangkalan is inseparable from the role of knowledge transfer process received by small industries through various trainings. Weakness possessed by small industries will be overcome with the knowledge transfer process so that small industries are able to compete with its competitors. This study aims to determine the factors that influence the effectiveness of knowledge transfer and competitive advantage of small industries. Required minimum number of respondents in this study were 130 respondents. Based on the existing literature, formed six latent variables and 26 indicatorsare: transfer mechanisms (training, seminars, counseling, mentoring), resource transfer (the ability of the source, the source of experience, effective communication, the source transfer), transfers (marketing, production processes, organizational management, financial), environmental (government policies, perspectives, languages, ways of life, customs of the people, working conditions), effectiveness of knowledge transfer (tbsp performance, production performance, financial performance) and competitive advantage (product quality, quality of service, timeliness of delivery, ability to innovate, to keep track of)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Data #15 ---
-Prodi: Teknik Industri
-Penulis: Rosalia Arista Dewi
-Judul: ANALISIS POSTUR KERJA DAN FISIOLOGI KERJA PADA PEKERJA PENAMBANG BATU DI KECAMATAN AROSBAYA-BANGKALAN (Studi Kasus : Penambang Batu Kecamatan Arosbaya-Bangkalan)
-Pembimbing 1: Fitri Agustina, S.T, M.T
-Pembimbing 2: Nachnul Anshori, S.T, M.T
-Abstrak Indonesia: Desa Air Mata merupakan penghasil batu kapur terbesar di Kabupaten Bangkalan. Pada proses penambangan batu di daerah tersebut banyak dijumpai kondisi-kondisi yang tidak ergonomis pada postur kerja dan fisiologi kerja. Postur kerja yang tidak alamiah adalah ketika pekerja berada dalam keadaan berdiri, membungkuk, mengangkat dan mengangkut dalam waktu yang lama dan frekuensi yang sering, sedangkan pada fisiologi kerja meliputi besarnya oksigen yang mereka butuhkan seringkali terabaikan. Mereka lebih mengutamakan pencapaian target yang mereka inginkan karena pencapaian target berbanding lurus dengan penghasilan yang mereka dapatkan. Hal ini membuat tingkatan konsumsi oksigen menjadi berkurang karena terlalu besarnya energi yang dikeluarkan. Tujuan dari penelitian ini adalah mengevaluasi postur kerja pada pekerja penambang batu berdasarkan metode NIOSH dan OWAS, mengevaluasi fisiologi kerja khususnya tingkat konsumsi oksigen yang dibutuhkan oleh para pekerja penambang batu dan memberikan rekomendasi berupa solusi perbaikan. Hasil penelitian ini yaitu diperoleh postur-postur kerja yang dapat menimbulkan atau memicu terjadinya MSDs pada pekerja penambang batu berdasarkan penilaian menggunakan metode NIOSH dan OWAS, kemudian pada kategori beban kerja berdasarkan konsumsi oksigen pada fisiologi kerja, didapatkan bahwa beban kerja pada pekerja penambang batu termasuk kategori beban kerja ringan, sedangkan untuk usulan perbaikan dikhususkan pada postur kerja pada masing-masing pekerja penambang batu. Kata kunci : NIOSH Equation (National Institute for Occupational Safety and Health), OWAS (Ovako Working Postural Analysis System), dan Fisiologi Kerja
-Abstrak Inggris: Air Mata village at Arosbaya district is the largest producer of limestone in Bangkalan. In the process of coal mining area was found many non ergonomic working postures and working physiology. Unnatural working posture was found when the worker is in a state of standing, bending, lifting and hauling in a long time and frequently, while on the physiology of working includes the amount of oxygen they need that often overlooked. They prefer the achievement of targets as they want because the target is directly related to their income. It was reduce the level of oxygen consumption due to the amount of energy expended. The purpose of this study was to evaluate working postures of workers based on NIOSH and OWAS method, evaluate the physiology of woring, especially the oxygen consumption level of workers and provide a recommendation solution. The results of this study showed the postures that may cause or lead to MSDs in rock miners workers based on NIOSH and OWAS method assessment, then on the workload categories based on oxygen consumption in the physiology of working, it was found that the workload on the workers including light workload, while for the recommendation solution devoted in working posture on each rock miners workers. Key words : NIOSH Equation (National Institute for Occupational Safety and Health), OWAS (Ovako Working Postural Analysis System), and Occupational Physiology
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Data #16 ---
-Prodi: Teknik Industri
-Penulis: Lucky Kurnia Diharja
-Judul: Desain Perancangan Produk Lemari 4in1 Dengan Menggunakan Metode Anthropometri
-Pembimbing 1: Sugeng Purwoko, S.T.,M.T.
-Pembimbing 2: Mu&#39;alim, S.T.,M.T.
-Abstrak Indonesia: Lemari, Tempat Tidur, Meja Belajar dan Rak buku merupakan suatu sarana pendukung yang sangat penting dalam kehidupan sehari-hari. sehingga penggunaan produk tersebut merupakan hal yang penting  dalam pemilihan jenis produk, salah satu aspek penting yang banyak dinilai oleh konsumen dalam penggunaan produk adalah kemudahan dan kepraktisan dalam fungsinya. Selanjutnya dalam penelitian ini dirancang produk lemari multifungsi dengan pendekatan anthropometri dan perhitungan Percentile. Anthropometri digunakan untuk mengetahui dimensi tubuh konsumen yang nantinya akan diimplementasikan pada ukuran rancangan produk yang akan dibuat agar sesuai dengan ukuran tubuh penggunanya. Sedangkan Percentile digunakan untuk penentuan ukuran produk yang akan dirancang setelah dilakukan perhitungan. Telah terpilih morphological chart alternatif 1 sebagai alternatif pilihan. Selanjutnya menganalisis stress analisis jenis kayu meranti menggunakan software inventor untuk mengetahui deformasi, dapat diketahui bahwa besar nya Von Mises Stress adalah 2,935-5 mpa. Pada perhitungan awal besarnya   adalah 4,678-5 mpa, sehingga besarnya nilai Von Mises Stress tidak melebihi nilai   yang berarti mampu menahan beban yang ada.
-Abstrak Inggris: Wardrobe, bed, desk and bookshelf Learning is a means of support are very important in everyday life. So the use of these products is essential in the selection of products, one important aspect that many rated by consumers in the use of the product is the ease and practicality in its function. Furthermore in this research designed products cupboard multifunctional with approaches anthropometry and calculation Percentile. Anthropometry is used to determine the dimensions of the body of consumers that will be implemented on the size of the product design will be made to fit the user&#39;s body size. While Percentile used for determining the size of the product to be designed after calculation. Has been elected morphological chart alternative 1 as an an alternative option. Further analyzing the stress analysis using software meranti species inventors to determine the deformation, it is known that his great Von Mises Stress is 2,935-5 mpa. At the beginning of the calculation of the amount   is  4,678-5 mpa, so that the value of Von Mises Stress does not exceed the value   which means being able to withstand the loads.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Data #17 ---
-Prodi: Teknik Industri
-Penulis: JAMILATUN NISA&#39;
-Judul: PENJADWALAN PRODUKSI JOB SHOP UNTUK MINIMASI TOTAL PENALTY DENGAN MENGGUNAKAN ALGORITMA GENETIKA
-Pembimbing 1: SAMSUL AMAR, S.T.,M.Sc
-Pembimbing 2: HERI AWALUL ILHAMSAH, S.T.,M.T
-Abstrak Indonesia: Penelitian ini membahas tentang penyusunan jadwal produksi di UD. Madu Persada dengan tipe produksi job shop. Perusahaan ini memiliki kewajiban untuk memberikan pelayanan yang memuaskan kepada konsumen diantaranya dengan menyelesaikan pesanan tepat pada waktunya. Apabila suatu order mengalami keterlambatan maka dapat menimbulkan ketidakpuasan konsumen yang dapat merugikan perusahaan. Kerugian ini direpresentasikan melalui suatu besaran penalty. Nilai penalty menunjukkan tingkat kefatalan apabila terjadi keterlambatan yang dapat mengakibatkan ketidakpuasan konsumen. Selama ini, perusahaan tersebut menyusun  jadwal produksinya menggunakan metode FIFO (First In First Out). Dengan metode ini didapatkan nilai makespan sebesar 185.22 jam dan penalty sebesar 5 (sangat fatal) yang berarti adanya keterlambatan penyelesaian pemenuhan order selama 3 hari. Metode yang diusulkan dalam rangka menemukan solusi menggunakan Algoritma Genetika dengan nilai  parameter crossover (Pc) sebesar 0,95 dan parameter mutasi (Pm)  sebesar 0,01. Metode pengkodean yang digunakan adalah permutation encoding, penyeleksian dengan roulette wheel selection, metode crossover yaitu partially mapped crossover (PMX) dan proses mutasi dengan metode swap mutation.  Hasil dari penelitian ini mengkonfirmasikan bahwa jadwal tidak terkena penalty  (nilai penalty 0) dengan nilai makespan sebesar 184.416 jam . Didasarkan kondisi di atas,  maka dapat disimpulkan bahwa penjadwalan dengan Algoritma Genetika memberikan hasil yang lebih optimal daripada metode FIFO yang selama ini diterapkan perusahaan. 
-Kata kunci: Penjadwalan, job shop, algoritma genetika, makespan, penalty
-Abstrak Inggris: This research discusses about the arrangement of production schedule in UD. Madu Persada by Job shop production type. This Company has to satisfy the consumer by finished the order on time. If the order is late, the company will be change penalty that represents the customers dissatisfaction. At present, that company arranges the production schedule using FIFO (First In First Out) method. The result of  this method is that makespan value at 185.22 hours and penalty of 5 (fatal). This means that is delay in completion of compliance the order for 3 days. The method that is proposed to find the solution is used Genetic Algorithms with crossover (Pc) parameter value of 0,95 and mutation parameter (pm) of 0,01. Coding method is permutation encoding, selection using roulette wheel selection, crossover using partially mapped crossover (PMX) and mutation process with swap mutation method. This result of the research that the schedule without penalty (penalty value is 0) with makespan value as 184.416 hours. Based on the condition above, can be concluded that arrange the schedule by Genetic Algorithms give more optimal result rather than FIFO method which applied by the company. 
-Key words: Scheduling, job shop, genetic algorithms, makespan, penalty
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Data #18 ---
-Prodi: Teknik Industri
-Penulis: ANDY SUGIANTO
-Judul: PERANCANGAN TATA LETAK FASILITAS LANTAI PRODUKSI PT. ABC MENGGUNAKAN METODE GRAFIK DAN ALGORITMA SIMULATED ANNEALING
-Pembimbing 1: SABARUDIN AKHMAD, ST.,MT
-Pembimbing 2: SUGENG PURWOKO, ST.,MT
-Abstrak Indonesia: PT. ABC merupakan sebuah perusahaan industri manufaktur yang memproduksi sandal dan tipe produksinya adalah make to stock. Kelemahan tata letak perusahaan saat ini dapat dilihat dari pola aliran material yang tidak teratur sehingga menyebabkan aktivitas Back dan Jump Tracking serta jauhnya jarak perpindahan bahan antar stasiun kerja yang memiliki hubungan keterkaitan tinggi. Tujuan dari penelitian yaitu untuk menghasilkan tata letak yang lebih baik dengan menerapkan metode Grafik dan Algoritma Simulated Annealing untuk mendapatkan jarak perpindahan bahan dan total momen perpindahan material seminimal mungkin serta mengurangi aktivitas back dan jump tracking. Pada keadaan awal lantai produksi di didapatkan total momen perpindahan bahan sebesar 200.505 meter perbulan dan mengalami 4 aktivitas Back dan Jump Tracking. Dari hasil analisa dan pengolahan data dapat disimpulkan hasil rancangan tata letak menggunakan metode Grafik menghasilkan pengurangan momen sebesar 26% dan mengalami 1 aktivitas Back dan Jump Tracking. Sedangkan hasil rancangan tata letak menggunakan metode Algoritma Simulated Annealing menghasilkan pengurangan momen sebesar 17% dan mengalami 1 aktivitas Back dan Jump Tracking.
-Abstrak Inggris: PT. ABC is manufacturing company that produces sandals and type of production is making to stock. The weakness layout of company today is can be seen from the pattern of material flow that causing irregular activity Back and Jump tracking and material distance between work stations with high linkage relationships. This research have a purpose to produce a better layout by applying Graph method and Simulated Annealing Algorithm to get the material displacement distance and total moment of material transfer to a minimum and reduce the activity Back and Jump tracking. In the beginning state of total production floor at the moment of transfer of material obtained by 200.505 meters a month and had 4 activity Back and Jump Tracking. The result of analysis show that the design of the layout using the Graph method is can reduce moment until 26% and had 1 activity Back and Jump Tracking. The result of analysis shows that the design of the layout using Simulated Annealing Algorithm can reduce moment until 17% and had 1 activity Back and Jump Tracking.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Data #19 ---
-Prodi: Teknik Industri
-Penulis: Irsyadul Ibad
-Judul: PENERAPAN GREEN PRODUCTIVITY UNTUK EVALUASI PRODUKTIVITAS DAN KINERJA LINGKUNGAN PT. XYZ
-Pembimbing 1: Ari Basuki, S.T., M.T.
-Pembimbing 2: Sugeng Purwoko, S.T., M.T.
-Abstrak Indonesia: Kinerja suatu perusahaan bisa dilihat dari tingkat produktivitasnya, semakin tinggi produktivitas maka kinerja perusahaan tersebut juga semakin baik. Namun kinerja lingkungan juga harus diperhatikan disamping produktivitas. Agar kedua aspek tersebut bisa berjalan berdampingan maka perlu digunakan pendekatan green productivity. Penelitian ini mempunyai tujuan untuk mengevaluasi tingkat produktivitas, mengidentifikasi kandungan limbah yang berdampak pada lingkungan dan menyusun alternatif solusi untuk mengurangi dampak limbah. Hasil penelitian memperlihatkan bahwa tingkat produktivitas perusahaan mengalami fluktuasi dengan rata-rata sebesar 1,19 dan kandungan limbah besi memiliki nilai yang melebihi baku mutu yang ditetapkan, meskipun EPI bernilai positif (0,66). Untuk meningkatkan produktivitas dan kinerja lingkungan, disusun 2 alternatif solusi yaitu penguapan air dan filtrasi pasir. Setelah dilakukan perhitungan masing-masing alternatif menggunakan metode BCR (benefit cost ratio) didapatkan bahwa alternatif 1 (penguapan air) memiliki nilai BCR sebesar 0,91 dan alternatif 2 (filtrasi pasir) sebesar 1,33. Alternatif 2 menjadi alternatif terbaik dilihat dari nilai BCR yang lebih tinggi dan memiliki nilai lebih dari 1.
-
-Kata Kunci : produktivitas, kinerja lingkungan, green productivity, benefit cost ratio
-Abstrak Inggris: Performance of a company can be seen from the level of productivity, the higher of productivity then the performance is also better. However, the environment performance also be attention biside productivity . That both aspects can be run side by side it is necessary to use green productivity approach. This study aims to evaluate the level of produktivitas, identify the content of the waste impact on the environment and develop alternative solutions to reduce the impact of waste. The results showed that the level of productivity has fluctuated with an average of 1.19 and a content of iron waste has a value that exceeds the quality standards established, although EPI is positive (+0.66). To improve productivity and environmental performance, arranged two alternative solutions that isn evaporation of water and sand filtration. Calculation using BCR methode (benefit cost ratio) of each alternative found that BCR value of alternative 1 (evaporation of water) is 0.91 and alternative 2 (sand filtration) is 1.33. Alternative 2 be the best alternative views of higher BCR values and has a value of more than 1.
-
-Keywords: productivity, environmental performance, green productivity, benefit cost ratio
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Data #20 ---
-Prodi: Teknik Industri
-Penulis: MUHAMAD ARDI SANTOSO, S.T.
-Judul: ANALISIS KEANDALAN PENGRAJIN BATIK TULIS UNTUK MENURUNKAN RESIKO HUMAN ERROR DENGAN MENGGUNAKAN METODE HUMAN RELIABILITY ASSESSMENT (Study Kasus Sentra Industri Batik  Desa Kowel, Pamekasan)
-Pembimbing 1: FITRI AGUSTINA, S.T., M.T.
-Pembimbing 2: NACHNUL ANSHORI, S.T., M.T.
-Abstrak Indonesia: Batik telah menjadi ikon budaya bagi masyarakat dipulau Madura. Dirumah produksi batik bapak H. Fathor, di Desa Kowell Pamekasan, seperti pembuatan batik tulis pada umumnya tedapat lima proses produksi. Kelima proses produksi tersebut adalah penutupan awal, pewarnaan, penutupan akhir, perebusan dan penjemuran. Proses pembuatan batik dikerjakan secara manual. Sehingga kesalahan yang dilakukan oleh pekerja akan berpengaruh secara langsung tehadap kelancaran produksi. Tujuan dari penelitian ini adalah mengukur tingkat keandalan pengrajin batik dengan menggunakan metode Human Reliability Assessment. Metode Human Reliability Assessment yang digunakan dalam penelitian ini adalah HEART dan SPAR-H. Selain itu pada penelitian ini juga mengevaluasi postur kerja dan lingkungan kerja ditempat produksi batik.  Berdasarkan hasil perhitungan didapatkan nilai Human Error Probability  terbesar  terdapat pada bagian penutupan awal dan penutupan akhir dengan nilai mencapai  40%. Setelah dilakukan perhitungan postur kerja dengan menggunakan Quick Expossure Checklist (QEC) kedua bagian tersebut memerlukan investigasi dan perbaikan segera. Alternative perbaikan yang diusulkan adalah perbaikan postur kerja, sehingga dapat mengurangi keluhan musculoskeletal pengrajin. Selain itu usulan perbaikan terkait dengan penambahan penerangan juga diberikan mengingat nilai tingkat pencahayaan pada bagian penutupan awal dan pewarnaan yang masih dibawah nilai minimal.
-
-Kata kunci: Human Reliability Assessment (HRA), HEART, SPAR-H, Human Error Probability (HEP) , QEC.
-Abstrak Inggris: Batik have been a cultural icon for Madura’s society. In the mr. H Fathor’s batik house production, there are five process to producting batik. The five proceses are, first shutting, coloring, final shutting, boiling and driying. Batik proceses done manually. Employe’s error will directly influence on the smoothnes at the production. The purpose of this study was to measure the reliability of batik artisans using the Human Reliability Assessment. Human Reliability Assessment methods used in this study are the HEART and SPAR-H. Additionally , this study also assesses posture and working environment at the place of production of batik. Based on the calculation of the Human Error Probability value obtained, it was found that the first shutting and final shutting are up to 40%. After calculate the work posture using Quick Expossure Checklist (QEC),  both process need investigation and urgent repair. The proposed improvement is improvement of work postures, to reduce artisans musculoskeletal complaints. It is also proposed to improve the light level at the first shutting and coloring which is still below the minimum requirement.
-
-Keyword : Human Reliability Assessment (HRA), HEART, SPAR-H, Human Error Probability (HEP) , QEC.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Data #21 ---
-Prodi: Teknik Industri
-Penulis: AGYL SYAHRIAR.S.T.
-Judul: ANALISIS REKAYASA NILAI (VALUE ENGINEERING) TERHADAP PRODUK TIKAR LIPAT
-Pembimbing 1: IMRON KUSWANDI.S.T.,M.T.
-Pembimbing 2: FITRI AGUSTINA.S.T.,M.T.
-Abstrak Indonesia: UKM Arrisca merupakan salah satu UKM yang memproduksi Tikar lipat di Kabupaten Lamongan. Setelah puluhan tahun memproduksi Tikar lipat, UKM Arrisca mulai mengalami kendala, diantaranya adalah persaingan antar UKM sejenis dalam penjualan produk Tikar lipat. Karena kerajinan tikar lipat dinilai mempunyai potensi yang sangat besar sehingga bermunculan UKM baru yang berakibat pada persaingan antar UKM dan menyebabkan penurunan permintaan terhadap produk UKM Arrisca. Salah satu solusi kendala tersebut adalah dengan merancang alternatif desain Tikar lipat baru yang lebih ekonomis namun secara kualitas tidak berbeda dengan produk tikar lipat yang ada pada saat ini, dengan metode rekayasa nilai. Metode ini dipilih karena rekayasa nilai memiliki kelebihan dalam menentukan alternatif terbaik dengan mengendalikan biaya produksi yang digunakan terhadap nilai fungsi dari produk tanpa menghilangkan kualitas dan kehandalan produk yang dikehendaki. Hasil penelitian ini berupa alternatif desain tikar lipat terpilih yang ditentukan berdasarkan nilai tertinggi dari beberapa alternatif usulan. Alternatif desain tikar yang terpilih adalah alternatif 1 dengan nilai  sebesar 1,604.
-
-Kata Kunci : Tikar lipat, Alternatif, Rekayasa Nilai, nilai
-Abstrak Inggris: UKM Arrisca is one of the UKM that produce folding mats in Lamongan. After decades of producing folding mats, UKM Arrisca began experiencing problems, which are a kind of competition among UKM in product sales folding mats. Because crafting mats fold assessed as having a huge potential so that the emerging new UKM, resulting in competition between UKM and cause a decrease in demand for UKM products Arrisca. One such obstacle is the solution by designing alternative folding mat design a new, more economical, but the quality is no different with folding mat products are available at this time, with a value engineering method. This method was chosen because it has the advantages of value engineering in determining the best alternative to controlling the cost of production which is used to value the function of the product without losing the quality and reliability of the desired product. The results of this study are selected design alternative folding mats are determined based on the value, the highest of several alternative proposals. Mat selected design alternative is alternative 1 with value of 1.604.
-
-Keyword : Folding mats, Alternative, Value Engineering, value
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Data #22 ---
-Prodi: Teknik Industri
-Penulis: NURRAHMATULLAH
-Judul: PERANCANGAN TATA LETAK GUDANG PRODUK JADI PT. X DENGAN PENDEKATAN SHARED STORAGE
-Pembimbing 1: SABARUDIN AKHMAD, ST.,MT
-Pembimbing 2: SUGENG PURWOKO, ST.,MT
-Abstrak Indonesia: PT. X merupakan salah perusahaan manufaktur yang bergerak dibidang industri rokok yang mempunyai tiga lini produksi atau tiga devisi dan memiliki satu penyimpanan produk jadi yang nantinya dari tiga lini produksi akan disimpan dalam satu gudang. Dalam pengamatan yang dilakukan dalam penempatan produk jadi digudang masih belum teratur atau masih kurang rapi dalam melakukan penyusunan produk, sehingga hal seperti ini menyebabkan ketidak efektifan waktu dalam pengambilan produk di suatu area gudang dan menyulitkan pekerja, kepala gudang dalam melakukan pengecekan barang yang akan dikirim kepada pelanggan. Permasalahan yang dihadapi oleh perusahaan PT. X saat ini adalah ketidak teraturan dalam penyusunan produk, hal ini akan menghambat waktu proses proses pengiriman, allowance forklift yang terlalu melebar sehingga pemanfaatan ruang menjadi kurang efektif dan ada beberapa gang yang tidak sesuai dengan ukuran material handling sehingga menyulitkan operator forklift dalam melakukan proses pengambilan produk jadi dalam gudang. Kondisi lain juga terdapat pada penempatan produk dalam suatu area yang kurang tepat, dimana seharusnya barang yang memiliki frekuensi pengiriman terbanyak dan yang sering keluar-masuk di dekatkan dengan pintu keluar. Hal seperti ini yang sering menyebabkan material handling lebih jauh dan kurang efektif. Adapun tujuan dari penelitian ini adalah untuk memberikan usulan perbaikan tata letak gudang produk jadi yang lebih efektif terhadap pemindahan material handling. Metode yang digunakan dalam pengelolaan pergudangan adalah pendekatan shared storage dimana produk yang memiliki frekuensi pengiriman terbanyak dan yang sering keluar masuk didekatkan dengan pintu masuk untuk meminimalisasi jarak perpindahan material handling.Hasil dari pendekatan shared storage dapat meminimalisasi jarak tempuh material handling rata-rata per bulan adalah 1202,4 m sedangkan konsisi sebelumnya jarak tata letak awal adalah 1720.8 m/bulan.
-Abstrak Inggris: PT. X is one of manufacturing company that concerns in cigarettes industrial side that has three line productions or three divisions and a product storage so the three divisions will be safe together in one storeroom. In the study of product placement the storeroom is messy in the product arrangement, therefore, that case makes the lack of time effectiveness in conducting the product in one storeroom area and make difficulty the worker, the head of storeroom in do the checking of the things that will be sent to the consumer. The problem that faced by the company PT.X this day is irregularity in arrangement of the product, this case will obstruct the time sending processes, allowance forklift that too wide so that the used of room becomes less of effective and there are several alleyway that is not appropriate with the handling of material size therefore it complicates forklift operator in doing the taking process of ready product in the storeroom. In others condition, there is a product placement in one area that is less precise where the things should have the most sent frequencies and in and out things that closed with exit door. It makes material handling is farer and less of effective. The aim of this study is to contribute the proposed improvement the storeroom layout, the ready product that is effective to the material handling replacement. The method that is used in warehousing management is the close shared storage where the product has the most sent frequency and in and out near with the entry door to minimize the moving distance of material handling. The result from the shared storage approach can minimize the mileage of the material handling average in every month is 1202,4 m, meanwhile in the previous condition the average of starting layout is 1720.8 m in every month.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Data #23 ---
-Prodi: Teknik Industri
-Penulis: Fitriana Ningsih
-Judul: Analisis Ergonomi Kognitif untuk Mengetahui Performansi Short Term Memory Mahasiswa Hafidz Al-Qur’an di Universitas Trunojoyo Madura dengan Metode Taguchi
-Pembimbing 1: Nachnul Ansori S.T M.T
-Pembimbing 2: Fitri Agustina S.T M.T
-Abstrak Indonesia: Mahasiswa berbeasiswa hafidz al-qur&#39;an memiliki kemampuan lebih pada menghafal al-qu&#39;ran  dan memiliki aktivitas lebih banyak dari pada mahasiswa biasa. Maka, penelitian ini membahas tentang kajian ergonomi kognitif untuk mengetahui perbandingan short term memory antara mahasiwa hafidz alquran dengan mahasiswa biasa. Selain itu, penelitian ini juga untuk mengetahui pengaruh kebisingan (80,3 db dan 53 db), pencahayaan (180 luxmeter dan 360 luxmeter) dan suhu (30 oC dan 24 oC) terhadap performa Short term memory mahasiswa hafidz Al-qur’an UTM. Dari hasil uji T berpasangan disimpulkan bahwa tidak ada perbedaan short term memory antara keduanya. Selanjutnya, dilakukan perhitungan setiap varibel respon akan diolah masing-masing untuk menghitung S/N Rasio, ANOVA, pooling faktor dan persen kontribusi, penentuan kombinasi faktor optimal. Dari hasil ANOVA diperoleh dengan tingkat siginifakan 5% tidak ada faktor yang berpengaruh secara signifikan terhadap respon short term memory karena nilai F hitungnya lebih kecil dari F tabel (1,8) (0,5) = 5.32 (Ho diterima). Berdasarkan hasil dari desain eksperimen metode Taguchi dapat diketahui bahwa  diidentifikasi faktor – faktor yang berpengaruh terhadap performa short term memory mahasiswa hafidz al-quran UTM adalah faktor kebisingan dan temperature. Kombinasi level faktor yang menghasilkan nilai rata – rata dan variansi performa short term memory yang optimal sama, yaitu diperoleh dari setting faktor kebisingan pada level 2 sebesar 53 db dan temperatur 24 oC. Dari hasil penelitian, diketahui faktor kebisingan pada level 2 sebesar 53 db dan temperatur 24 oC tidak mempengaruhi short term memory mahasiswa dan yang mempengaruhi adalah IQ.
-Kata kunci: Short Term Memory, Hafidz Alquran, Non Hafidz Alquran, Desain Eksperimen Taguchi.
-Abstrak Inggris: Students hafidz Quran have more capability to memorize Quran than regular students. So that, this research discusses cognitive ergonomics study to compare the short-term memory among students hafidz Quran with regular students. In addition, this research also to determine the effect of noise (80,3 db and 53db), light (180 luxmeter and 360 luxmeter) and temperature (30 0C dan 24 0C) on the performance of students hafidz Short term memory Qur&#39;an UTM. From paired T test results concluded that there is no difference short term memory among both of them. Every variable in the calculation of the response will be processed to calculate the S / N ratio, ANOVA, pooling and percent contribution factor, determining the optimal combination of factors. From the ANOVA results, it is obtained with 5% level of siginifakan that factor no single that significantly affects the response to short-term memory because the counted value of F is less than F table (1.8) (0.5) = 5.32 (Ho accepted). Based on the results of Taguchi experimental design method can be identified factors that affect the performance of short-term memory of students hafidz al-quran UTM is the noise factor and temperature. Combination of factor levels that produce value - average and variance of short term memory performance are optimized together, which is obtained from the setting of the noise factor at level 2 by 53 db and 24 0C temperature. From the research result that the noise factor at level 2 by 53 db and 24 0C temperature are not influence short term memory and the influence short term memory is IQ
-Key words: Short Term Memory, Hafidz Alquran, Non Hafidz Alquran, Design Experiment Of Taguchi
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Data #24 ---
-Prodi: Teknik Industri
-Penulis: FITTRIA RAHMAH
-Judul: ANALISIS PRODUKTIVITAS DAN LIMBAH HASIL PRODUKSI DENGAN PENDEKATAN GREEN PRODUCTIVITY (Studi Kasus: PT.Kelola Mina Laut, Sampang)
-Pembimbing 1: Ari Basuki, S.T., M.T.
-Pembimbing 2: M.Imron Mustajib ST.MT
-Abstrak Indonesia: Ikan teri nasi adalah produk yang dihasilkan oleh PT. Kelola Mina Laut,Sampang. Proses produksi dari pengolahan ikan teri nasi tersebut tersebut menghasilkan limbah  cair dan limbah padat.  Limbah cair yang dihasilkan oleh perusahaan dari hasil proses perebusan mengandung parameter BOD, COD, DO, Minyak dan Lemak, pH, dan Suhu. Dikhawatirkan limbah yang dihasilkandapat menganggu kinerja lingkungannya maka perlu dilakukan pengolahan limbah yang tepat. Tujuan dari penelitian ini yaitu untuk menganalisa produktivitas dan kinerja lingkunganyang dihasilkan dari proses produksi ikan teri nasi di PT. Kelola Mina Laut, Sampang, dengan pendekatan Green Productivity. Pada penelitian ini dilakukan identifikasi adanya permasalahan pada perusahaanyang berhubungan dengan jumlah limbah, menetukan tujuan dan target, dan memilih alternatif solusi Green Productivity. Dengan menggunakan analisa net present value, alternatif yang dipilih dalam penelitian ini adalah alternatif 2 yaitu dengan membuat alat plasma dan ozon dengan nilai sebesar Rp. -3.117.082.Nilai capaian produktivitas prusahaan menurun yaitu dari kondisi awal sebesar 1,06% menurun menjadi 1,00% tetapi perbaikan tersebut, diharapkan mampu meningkatkan kinerja lingkungan (Environmental Performance Indicator).Dampaknya mampu meningkatkan kepercayaan konsumen yang diharapkan dapat meningkatkan volume penjualan.Hasil dari penerapan metode 3R diharapkan mampu meminimalisir penggunaan air dengan menggunakannya kembali untuk proses produksi.
-Kata kunci : KinerjaLingkungan,Green Productivity, Indeks EPI, Produktivitas, Metode 3R
-Abstrak Inggris: Chirimen is a products which is by PT. Kelola Mina Laut, Sampang. In carrying out the production process, instead of producing primary product, this company also produced liquid waste and compact waste. The liquid waste which is by the company comes from the result of boiling process contains parameter BOD, COD, DO, Oil andfat, pH, and Suhu.The waste has potensial effect to its environment performance indicator. The aim of this research is to analyze the productivity and environmental performance of production process of the chirimen in PT. Kelola Mina Laut, Sampangusing Green Productivity method. This resarch is identifying the cause of waste, determining goals and targets and choosing alternative solution of Green Productivity. By using net present value analysis,alternative selected in this study is alternative 2 which is producing plasma and ozon with value cost Rp. -3.117.082 the productivity this form earlier condition is 1,06% decreased into 1,00%. The fixing is hopefully can increase the environmental performance. The impact can be increasing the consument trust, hopefully can be increasing the sale volume. The result of the implementation of 3R method, hopefully can be reduce or minimalized the use of water by using it back for production process.
-Key words :Enviroment Performance, Green Productivity, EPI Index, Productivity, 3R Methods
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Data #25 ---
-Prodi: Teknik Industri
-Penulis: Arif Nur Fadlan
-Judul: PENDEKATAN DESIGN FOR SUSTAINABILITY PADA PERANCANGAN ICE BOX BERBAHAN KOMPOSIT SEKAM PADI-RESIN
-( Studi Kasus : Nelayan Desa Blimbing Kec. Paciran Kab. Lamongan)
-Pembimbing 1: Sugeng Purwoko,S.T.,M.T
-Pembimbing 2: Mu&#39;alim,S.T.,M.T
-Abstrak Indonesia: Adanya para oknum nelayan yang menggunakan formalin untuk mengawetkan ikan mereka agar tetap segar  dan tidak mudah membusuk, padahal zat formalin sangatlah berbahaya jika dikonsumsi oleh manusia. Selain menggunakan formalin, cara para nelayan untuk menjaga agar ikan mereka tetap segar, mereka menggunakan ice box. Kebanyakan ice box yang mereka gunakan terbuat dari bahan styrofoam, ice box dari bahan styrofoam ini mudah sekali rusak dan tidak tahan lama, serta es batu didalamnya yang berfungsi sebagai pendingin mudah mencair. Dari masalah itulah perancangan ice box berbahan sekam padi-resin ini dengan pendekatan metode design for sustainability. Dan selanjutnya diuji dengan uji hipotesis menggunakan independent sample t test antara prototipe dengan produk pembanding yaitu ice box berbahan styrofoam. Kesimpulan dari uji hipotesis terdapat perbedaan yang signifikan dari varian ataupun rata-rata dari lamanya waktu es batu mencair pada produk prototipe dan styrofoam. Dan produk prototipe lebih baik dari produk pembanding yaitu ice box berbahan styrofoam dengan rata-rata perbedaannya adalah 1325,4 detik.
-
-Kata kunci : Sekam Padi, Resin, Design For Sustainability, independent sample t test
-Abstrak Inggris: The existence of the unscrupulous fishermen who use formaldehyde to preserve their fish to keep them fresh and not easily decompose, whereas formalin substance is harmful if consumed by humans. In addition to using formalin, the way the fishermen to keep their fish stay fresh, they use the ice box. Most ice box they use is made of styrofoam, styrofoam ice box of material is easily damaged and not durable, as well as ice cubes in it that serves as a coolant is easy to melt. Of the problems that the design of ice box made from rice hus-resin k is the method of approach to design for and tested the hypothesis test using independent sample t test comparison between the prototype to product is made from styrofoam ice box. Conclusion of the hypothesis test that there is a significant difference of variance or the average length of time in an ice cube melting on prototype products and styrofoam. And prototype products are better than the comparable products made from styrofoam ice box with the average difference is 1325.4 seconds.
-
-Keyword : Rice Husk, Resin, Design For Sustainability, independent sample t test
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Data #26 ---
-Prodi: Teknik Industri
-Penulis: MOHAMMAD ZAINAL ARIEF
-Judul: MPLEMENTASI SYSTEM ERP (ENTERPRISE RESOURCES PLANNING) MODUL PURCHASING DAN SALES DENGAN MENGGUNAKAN ADEMPIERE
-Pembimbing 1: SABARUDIN AKHMAD, ST.,MT
-Pembimbing 2: MU&#39;ALIM, ST.,MT
-Abstrak Indonesia: PT. X merupakan perusahaan yang memproduksi jamu berskala lokal dan nasional di Bangkalan Madura, dimana saat ini semua proses bisnisnya masih dibukukan secara manual dan disimpan dalam bentuk lembaran-lembaran file baik dari kegiatan distribusi, produksi, akuntansi, dan human resource. Oleh karena itu dalam penelitian akan mengusulkan suatu system informasi yang mengotomatisasikan semua proses bisnis dari perusahaan ini, yang nantinya diharapkan dengan diterapkannya ERP di perusahaan ini akan mengotomatisasikan proses bisnis perusahaan sehingga mempercepat proses akses data. Dengan menggunakan Software ERP open sources Adempiere sistem terintegrasi di dalam perusahaan proses dan pengambilan keputusan dapat dilakukan secara lebih efektif dan efisien. Dapat di implementasikan Rancangan proses bisnis untuk proses pembelian dimulai dengan pembuatan dokumen purchase requisition, purchase order, payment, dan material receipt. Sedangkan proses bisnis proses penjualan dimulai dengan pembuatan sales order, payment, dan shipment dan Penerapan system ERP dengan menggunakan software Adempiere tersebut membuat data menjadi lebih terorganisir dan terintegrasi kesemua bagian sehingga memberikan kemudahan dalam proses akses data bisnis PT. X
-Abstrak Inggris: PT. X is an herbal company producing local and national scale in Bangkalan Madura, where all current business processes are still recorded manually and stored in the form of sheets of both file distribution activities, production, accounting, and human resources. Therefore, in the study will propose an information system that automates all the business processes of the company, which might be expected with the implementation of ERP in the company will automate enterprise business processes so as to accelerate the process of data access. By using open sources Adempiere ERP software system integrated in the company&#39;s decision-making process and can be done more effectively and efficiently. The design can be implemented business processes for the purchasing process begins with the creation of documents purchase requisition, purchase order, payment, and material receipt. While business process starts with making the sales process sales order, payment, and shipment and Implementation of ERP system using Adempiere software that makes the data more organized and integrated into all parts of the process so as to provide ease of access to business data PT. X
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Data #27 ---
-Prodi: Teknik Industri
-Penulis: Luluk Setyarini
-Judul: Knowledge Management: Perancangan Model Knowledge Sharing di Bappeda Bangkalan
-Pembimbing 1: Retno Indriartiningtias, S.T., M.T.
-Pembimbing 2: Ari Basuki, S.T., M.T.
-Abstrak Indonesia: ABSTRAK
-Knowledge sharing merupakan proses menyebarkan dan membuat pengetahuan yang tersedia untuk berbagai kalangan yang membutuhkan di dalam organisasi. Badan Perencanaan Pembangunan Daerah (Bappeda) Bangkalan merupakan salah satu organisasi pemerintah. Tugas utama Bappeda Bangkalan adalah mengkoordinasikan pembangunan di Kabupaten Bangkalan. Agar proses koordinasi dapat berjalan dengan baik, maka perlu diciptakan model komunikasi yang baik. Model komunikasi ini dapat kita sebut sebagai model knowledge sharing di Bappeda Bangkalan. Penelitian ini bertujuan untuk mengetahui faktor-faktor yang mempengaruhi knowledge sharing di Bappeda Bangkalan, merancang model knowledge sharing dan merancang media informasi berbasis website untuk dapat memperlancar keberhasilan knowledge sharing di Bappeda Bangkalan. Dalam penelitian ini digunakan 30 responden sebagai sampel yang seluruhnya merupakan jajaran pegawai di Bappeda Bangkalan, mulai dari Kepala Bappeda hingga pada staf Bappeda Bangkalan. Dari hasil penelitian dengan menggunakan pendekatan Partial Least Square (PLS) diperoleh tiga faktor yang berpengaruh secara signifikan terhadap knowledge sharing di Bappeda Bangkalan. Faktor tersebut adalah teknologi, organisasi dan individual factors. Untuk mendukung faktor teknologi, dirancang sebuah website khusus knowledge sharing yang memuat menu chatt dan menu forum.
-Kata kunci : Knowledge Sharing, Bappeda Bangkalan, Partial Least Square (PLS).
-Abstrak Inggris: ABSTRACT
-Knowledge sharing is a process of sharing and making knowledge available to many people in the organization. Regional Development Planning Board (Bappeda) Bangkalan is one of government organizations. The main task of Bappeda is to coordinate the development at Bangkalan regency. In order to make a good coordination, it is necessary to create a good communication model. This communication model can be called the model of knowledge sharing in Bappeda Bangkalan. This study aims  determine the factors that influence knowledge sharing in Bappeda Bangkalan, to design models of knowledge sharing and design of information systems in order to facilitate knowledge sharing in Bappeda Bangkalan. This study used 30 samples of responden from worker in Bappeda Bangkalan, from the Head of Bappeda Bangkalan to the staff. From the results of the study by using Partial Least Square (PLS), three factors significantly affect knowledge sharing in Bappeda Bangkalan. These factors are technological, organizational and individual factors. To support the technology factor, designed a website for knowledge sharing that include chatt and menu forum.
-
-Keywords: Knowledge Sharing, Bappeda Bangkalan, Partial Least Square (PLS).
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Data #28 ---
-Prodi: Teknik Industri
-Penulis: Musoffan
-Judul: Penilaian Komponen Teknologi Untuk Menentukan Posisi Industri Pesaing Batik Tulis  Madura
-Pembimbing 1: Retno Indriartiningtias, ST., MT
-Pembimbing 2: Ari Basuki, ST., MT
-Abstrak Indonesia: Penelitian ini membahas tentang penilaian komponen teknologi untuk menentukan posisi industri pesaing batik tulis Madura.  Di Madura IKM batik tulis yang paling intensif dalam pemasaran, dan juga jumlah pengrajin yang cukup banyak ada di 2 kabupaten yaitu Bangkalan yang berpusat di Tanjung Bumi dan di Pamekasan Berpusat di Banyumas. Persaingan industri batik tulis antar dua sentra tersebut sering kali terjadi akan tetapi secara georafis batik Tanjung Bumi Bangkalan lebih menonjol dari pada batik Banyumas Pamekasan karena terhitung lebih dekat dengan Surabaya. Sehingga untuk mampu berdaya saing dilakukan penelitian dengan cara menilai komponen teknologi (Technoware, Humanware, Infoware dan Orgaware) di 2 sentra IKM batik tulis Madura tersebut dengan menggunkan metode Teknometrik dan pembobotan dengan metode AHP (Analytical Hierarchy Process) serta penyusunan strategi dengan metode SWOT.  Dari hasil penelitian diperoleh Nilai TCC IKM batik tulis Madura di Banyumas Pamekasan = 0,4. Sedangkan di Tanjung Bumi Bangkalan  = 0,5.  maka nilai TCC untuk IKM batik tulis Banyumas Pamekasan dan di Tanjung Bumi Bangkalan berada pada tingkat cukup. Dan  tingkat teknologi TCC di IKM batik tulis Madura di Banyumas Pamekasan dan di Tanjung Bumi Bangkalan berada pada tingkat semi moderen, akan tetapi lebih tinggi di Tanjung Bumi Bangkalan. Dan berdasarkan perbandingan THIO komponen teknologi di IKM batik tulis Madura Banyumas Pamekasan lebih lemah dibanding di Tanjung Bumi Bangkalan sehingga disusun beberapa strategi untuk mempebaiki kriteria tersebut.
-Abstrak Inggris: This research discusses about the Assessment technology components to determine position Madura’s batik industry competitors. In Madura the most intensive Madura’s batik marketing, and also the amount of batik craftsmen separated in two regencies, they are Bangkalan that placed in Tanjung Bumi and Pamekasan that is centered in Banyumas. The industrial of batik handmade competition between the two places above is often happened but Tanjung Bumi batik in Bangkalan is more dominant than Banyumas Pamekasan because of the close places to Surabaya, geographically. Therefore, to know the competition capability is doing a research by evaluated technology component (Technoware, Humanware, Infoware and Orgaware) in two batik handmade centers of small and medium enterprises (SMEs) of Madura by using technometric and integrity by AHP (Analytical Hierarchy Process) method and also strategy arrangement by SWOT method. From doing the research, is resulting TCC value of SMEs Batik Madura handmade in Banyumas Pamekasan = 0,4, Meanwhile in Tanjung Bumi Bangkalan = 0,5. Therefore, TCC value for SMEs Batik handmade of Banyumas Pamekasan and Tanjung Bumi Bangkalan are in enough level. Meanwhile, for TCC technology level in SMEs Batik Madura handmade in Banyumas and Tanjung Bumi are in the semi modern, however the higher is in Tnjung Bumi Bangkalan rather than Banyumas. And based on the comparison of THIO technology component in SMEs Batik Madura handmade in Banyumas Pamekasan is lower than Tanjung Bumi Bangkalan ,so that it needs to arrange some strategies to repair that criteria.
-</pre></div>
-</div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">170</span>
@@ -1280,106 +904,62 @@ Abstrak Inggris: This research discusses about the Assessment technology compone
 <span class="g g-Whitespace">    </span><span class="mi">802</span> <span class="c1"># Everything went great!</span>
 <span class="g g-Whitespace">    </span><span class="mi">803</span> <span class="n">clean_exit</span> <span class="o">=</span> <span class="kc">True</span>
 
-<span class="nn">File ~/.local/lib/python3.12/site-packages/urllib3/connectionpool.py:464,</span> in <span class="ni">HTTPConnectionPool._make_request</span><span class="nt">(self, conn, method, url, body, headers, retries, timeout, chunked, response_conn, preload_content, decode_content, enforce_content_length)</span>
-<span class="g g-Whitespace">    </span><span class="mi">461</span> <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">462</span>     <span class="c1"># Trigger any extra validation we need to do.</span>
-<span class="g g-Whitespace">    </span><span class="mi">463</span>     <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">464</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_validate_conn</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">465</span>     <span class="k">except</span> <span class="p">(</span><span class="n">SocketTimeout</span><span class="p">,</span> <span class="n">BaseSSLError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">466</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_raise_timeout</span><span class="p">(</span><span class="n">err</span><span class="o">=</span><span class="n">e</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">timeout_value</span><span class="o">=</span><span class="n">conn</span><span class="o">.</span><span class="n">timeout</span><span class="p">)</span>
+<span class="nn">File ~/.local/lib/python3.12/site-packages/urllib3/connectionpool.py:534,</span> in <span class="ni">HTTPConnectionPool._make_request</span><span class="nt">(self, conn, method, url, body, headers, retries, timeout, chunked, response_conn, preload_content, decode_content, enforce_content_length)</span>
+<span class="g g-Whitespace">    </span><span class="mi">532</span> <span class="c1"># Receive the response from the server</span>
+<span class="g g-Whitespace">    </span><span class="mi">533</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">534</span>     <span class="n">response</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">getresponse</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">535</span> <span class="k">except</span> <span class="p">(</span><span class="n">BaseSSLError</span><span class="p">,</span> <span class="ne">OSError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">536</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_raise_timeout</span><span class="p">(</span><span class="n">err</span><span class="o">=</span><span class="n">e</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">timeout_value</span><span class="o">=</span><span class="n">read_timeout</span><span class="p">)</span>
 
-<span class="nn">File ~/.local/lib/python3.12/site-packages/urllib3/connectionpool.py:1093,</span> in <span class="ni">HTTPSConnectionPool._validate_conn</span><span class="nt">(self, conn)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1091</span> <span class="c1"># Force connect early to allow us to validate the connection.</span>
-<span class="g g-Whitespace">   </span><span class="mi">1092</span> <span class="k">if</span> <span class="n">conn</span><span class="o">.</span><span class="n">is_closed</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1093</span>     <span class="n">conn</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1095</span> <span class="c1"># TODO revise this, see https://github.com/urllib3/urllib3/issues/2791</span>
-<span class="g g-Whitespace">   </span><span class="mi">1096</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">conn</span><span class="o">.</span><span class="n">is_verified</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">conn</span><span class="o">.</span><span class="n">proxy_is_verified</span><span class="p">:</span>
+<span class="nn">File ~/.local/lib/python3.12/site-packages/urllib3/connection.py:565,</span> in <span class="ni">HTTPConnection.getresponse</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">562</span> <span class="n">_shutdown</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sock</span><span class="p">,</span> <span class="s2">&quot;shutdown&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">564</span> <span class="c1"># Get the response from http.client.HTTPConnection</span>
+<span class="ne">--&gt; </span><span class="mi">565</span> <span class="n">httplib_response</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">getresponse</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">567</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">568</span>     <span class="n">assert_header_parsing</span><span class="p">(</span><span class="n">httplib_response</span><span class="o">.</span><span class="n">msg</span><span class="p">)</span>
 
-<span class="nn">File ~/.local/lib/python3.12/site-packages/urllib3/connection.py:790,</span> in <span class="ni">HTTPSConnection.connect</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">787</span>     <span class="c1"># Remove trailing &#39;.&#39; from fqdn hostnames to allow certificate validation</span>
-<span class="g g-Whitespace">    </span><span class="mi">788</span>     <span class="n">server_hostname_rm_dot</span> <span class="o">=</span> <span class="n">server_hostname</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">790</span>     <span class="n">sock_and_verified</span> <span class="o">=</span> <span class="n">_ssl_wrap_socket_and_match_hostname</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">791</span>         <span class="n">sock</span><span class="o">=</span><span class="n">sock</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">792</span>         <span class="n">cert_reqs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cert_reqs</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">793</span>         <span class="n">ssl_version</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ssl_version</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">794</span>         <span class="n">ssl_minimum_version</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ssl_minimum_version</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">795</span>         <span class="n">ssl_maximum_version</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ssl_maximum_version</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">796</span>         <span class="n">ca_certs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ca_certs</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">797</span>         <span class="n">ca_cert_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ca_cert_dir</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">798</span>         <span class="n">ca_cert_data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ca_cert_data</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">799</span>         <span class="n">cert_file</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cert_file</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">800</span>         <span class="n">key_file</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">key_file</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">801</span>         <span class="n">key_password</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">key_password</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">802</span>         <span class="n">server_hostname</span><span class="o">=</span><span class="n">server_hostname_rm_dot</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">803</span>         <span class="n">ssl_context</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ssl_context</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">804</span>         <span class="n">tls_in_tls</span><span class="o">=</span><span class="n">tls_in_tls</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">805</span>         <span class="n">assert_hostname</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">assert_hostname</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">806</span>         <span class="n">assert_fingerprint</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">assert_fingerprint</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">807</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">808</span>     <span class="bp">self</span><span class="o">.</span><span class="n">sock</span> <span class="o">=</span> <span class="n">sock_and_verified</span><span class="o">.</span><span class="n">socket</span>
-<span class="g g-Whitespace">    </span><span class="mi">810</span> <span class="c1"># If an error occurs during connection/handshake we may need to release</span>
-<span class="g g-Whitespace">    </span><span class="mi">811</span> <span class="c1"># our lock so another connection can probe the origin.</span>
+<span class="nn">File /usr/local/python/3.12.1/lib/python3.12/http/client.py:1419,</span> in <span class="ni">HTTPConnection.getresponse</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1417</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1418</span>     <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1419</span>         <span class="n">response</span><span class="o">.</span><span class="n">begin</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1420</span>     <span class="k">except</span> <span class="ne">ConnectionError</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1421</span>         <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
-<span class="nn">File ~/.local/lib/python3.12/site-packages/urllib3/connection.py:969,</span> in <span class="ni">_ssl_wrap_socket_and_match_hostname</span><span class="nt">(sock, cert_reqs, ssl_version, ssl_minimum_version, ssl_maximum_version, cert_file, key_file, key_password, ca_certs, ca_cert_dir, ca_cert_data, assert_hostname, assert_fingerprint, server_hostname, ssl_context, tls_in_tls)</span>
-<span class="g g-Whitespace">    </span><span class="mi">966</span>     <span class="k">if</span> <span class="n">is_ipaddress</span><span class="p">(</span><span class="n">normalized</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">967</span>         <span class="n">server_hostname</span> <span class="o">=</span> <span class="n">normalized</span>
-<span class="ne">--&gt; </span><span class="mi">969</span> <span class="n">ssl_sock</span> <span class="o">=</span> <span class="n">ssl_wrap_socket</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">970</span>     <span class="n">sock</span><span class="o">=</span><span class="n">sock</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">971</span>     <span class="n">keyfile</span><span class="o">=</span><span class="n">key_file</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">972</span>     <span class="n">certfile</span><span class="o">=</span><span class="n">cert_file</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">973</span>     <span class="n">key_password</span><span class="o">=</span><span class="n">key_password</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">974</span>     <span class="n">ca_certs</span><span class="o">=</span><span class="n">ca_certs</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">975</span>     <span class="n">ca_cert_dir</span><span class="o">=</span><span class="n">ca_cert_dir</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">976</span>     <span class="n">ca_cert_data</span><span class="o">=</span><span class="n">ca_cert_data</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">977</span>     <span class="n">server_hostname</span><span class="o">=</span><span class="n">server_hostname</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">978</span>     <span class="n">ssl_context</span><span class="o">=</span><span class="n">context</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">979</span>     <span class="n">tls_in_tls</span><span class="o">=</span><span class="n">tls_in_tls</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">980</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">982</span> <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">983</span>     <span class="k">if</span> <span class="n">assert_fingerprint</span><span class="p">:</span>
+<span class="nn">File /usr/local/python/3.12.1/lib/python3.12/http/client.py:331,</span> in <span class="ni">HTTPResponse.begin</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">329</span> <span class="c1"># read until we get a non-100 response</span>
+<span class="g g-Whitespace">    </span><span class="mi">330</span> <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">331</span>     <span class="n">version</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">reason</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read_status</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">332</span>     <span class="k">if</span> <span class="n">status</span> <span class="o">!=</span> <span class="n">CONTINUE</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">333</span>         <span class="k">break</span>
 
-<span class="nn">File ~/.local/lib/python3.12/site-packages/urllib3/util/ssl_.py:480,</span> in <span class="ni">ssl_wrap_socket</span><span class="nt">(sock, keyfile, certfile, cert_reqs, ca_certs, server_hostname, ssl_version, ciphers, ssl_context, ca_cert_dir, key_password, ca_cert_data, tls_in_tls)</span>
-<span class="g g-Whitespace">    </span><span class="mi">476</span>         <span class="n">context</span><span class="o">.</span><span class="n">load_cert_chain</span><span class="p">(</span><span class="n">certfile</span><span class="p">,</span> <span class="n">keyfile</span><span class="p">,</span> <span class="n">key_password</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">478</span> <span class="n">context</span><span class="o">.</span><span class="n">set_alpn_protocols</span><span class="p">(</span><span class="n">ALPN_PROTOCOLS</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">480</span> <span class="n">ssl_sock</span> <span class="o">=</span> <span class="n">_ssl_wrap_socket_impl</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">tls_in_tls</span><span class="p">,</span> <span class="n">server_hostname</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">481</span> <span class="k">return</span> <span class="n">ssl_sock</span>
+<span class="nn">File /usr/local/python/3.12.1/lib/python3.12/http/client.py:292,</span> in <span class="ni">HTTPResponse._read_status</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">291</span> <span class="k">def</span><span class="w"> </span><span class="nf">_read_status</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">292</span>     <span class="n">line</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">readline</span><span class="p">(</span><span class="n">_MAXLINE</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;iso-8859-1&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">293</span>     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">_MAXLINE</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">294</span>         <span class="k">raise</span> <span class="n">LineTooLong</span><span class="p">(</span><span class="s2">&quot;status line&quot;</span><span class="p">)</span>
 
-<span class="nn">File ~/.local/lib/python3.12/site-packages/urllib3/util/ssl_.py:524,</span> in <span class="ni">_ssl_wrap_socket_impl</span><span class="nt">(sock, ssl_context, tls_in_tls, server_hostname)</span>
-<span class="g g-Whitespace">    </span><span class="mi">521</span>     <span class="n">SSLTransport</span><span class="o">.</span><span class="n">_validate_ssl_context_for_tls_in_tls</span><span class="p">(</span><span class="n">ssl_context</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">522</span>     <span class="k">return</span> <span class="n">SSLTransport</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span> <span class="n">ssl_context</span><span class="p">,</span> <span class="n">server_hostname</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">524</span> <span class="k">return</span> <span class="n">ssl_context</span><span class="o">.</span><span class="n">wrap_socket</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span> <span class="n">server_hostname</span><span class="o">=</span><span class="n">server_hostname</span><span class="p">)</span>
+<span class="nn">File /usr/local/python/3.12.1/lib/python3.12/socket.py:707,</span> in <span class="ni">SocketIO.readinto</span><span class="nt">(self, b)</span>
+<span class="g g-Whitespace">    </span><span class="mi">705</span> <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">706</span>     <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">707</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sock</span><span class="o">.</span><span class="n">recv_into</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">708</span>     <span class="k">except</span> <span class="n">timeout</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">709</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_timeout_occurred</span> <span class="o">=</span> <span class="kc">True</span>
 
-<span class="nn">File /usr/local/python/3.12.1/lib/python3.12/ssl.py:455,</span> in <span class="ni">SSLContext.wrap_socket</span><span class="nt">(self, sock, server_side, do_handshake_on_connect, suppress_ragged_eofs, server_hostname, session)</span>
-<span class="g g-Whitespace">    </span><span class="mi">449</span> <span class="k">def</span><span class="w"> </span><span class="nf">wrap_socket</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sock</span><span class="p">,</span> <span class="n">server_side</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">450</span>                 <span class="n">do_handshake_on_connect</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">451</span>                 <span class="n">suppress_ragged_eofs</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">452</span>                 <span class="n">server_hostname</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">session</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">453</span>     <span class="c1"># SSLSocket class handles server_hostname encoding before it calls</span>
-<span class="g g-Whitespace">    </span><span class="mi">454</span>     <span class="c1"># ctx._wrap_socket()</span>
-<span class="ne">--&gt; </span><span class="mi">455</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">sslsocket_class</span><span class="o">.</span><span class="n">_create</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">456</span>         <span class="n">sock</span><span class="o">=</span><span class="n">sock</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">457</span>         <span class="n">server_side</span><span class="o">=</span><span class="n">server_side</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">458</span>         <span class="n">do_handshake_on_connect</span><span class="o">=</span><span class="n">do_handshake_on_connect</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">459</span>         <span class="n">suppress_ragged_eofs</span><span class="o">=</span><span class="n">suppress_ragged_eofs</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">460</span>         <span class="n">server_hostname</span><span class="o">=</span><span class="n">server_hostname</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">461</span>         <span class="n">context</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">462</span>         <span class="n">session</span><span class="o">=</span><span class="n">session</span>
-<span class="g g-Whitespace">    </span><span class="mi">463</span>     <span class="p">)</span>
+<span class="nn">File /usr/local/python/3.12.1/lib/python3.12/ssl.py:1253,</span> in <span class="ni">SSLSocket.recv_into</span><span class="nt">(self, buffer, nbytes, flags)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1249</span>     <span class="k">if</span> <span class="n">flags</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1250</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1251</span>           <span class="s2">&quot;non-zero flags not allowed in calls to recv_into() on </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span>
+<span class="g g-Whitespace">   </span><span class="mi">1252</span>           <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1253</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">nbytes</span><span class="p">,</span> <span class="n">buffer</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1254</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1255</span>     <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">recv_into</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">nbytes</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span>
 
-<span class="nn">File /usr/local/python/3.12.1/lib/python3.12/ssl.py:1046,</span> in <span class="ni">SSLSocket._create</span><span class="nt">(cls, sock, server_side, do_handshake_on_connect, suppress_ragged_eofs, server_hostname, context, session)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1043</span>         <span class="k">if</span> <span class="n">timeout</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1044</span>             <span class="c1"># non-blocking</span>
-<span class="g g-Whitespace">   </span><span class="mi">1045</span>             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;do_handshake_on_connect should not be specified for non-blocking sockets&quot;</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1046</span>         <span class="bp">self</span><span class="o">.</span><span class="n">do_handshake</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1047</span> <span class="k">except</span> <span class="p">(</span><span class="ne">OSError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1048</span>     <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
-<span class="nn">File /usr/local/python/3.12.1/lib/python3.12/ssl.py:1321,</span> in <span class="ni">SSLSocket.do_handshake</span><span class="nt">(self, block)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1319</span>     <span class="k">if</span> <span class="n">timeout</span> <span class="o">==</span> <span class="mf">0.0</span> <span class="ow">and</span> <span class="n">block</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1320</span>         <span class="bp">self</span><span class="o">.</span><span class="n">settimeout</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1321</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_sslobj</span><span class="o">.</span><span class="n">do_handshake</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1322</span> <span class="k">finally</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1323</span>     <span class="bp">self</span><span class="o">.</span><span class="n">settimeout</span><span class="p">(</span><span class="n">timeout</span><span class="p">)</span>
+<span class="nn">File /usr/local/python/3.12.1/lib/python3.12/ssl.py:1105,</span> in <span class="ni">SSLSocket.read</span><span class="nt">(self, len, buffer)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1103</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1104</span>     <span class="k">if</span> <span class="n">buffer</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1105</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sslobj</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="nb">len</span><span class="p">,</span> <span class="n">buffer</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1106</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1107</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sslobj</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="nb">len</span><span class="p">)</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
@@ -1861,6 +1441,747 @@ Total gambar diproses: 3
       div.remove();
     }
   </script><script type="application/javascript">download("download_5383b8cb-8104-412a-9a57-b8b646a953ec", "berita_bbc.csv", 59233)</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bs4</span><span class="w"> </span><span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">google.colab</span><span class="w"> </span><span class="kn">import</span> <span class="n">files</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">print_progress</span><span class="p">(</span><span class="n">current_item</span><span class="p">,</span> <span class="n">total_items</span><span class="p">,</span> <span class="n">category</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Menampilkan progress bar di konsol.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">percent</span> <span class="o">=</span> <span class="p">(</span><span class="n">current_item</span> <span class="o">/</span> <span class="n">total_items</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span> <span class="k">if</span> <span class="n">total_items</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span>
+    <span class="n">bar_length</span> <span class="o">=</span> <span class="mi">20</span>
+    <span class="n">filled_length</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">bar_length</span> <span class="o">*</span> <span class="n">current_item</span> <span class="o">//</span> <span class="n">total_items</span><span class="p">)</span>
+    <span class="n">bar</span> <span class="o">=</span> <span class="s1">&#39;█&#39;</span> <span class="o">*</span> <span class="n">filled_length</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span> <span class="o">*</span> <span class="p">(</span><span class="n">bar_length</span> <span class="o">-</span> <span class="n">filled_length</span><span class="p">)</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\r</span><span class="s1">[</span><span class="si">{</span><span class="n">category</span><span class="si">}</span><span class="s1">] Mengumpulkan data: </span><span class="si">{</span><span class="n">current_item</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">total_items</span><span class="si">}</span><span class="s1"> [</span><span class="si">{</span><span class="n">bar</span><span class="si">}</span><span class="s1">] </span><span class="si">{</span><span class="n">percent</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">%&#39;</span><span class="p">)</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">bbc_links_crawler</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Mengumpulkan semua berita dari RSS BBC</span>
+<span class="sd">    (id_berita, judul, isi_ringkas, kategori) dan simpan CSV.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="n">kategori_list</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;utama&quot;</span><span class="p">:</span> <span class="s2">&quot;https://feeds.bbci.co.uk/news/rss.xml&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;dunia&quot;</span><span class="p">:</span> <span class="s2">&quot;https://feeds.bbci.co.uk/news/world/rss.xml&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;bisnis&quot;</span><span class="p">:</span> <span class="s2">&quot;https://feeds.bbci.co.uk/news/business/rss.xml&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;teknologi&quot;</span><span class="p">:</span> <span class="s2">&quot;https://feeds.bbci.co.uk/news/technology/rss.xml&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;olahraga&quot;</span><span class="p">:</span> <span class="s2">&quot;https://feeds.bbci.co.uk/sport/rss.xml&quot;</span>
+    <span class="p">}</span>
+
+    <span class="n">all_links_data</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;id_berita&quot;</span><span class="p">:</span> <span class="p">[],</span>
+        <span class="s2">&quot;judul&quot;</span><span class="p">:</span> <span class="p">[],</span>
+        <span class="s2">&quot;isi_ringkas&quot;</span><span class="p">:</span> <span class="p">[],</span>
+        <span class="s2">&quot;kategori&quot;</span><span class="p">:</span> <span class="p">[]</span>
+    <span class="p">}</span>
+
+    <span class="n">total_entries</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">total_rss_items</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">kategori_list</span><span class="p">)</span> <span class="o">*</span> <span class="mi">20</span>  <span class="c1"># asumsi 20 item per RSS</span>
+    <span class="n">current_item_count</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">120</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;No.&#39;</span><span class="si">:</span><span class="s2">&lt;4</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="s1">&#39;Kategori&#39;</span><span class="si">:</span><span class="s2">&lt;12</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="s1">&#39;Judul&#39;</span><span class="si">:</span><span class="s2">&lt;60</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="s1">&#39;Link&#39;</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">120</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">kategori</span><span class="p">,</span> <span class="n">rss_url</span> <span class="ow">in</span> <span class="n">kategori_list</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">rss_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;User-Agent&quot;</span><span class="p">:</span> <span class="s2">&quot;Mozilla/5.0&quot;</span><span class="p">})</span>
+            <span class="n">resp</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+
+            <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="s2">&quot;xml&quot;</span><span class="p">)</span>
+            <span class="n">items</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;item&quot;</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">items</span><span class="p">:</span>
+                <span class="k">continue</span>
+
+            <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+                <span class="n">link</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;link&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                <span class="n">judul</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;title&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                <span class="n">deskripsi</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;description&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;description&quot;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
+
+                <span class="c1"># id_berita = bagian terakhir dari link</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">berita_id</span> <span class="o">=</span> <span class="n">link</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+                <span class="k">except</span><span class="p">:</span>
+                    <span class="n">berita_id</span> <span class="o">=</span> <span class="kc">None</span>
+
+                <span class="n">all_links_data</span><span class="p">[</span><span class="s2">&quot;id_berita&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">berita_id</span><span class="p">)</span>
+                <span class="n">all_links_data</span><span class="p">[</span><span class="s2">&quot;judul&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">judul</span><span class="p">)</span>
+                <span class="n">all_links_data</span><span class="p">[</span><span class="s2">&quot;isi_ringkas&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">deskripsi</span><span class="p">)</span>
+                <span class="n">all_links_data</span><span class="p">[</span><span class="s2">&quot;kategori&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">kategori</span><span class="p">)</span>
+
+                <span class="n">total_entries</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">current_item_count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">total_entries</span><span class="si">:</span><span class="s2">&lt;4</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="n">kategori</span><span class="p">[:</span><span class="mi">12</span><span class="p">]</span><span class="si">:</span><span class="s2">&lt;12</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="n">judul</span><span class="p">[:</span><span class="mi">60</span><span class="p">]</span><span class="si">:</span><span class="s2">&lt;60</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="n">link</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="n">print_progress</span><span class="p">(</span><span class="n">current_item_count</span><span class="p">,</span> <span class="n">total_rss_items</span><span class="p">,</span> <span class="n">kategori</span><span class="p">)</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RequestException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;❌ Gagal akses </span><span class="si">{</span><span class="n">rss_url</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+            <span class="k">continue</span>
+
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">all_links_data</span><span class="p">)</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;berita_bbc.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="n">elapsed</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">)</span>
+    <span class="n">jam</span><span class="p">,</span> <span class="n">sisa</span> <span class="o">=</span> <span class="nb">divmod</span><span class="p">(</span><span class="n">elapsed</span><span class="p">,</span> <span class="mi">3600</span><span class="p">)</span>
+    <span class="n">menit</span><span class="p">,</span> <span class="n">detik</span> <span class="o">=</span> <span class="nb">divmod</span><span class="p">(</span><span class="n">sisa</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">---&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✅ Seluruh berita berhasil dikumpulkan!&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;📊 Total entri: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;⏱️ Waktu eksekusi: </span><span class="si">{</span><span class="n">jam</span><span class="si">}</span><span class="s2"> jam </span><span class="si">{</span><span class="n">menit</span><span class="si">}</span><span class="s2"> menit </span><span class="si">{</span><span class="n">detik</span><span class="si">}</span><span class="s2"> detik&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hasil disimpan ke berita_bbc.csv&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Auto-download di Google Colab</span>
+    <span class="n">files</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">&quot;berita_bbc.csv&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">df</span>
+
+<span class="c1"># Jalankan proses crawling</span>
+<span class="n">bbc_links_crawler</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>========================================================================================================================
+No.  | Kategori     | Judul                                                        | Link
+========================================================================================================================
+1    | utama        | Students flee as Kirk shot in front of crowd of hundreds     | https://www.bbc.com/news/videos/c2ejgzyggpmo?at_medium=RSS&amp;at_campaign=rss
+2    | utama        | Starmer facing pressure over Mandelson&#39;s Epstein links       | https://www.bbc.com/news/articles/cwy9jqn0vyjo?at_medium=RSS&amp;at_campaign=rss
+3    | utama        | Mothers and staff tell of global charity&#39;s role in child dis | https://www.bbc.com/news/articles/c4g53e4zdjpo?at_medium=RSS&amp;at_campaign=rss
+4    | utama        | &#39;Netanyahu, we&#39;re not leaving&#39;: Defiance in Gaza City as Isr | https://www.bbc.com/news/articles/c0lkz0l4x51o?at_medium=RSS&amp;at_campaign=rss
+5    | utama        | Prince Harry meets King Charles for first time in more than  | https://www.bbc.com/news/articles/cly14jq42djo?at_medium=RSS&amp;at_campaign=rss
+6    | utama        | TV cooking shows are dying out - this cronut* holds the secr | https://www.bbc.com/news/articles/c0jq1d63l7lo?at_medium=RSS&amp;at_campaign=rss
+7    | utama        | Qatar says search continues at site of Israeli strike target | https://www.bbc.com/news/articles/crme74p9gn2o?at_medium=RSS&amp;at_campaign=rss
+8    | utama        | Postcode lottery for new cancer treatments, doctors warn     | https://www.bbc.com/news/articles/c4gz3py0dwvo?at_medium=RSS&amp;at_campaign=rss
+9    | utama        | Mystery of dancing spiders&#39; DNA could explain how they devel | https://www.bbc.com/news/articles/c4gzl2zj72jo?at_medium=RSS&amp;at_campaign=rss
+10   | utama        | Gary Lineker ends Ant and Dec&#39;s 23-year winning streak at TV | https://www.bbc.com/news/articles/cg7dgd394kno?at_medium=RSS&amp;at_campaign=rss
+11   | utama        | Don&#39;t stress about being stressed - five tips to manage it   | https://www.bbc.com/news/articles/cg42zq7nqxwo?at_medium=RSS&amp;at_campaign=rss
+12   | utama        | Charlie Kirk: Conservative influencer who rallied a youth mo | https://www.bbc.com/news/articles/cdxqnkwerj7o?at_medium=RSS&amp;at_campaign=rss
+13   | utama        | The Papers: &#39;Harry&#39;s tea with the King&#39; and &#39;Mandelson on br | https://www.bbc.com/news/articles/c89d7e375d1o?at_medium=RSS&amp;at_campaign=rss
+14   | utama        | &#39;I have rubbish in my hall six months into bin strike&#39;       | https://www.bbc.com/news/articles/czewn68wyn8o?at_medium=RSS&amp;at_campaign=rss
+15   | utama        | Nepal turmoil adds to India&#39;s woes in South Asia             | https://www.bbc.com/news/articles/c8xrqld50dko?at_medium=RSS&amp;at_campaign=rss
+16   | utama        | Life on Mars? &#39;Leopard-spot&#39; rocks could be biggest clue yet | https://www.bbc.com/news/articles/cd725pj0g9ro?at_medium=RSS&amp;at_campaign=rss
+17   | utama        | Accidental or deliberate? Russia&#39;s drone incursion into Pola | https://www.bbc.com/news/articles/clydk8821nro?at_medium=RSS&amp;at_campaign=rss
+18   | utama        | Putin and Netanyahu present twin challenges to Trump&#39;s diplo | https://www.bbc.com/news/articles/cvg9pnpqm2jo?at_medium=RSS&amp;at_campaign=rss
+19   | utama        | Play now                                                     | https://www.bbc.com/weather/articles/cwy5r7xwq8xo?at_medium=RSS&amp;at_campaign=rss
+20   | utama        | Phillipson cements status as Labour deputy frontrunner       | https://www.bbc.com/news/articles/c5yvdxvx449o?at_medium=RSS&amp;at_campaign=rss
+21   | utama        | Trump to visit late Queen&#39;s tomb during UK state visit       | https://www.bbc.com/news/articles/cjedxl0qxyjo?at_medium=RSS&amp;at_campaign=rss
+22   | utama        | Ministers must do more on Lifetime Isa reform, say MPs       | https://www.bbc.com/news/articles/cge27j499yyo?at_medium=RSS&amp;at_campaign=rss
+23   | utama        | Firms will hesitate to invest in US after raid – S Korea pre | https://www.bbc.com/news/articles/cly0e4k750go?at_medium=RSS&amp;at_campaign=rss
+24   | utama        | No 10 files raise questions over whether Tory donations were | https://www.bbc.com/news/articles/cp3qww29146o?at_medium=RSS&amp;at_campaign=rss
+25   | utama        | Watch: Footage shows second claimed attack on Greta Thunberg | https://www.bbc.com/news/videos/cyv64eppj56o?at_medium=RSS&amp;at_campaign=rss
+26   | utama        | Human remains found in Tesla linked to singer D4vd           | https://www.bbc.com/news/articles/cp98npjkje2o?at_medium=RSS&amp;at_campaign=rss
+27   | utama        | BBC News app                                                 | https://www.bbc.co.uk/news/10628994?at_medium=RSS&amp;at_campaign=rss
+28   | utama        | A government building struck in Kyiv and a new threat from T | https://www.bbc.co.uk/sounds/play/p0m1srdr?at_medium=RSS&amp;at_campaign=rss
+29   | utama        | Protein: how much do we really need?                         | https://www.bbc.co.uk/sounds/play/m001xzrx?at_mid=JAhdrOsaPb&amp;at_campaign=Protein_Powerhouse_or_Piffle&amp;at_medium=display_ad&amp;at_campaign_type=owned&amp;at_nation=NET&amp;at_audience_id=SS&amp;at_product=sounds&amp;at_brand=m001xzrx&amp;at_ptr_name=bbc&amp;at_ptr_type=media&amp;at_format=image&amp;at_objective=consumption&amp;at_link_title=Protein_Powerhouse_or_Piffle&amp;at_bbc_team=BBC
+30   | utama        | Barry Humphries&#39; funniest, rudest and most revealing moments | https://www.bbc.co.uk/iplayer/episode/m001mg0t/barry-humphries-at-the-bbc?at_mid=0YPJFFVFb6&amp;at_campaign=Barry_Humphries_at_the_BBC&amp;at_medium=display_ad&amp;at_campaign_type=owned&amp;at_nation=NET&amp;at_audience_id=SS&amp;at_product=iplayer&amp;at_brand=m001mg0t&amp;at_ptr_name=bbc&amp;at_ptr_type=media&amp;at_format=image&amp;at_objective=consumption&amp;at_link_title=Barry_Humphries_at_the_BBC&amp;at_bbc_team=BBC
+31   | utama        | &#39;Shambles of a night&#39; - Brook on rain-reduced T20            | https://www.bbc.com/sport/cricket/articles/c740mdm9yg4o?at_medium=RSS&amp;at_campaign=rss
+32   | utama        | &#39;Chance to see how far I can take things&#39; - Proud condemned  | https://www.bbc.com/sport/swimming/articles/c5yevrrv1kwo?at_medium=RSS&amp;at_campaign=rss
+33   | utama        | &#39;Football risks losing generation of black managers&#39;         | https://www.bbc.com/sport/football/articles/czjv39870wwo?at_medium=RSS&amp;at_campaign=rss
+34   | utama        | Tuchel&#39;s England analysed: How good are they?                | https://www.bbc.com/sport/football/articles/cnvrqz76mejo?at_medium=RSS&amp;at_campaign=rss
+35   | utama        | &#39;It was aggressive, horrible&#39; - Hatton&#39;s &#39;messy&#39; night after | https://www.bbc.com/sport/golf/articles/c07vk8rpm10o?at_medium=RSS&amp;at_campaign=rss
+36   | utama        | Mission improbable but Scotland aim to spoil England&#39;s party | https://www.bbc.com/sport/rugby-union/articles/cx23vzz74yvo?at_medium=RSS&amp;at_campaign=rss
+37   | utama        | Pellizzari wins stage with Pidcock second as riders warn the | https://www.bbc.com/sport/cycling/articles/cy4rmv11xdmo?at_medium=RSS&amp;at_campaign=rss
+[utama] Mengumpulkan data: 37/100 [███████-------------] 37.00%38   | dunia        | Manhunt intensifies for suspect who killed Charlie Kirk      | https://www.bbc.com/news/articles/c0r0q1x74qqo?at_medium=RSS&amp;at_campaign=rss
+39   | dunia        | &#39;Netanyahu, we&#39;re not leaving&#39;: Defiance in Gaza City as Isr | https://www.bbc.com/news/articles/c0lkz0l4x51o?at_medium=RSS&amp;at_campaign=rss
+40   | dunia        | Poland says it shot down Russian drones after airspace viola | https://www.bbc.com/news/articles/c147065pzdzo?at_medium=RSS&amp;at_campaign=rss
+41   | dunia        | Accidental or deliberate? Russia&#39;s drone incursion into Pola | https://www.bbc.com/news/articles/clydk8821nro?at_medium=RSS&amp;at_campaign=rss
+42   | dunia        | Nepal protests &#39;hijacked&#39;, Gen Z claim, as army patrols the  | https://www.bbc.com/news/articles/cjd1ndmrej0o?at_medium=RSS&amp;at_campaign=rss
+43   | dunia        | Protests hit France as new PM takes office                   | https://www.bbc.com/news/articles/c8643qg252lo?at_medium=RSS&amp;at_campaign=rss
+44   | dunia        | Woman who bit off attacker&#39;s tongue acquitted after 61 years | https://www.bbc.com/news/articles/ckgezkrdjeko?at_medium=RSS&amp;at_campaign=rss
+45   | dunia        | Weleda launches inquiry into Nazi camp skin test claims      | https://www.bbc.com/news/articles/cy7pgd5nkr6o?at_medium=RSS&amp;at_campaign=rss
+46   | dunia        | Hong Kong lawmakers say no to more rights for same-sex coupl | https://www.bbc.com/news/articles/c5yqeggvwgpo?at_medium=RSS&amp;at_campaign=rss
+47   | dunia        | Chinese nationals jailed for human trafficking in South Afri | https://www.bbc.com/news/articles/c20v3n7wllzo?at_medium=RSS&amp;at_campaign=rss
+48   | dunia        | Hamas claims leadership survived Israeli attack in Doha, but | https://www.bbc.com/news/articles/ced58zywdwno?at_medium=RSS&amp;at_campaign=rss
+49   | dunia        | Jihadists &#39;summarily executed&#39; 127 people in Niger, says rig | https://www.bbc.com/news/articles/c4gkx78xeg8o?at_medium=RSS&amp;at_campaign=rss
+50   | dunia        | Shock as Kenyan lawyer killed in drive-by shooting in Nairob | https://www.bbc.com/news/articles/c20v34qpr98o?at_medium=RSS&amp;at_campaign=rss
+51   | dunia        | Greta Thunberg&#39;s Gaza flotilla hit by drones, organisers cla | https://www.bbc.com/news/articles/cly67g7pdlko?at_medium=RSS&amp;at_campaign=rss
+52   | dunia        | Pressure mounts on Bolsonaro as two out of five judges find  | https://www.bbc.com/news/articles/ceq2lv20rp4o?at_medium=RSS&amp;at_campaign=rss
+53   | dunia        | Charlie Kirk: Conservative influencer who rallied a youth mo | https://www.bbc.com/news/articles/cdxqnkwerj7o?at_medium=RSS&amp;at_campaign=rss
+54   | dunia        | Putin and Netanyahu present twin challenges to Trump&#39;s diplo | https://www.bbc.com/news/articles/cvg9pnpqm2jo?at_medium=RSS&amp;at_campaign=rss
+55   | dunia        | Trump is used to shaking off criticism - but the Epstein sto | https://www.bbc.com/news/articles/cp8j3e5g74no?at_medium=RSS&amp;at_campaign=rss
+56   | dunia        | Bowen: Diplomacy in ruins after Israel strikes Hamas leaders | https://www.bbc.com/news/articles/cm2zepgp5neo?at_medium=RSS&amp;at_campaign=rss
+57   | dunia        | Nepal anti-corruption protests explained                     | https://www.bbc.com/news/articles/crkj0lzlr3ro?at_medium=RSS&amp;at_campaign=rss
+58   | dunia        | Russian air strikes get deadlier and bigger, hitting Ukraine | https://www.bbc.com/news/articles/cgrqwpee05ro?at_medium=RSS&amp;at_campaign=rss
+59   | dunia        | Childhood obesity: The South African campaigners fighting fo | https://www.bbc.com/news/articles/ce84n6zpxx9o?at_medium=RSS&amp;at_campaign=rss
+60   | dunia        | Protect Arctic from &#39;dangerous&#39; climate engineering, scienti | https://www.bbc.com/news/articles/c5yqw996q1ko?at_medium=RSS&amp;at_campaign=rss
+61   | dunia        | What&#39;s in the book of birthday messages to Epstein           | https://www.bbc.com/news/articles/cr5q68j2169o?at_medium=RSS&amp;at_campaign=rss
+62   | dunia        | Why the French PM had to go and what happens next?           | https://www.bbc.com/news/articles/cy4r7dmxgxmo?at_medium=RSS&amp;at_campaign=rss
+63   | dunia        | The pride of Ethiopia - What it took to build Africa&#39;s large | https://www.bbc.com/news/articles/cr4qx6377qgo?at_medium=RSS&amp;at_campaign=rss
+64   | dunia        | How the coup trial of Jair Bolsonaro has divided Brazil      | https://www.bbc.com/news/articles/cn4wx9zlpj5o?at_medium=RSS&amp;at_campaign=rss
+65   | dunia        | Footage shows second claimed attack on Greta Thunberg Gaza f | https://www.bbc.com/news/videos/cyv64eppj56o?at_medium=RSS&amp;at_campaign=rss
+66   | dunia        | Emma Heming Willis talks about husband Bruce&#39;s diagnosis and | https://www.bbc.com/news/videos/cp8j2v458z8o?at_medium=RSS&amp;at_campaign=rss
+67   | dunia        | Watch: Army patrols streets of Kathmandu after fierce protes | https://www.bbc.com/news/videos/cyv647g63gvo?at_medium=RSS&amp;at_campaign=rss
+68   | dunia        | Watch: Mandelson says he regrets falling for Epstein&#39;s lies  | https://www.bbc.com/news/videos/c5y5v8l14p6o?at_medium=RSS&amp;at_campaign=rss
+[dunia] Mengumpulkan data: 68/100 [█████████████-------] 68.00%69   | bisnis       | Ministers must do more on Lifetime Isa reform, say MPs       | https://www.bbc.com/news/articles/cge27j499yyo?at_medium=RSS&amp;at_campaign=rss
+70   | bisnis       | Major pharma firm scraps £1bn UK expansion                   | https://www.bbc.com/news/articles/ckgzyxjr0lzo?at_medium=RSS&amp;at_campaign=rss
+71   | bisnis       | Firms will hesitate to invest in US after raid – S Korea pre | https://www.bbc.com/news/articles/cly0e4k750go?at_medium=RSS&amp;at_campaign=rss
+72   | bisnis       | Larry Ellison briefly tops Elon Musk as world&#39;s richest pers | https://www.bbc.com/news/articles/cx2rp992y88o?at_medium=RSS&amp;at_campaign=rss
+73   | bisnis       | Klarna hits $19bn value in Wall Street debut                 | https://www.bbc.com/news/articles/c749ee2kpvgo?at_medium=RSS&amp;at_campaign=rss
+74   | bisnis       | &#39;We are playing with fire&#39;: Fears persist over battery stora | https://www.bbc.com/news/articles/czjvdpzw71po?at_medium=RSS&amp;at_campaign=rss
+75   | bisnis       | Weleda launches inquiry into Nazi camp skin test claims      | https://www.bbc.com/news/articles/cy7pgd5nkr6o?at_medium=RSS&amp;at_campaign=rss
+76   | bisnis       | Jaguar Land Rover admits hackers may have taken data         | https://www.bbc.com/news/articles/cp8wk7rdz8yo?at_medium=RSS&amp;at_campaign=rss
+77   | bisnis       | Samantha Cameron&#39;s fashion label Cefinn to shut              | https://www.bbc.com/news/articles/cj4y8vzxdwvo?at_medium=RSS&amp;at_campaign=rss
+78   | bisnis       | Primark-owner shares sink after consumer spending warning    | https://www.bbc.com/news/articles/cwy9j5jzdwlo?at_medium=RSS&amp;at_campaign=rss
+79   | bisnis       | US watchdog launches review into economic data collection    | https://www.bbc.com/news/articles/cq5jgz75le7o?at_medium=RSS&amp;at_campaign=rss
+80   | bisnis       | Contactless card payments could become unlimited             | https://www.bbc.com/news/articles/czjv7jy2r9vo?at_medium=RSS&amp;at_campaign=rss
+81   | bisnis       | Ozempic-maker Novo Nordisk to cut 9,000 jobs                 | https://www.bbc.com/news/articles/c8d79pez6g2o?at_medium=RSS&amp;at_campaign=rss
+82   | bisnis       | Strongbow and Jägermeister pull ads after watchdog probe     | https://www.bbc.com/news/articles/cj07244j6zvo?at_medium=RSS&amp;at_campaign=rss
+83   | bisnis       | Trump lobbies EU for 100% tariffs on China and India to pres | https://www.bbc.com/news/articles/c80gvz3l7n2o?at_medium=RSS&amp;at_campaign=rss
+84   | bisnis       | Reeves clamps down on emergency funds for ministers          | https://www.bbc.com/news/articles/cyv63l3395zo?at_medium=RSS&amp;at_campaign=rss
+85   | bisnis       | Trump temporarily blocked from firing Fed governor           | https://www.bbc.com/news/articles/c740x28v8xno?at_medium=RSS&amp;at_campaign=rss
+86   | bisnis       | S Korea workers detained in US may see return home delayed   | https://www.bbc.com/news/articles/cddm6dengq7o?at_medium=RSS&amp;at_campaign=rss
+87   | bisnis       | Meta covered up potential child harms, whistleblowers claim  | https://www.bbc.com/news/articles/c5y8x3md05no?at_medium=RSS&amp;at_campaign=rss
+88   | bisnis       | Business chiefs urge Trump to ease up on immigration crackdo | https://www.bbc.com/news/articles/c74955zk35yo?at_medium=RSS&amp;at_campaign=rss
+89   | bisnis       | Tesco to Victoria&#39;s Secret: India&#39;s booming back-offices wor | https://www.bbc.com/news/articles/c1wgqjd02n1o?at_medium=RSS&amp;at_campaign=rss
+90   | bisnis       | Supreme Court to decide if Trump&#39;s global tariffs are legal  | https://www.bbc.com/news/articles/cd07exzr418o?at_medium=RSS&amp;at_campaign=rss
+91   | bisnis       | Deodorant firm sorry after &#39;itchy, burning armpits&#39; claims   | https://www.bbc.com/news/articles/cly0gkrqq7ko?at_medium=RSS&amp;at_campaign=rss
+92   | bisnis       | Jaguar Land Rover in daily talks with government as shutdown | https://www.bbc.com/news/articles/c3w5elzny05o?at_medium=RSS&amp;at_campaign=rss
+93   | bisnis       | US created 911,000 fewer jobs than thought in year to March  | https://www.bbc.com/news/articles/cn8257jz8kvo?at_medium=RSS&amp;at_campaign=rss
+94   | bisnis       | More Tube disruption as RMT union talks collapse             | https://www.bbc.com/news/articles/cvgr9x145eyo?at_medium=RSS&amp;at_campaign=rss
+95   | bisnis       | Car finance compensation should be paid next year            | https://www.bbc.com/news/articles/c5y8xpxp3r6o?at_medium=RSS&amp;at_campaign=rss
+96   | bisnis       | Publishers fear AI summaries are hitting online traffic      | https://www.bbc.com/news/articles/c0mlvryx0exo?at_medium=RSS&amp;at_campaign=rss
+97   | bisnis       | The US factory spending $100,000 a month more due to tariffs | https://www.bbc.com/news/articles/c3rvdxz9589o?at_medium=RSS&amp;at_campaign=rss
+98   | bisnis       | The Caribbean islands battling the region&#39;s &#39;highest murder  | https://www.bbc.com/news/articles/c9393159jl5o?at_medium=RSS&amp;at_campaign=rss
+99   | bisnis       | Trump&#39;s tariffs are pushing food and drink exporters closer  | https://www.bbc.com/news/articles/c4gzrqd4pdjo?at_medium=RSS&amp;at_campaign=rss
+100  | bisnis       | The green steel firms looking to revive US steelmaking       | https://www.bbc.com/news/articles/czer07x9zp2o?at_medium=RSS&amp;at_campaign=rss
+101  | bisnis       | Lack of charging facilities a &#39;barrier&#39; for electric lorries | https://www.bbc.com/news/articles/c4g6wnzqgn2o?at_medium=RSS&amp;at_campaign=rss
+102  | bisnis       | Will drones deliver your next hot food order?                | https://www.bbc.com/news/articles/crlze41zygdo?at_medium=RSS&amp;at_campaign=rss
+103  | bisnis       | How oil has brought Russia, China and India closer           | https://www.bbc.com/news/articles/c627p49lp40o?at_medium=RSS&amp;at_campaign=rss
+104  | bisnis       | How sheer luck made this tiny Caribbean island millions from | https://www.bbc.com/news/articles/cn5xdp427veo?at_medium=RSS&amp;at_campaign=rss
+105  | bisnis       | Thirsty data centres boom in drought-hit Mexico              | https://www.bbc.com/news/articles/cx2ngz7ep1eo?at_medium=RSS&amp;at_campaign=rss
+106  | bisnis       | How to stop AI agents going rogue                            | https://www.bbc.com/news/articles/cq87e0dwj25o?at_medium=RSS&amp;at_campaign=rss
+107  | bisnis       | Climate change pushing winemakers to blend wines from differ | https://www.bbc.com/news/articles/czxp41y3n7lo?at_medium=RSS&amp;at_campaign=rss
+108  | bisnis       | Ministers must do more on Lifetime Isa reform, say MPs       | https://www.bbc.com/news/articles/cge27j499yyo?at_medium=RSS&amp;at_campaign=rss
+109  | bisnis       | Almost half of homes have never switched from Power NI       | https://www.bbc.com/news/articles/cd07e3p1j4lo?at_medium=RSS&amp;at_campaign=rss
+110  | bisnis       | Samantha Cameron&#39;s fashion label Cefinn to shut              | https://www.bbc.com/news/articles/cj4y8vzxdwvo?at_medium=RSS&amp;at_campaign=rss
+111  | bisnis       | How to stay safe during a storm and what to do in a power cu | https://www.bbc.com/news/articles/cm2ezv1e680o?at_medium=RSS&amp;at_campaign=rss
+112  | bisnis       | Contactless card payments could become unlimited             | https://www.bbc.com/news/articles/czjv7jy2r9vo?at_medium=RSS&amp;at_campaign=rss
+113  | bisnis       | The UK car industry is at a tipping point - can it be saved? | https://www.bbc.com/news/articles/c23p028p200o?at_medium=RSS&amp;at_campaign=rss
+114  | bisnis       | Trump&#39;s global tariffs &#39;victory&#39; may well come at a high pri | https://www.bbc.com/news/articles/c0l6g13rlwko?at_medium=RSS&amp;at_campaign=rss
+115  | bisnis       | Labour might be down, but it&#39;s not necessarily out - voters  | https://www.bbc.com/news/articles/cvg8vjm4ee1o?at_medium=RSS&amp;at_campaign=rss
+116  | bisnis       | China&#39;s electric cars are becoming slicker and cheaper - but | https://www.bbc.com/news/articles/cy8d4v69jw6o?at_medium=RSS&amp;at_campaign=rss
+117  | bisnis       | The secretive US factory that lays bare the contradiction in | https://www.bbc.com/news/articles/cwywj0zgzwxo?at_medium=RSS&amp;at_campaign=rss
+118  | bisnis       | Martin Lewis: Act now to save on your energy bills           | https://www.bbc.com/news/videos/c3dr92rje53o?at_medium=RSS&amp;at_campaign=rss
+119  | bisnis       | Short guide to saving money for freshers - by students       | https://www.bbc.com/news/videos/c4gqgregv2no?at_medium=RSS&amp;at_campaign=rss
+120  | bisnis       | Football’s Financial Shame: The Story of the V11             | https://www.bbc.co.uk/iplayer/episode/m002d2kp?at_medium=RSS&amp;at_campaign=rss
+121  | bisnis       | Martin Lewis has this warning for women over 40              | https://www.bbc.com/news/videos/c79l5pzeepwo?at_medium=RSS&amp;at_campaign=rss
+122  | bisnis       | Fewer Music Shops on UK High Streets                         | https://www.bbc.co.uk/iplayer/episode/l0057dqx?at_medium=RSS&amp;at_campaign=rss
+[bisnis] Mengumpulkan data: 122/100 [████████████████████████] 122.00%123  | teknologi    | Jaguar Land Rover admits hackers may have taken data         | https://www.bbc.com/news/articles/cp8wk7rdz8yo?at_medium=RSS&amp;at_campaign=rss
+124  | teknologi    | Meta covered up potential child harms, whistleblowers claim  | https://www.bbc.com/news/articles/c5y8x3md05no?at_medium=RSS&amp;at_campaign=rss
+125  | teknologi    | It&#39;s taken three years to recover from China hack, election  | https://www.bbc.com/news/articles/c80gl8yvj9go?at_medium=RSS&amp;at_campaign=rss
+126  | teknologi    | Nepal lifts social media ban after 19 killed in protests     | https://www.bbc.com/news/articles/cp98n1eg443o?at_medium=RSS&amp;at_campaign=rss
+127  | teknologi    | Microsoft cloud services disrupted by Red Sea cable cuts     | https://www.bbc.com/news/articles/c3rvx470yg8o?at_medium=RSS&amp;at_campaign=rss
+128  | teknologi    | Google fined €2.95bn by EU for abusing advertising dominance | https://www.bbc.com/news/articles/c1wgn3lre14o?at_medium=RSS&amp;at_campaign=rss
+129  | teknologi    | Gamers frustrated as Hollow Knight: Silksong crashes stores  | https://www.bbc.com/news/articles/ckgejpxzepko?at_medium=RSS&amp;at_campaign=rss
+130  | teknologi    | Head of UK&#39;s Turing AI Institute resigns after funding threa | https://www.bbc.com/news/articles/c8rvx85z3z7o?at_medium=RSS&amp;at_campaign=rss
+131  | teknologi    | World&#39;s largest sports piracy site shut down by police       | https://www.bbc.com/news/articles/c62q4l0d171o?at_medium=RSS&amp;at_campaign=rss
+132  | teknologi    | Creator of Charli XCX Apple dance settles Roblox lawsuit     | https://www.bbc.com/news/articles/cdxqljv7nvdo?at_medium=RSS&amp;at_campaign=rss
+133  | teknologi    | Lost in translation - How Africa is trying to close the AI l | https://www.bbc.com/news/articles/crkzgkkpx0lo?at_medium=RSS&amp;at_campaign=rss
+134  | teknologi    | M&amp;S hackers claim to be behind Jaguar Land Rover cyber attac | https://www.bbc.com/news/articles/c4gqepe5355o?at_medium=RSS&amp;at_campaign=rss
+135  | teknologi    | Google told to pay $425m in privacy lawsuit                  | https://www.bbc.com/news/articles/c3dr91z0g4zo?at_medium=RSS&amp;at_campaign=rss
+136  | teknologi    | Luigi Mangione&#39;s likeness used to model shirt on Shein       | https://www.bbc.com/news/articles/c4g5vr4vzpzo?at_medium=RSS&amp;at_campaign=rss
+137  | teknologi    | Family of dead teen say ChatGPT&#39;s new parental controls not  | https://www.bbc.com/news/articles/cg505mn84ydo?at_medium=RSS&amp;at_campaign=rss
+138  | teknologi    | A let-off or tougher than it looks? What the Google monopoly | https://www.bbc.com/news/articles/cx2q2kkdedno?at_medium=RSS&amp;at_campaign=rss
+139  | teknologi    | Google avoids break-up but must share data with rivals       | https://www.bbc.com/news/articles/cp8zdrenm1zo?at_medium=RSS&amp;at_campaign=rss
+140  | teknologi    | Jaguar Land Rover production severely hit by cyber-attack    | https://www.bbc.com/news/articles/c9wywvllq7wo?at_medium=RSS&amp;at_campaign=rss
+141  | teknologi    | Children at risk of identity theft and fraud from &#39;sharentin | https://www.bbc.com/news/articles/c8904njvy03o?at_medium=RSS&amp;at_campaign=rss
+142  | teknologi    | Meta to stop its AI chatbots from talking to teens about sui | https://www.bbc.com/news/articles/c2kzl79jv15o?at_medium=RSS&amp;at_campaign=rss
+143  | teknologi    | Enforcing Australia&#39;s social media ban on kids is possible b | https://www.bbc.com/news/articles/clyrkj0d44vo?at_medium=RSS&amp;at_campaign=rss
+144  | teknologi    | BYD shares slide as China&#39;s EV price war hits profits        | https://www.bbc.com/news/articles/cx2pr1wwq44o?at_medium=RSS&amp;at_campaign=rss
+145  | teknologi    | The first game to feel truly cinematic is back - years after | https://www.bbc.com/news/articles/cy08jr6jwn2o?at_medium=RSS&amp;at_campaign=rss
+146  | teknologi    | Court documents shed new light on UK-Apple row over user dat | https://www.bbc.com/news/articles/cx293qg7z39o?at_medium=RSS&amp;at_campaign=rss
+147  | teknologi    | Taco Bell rethinks AI drive-through after man orders 18,000  | https://www.bbc.com/news/articles/ckgyk2p55g8o?at_medium=RSS&amp;at_campaign=rss
+148  | teknologi    | Musk files to dismiss lawsuit over his purchase of Twitter s | https://www.bbc.com/news/articles/cn47ey2wxkpo?at_medium=RSS&amp;at_campaign=rss
+149  | teknologi    | Kick accuses French authorities of politicising streamer&#39;s d | https://www.bbc.com/news/articles/cx23zdvk854o?at_medium=RSS&amp;at_campaign=rss
+150  | teknologi    | Ticketless train travel to be trialled across cities         | https://www.bbc.com/news/articles/cly702xd0edo?at_medium=RSS&amp;at_campaign=rss
+151  | teknologi    | Apple warns UK against introducing tougher tech regulation   | https://www.bbc.com/news/articles/ckgj9kjmvzzo?at_medium=RSS&amp;at_campaign=rss
+152  | teknologi    | AI boom boosts Nvidia despite &#39;geopolitical issues&#39;          | https://www.bbc.com/news/articles/c3wnj8611y7o?at_medium=RSS&amp;at_campaign=rss
+153  | teknologi    | Japanese town proposes two-hour daily limit on smartphones   | https://www.bbc.com/news/articles/cqlew2rv337o?at_medium=RSS&amp;at_campaign=rss
+154  | teknologi    | Thirsty data centres boom in drought-hit Mexico              | https://www.bbc.com/news/articles/cx2ngz7ep1eo?at_medium=RSS&amp;at_campaign=rss
+155  | teknologi    | Tech Now                                                     | https://www.bbc.co.uk/iplayer/episode/m002jb6f?at_medium=RSS&amp;at_campaign=rss
+156  | teknologi    | Tech Life                                                    | https://www.bbc.co.uk/sounds/play/w3ct6zp6?at_medium=RSS&amp;at_campaign=rss
+157  | teknologi    | Tech Life                                                    | https://www.bbc.co.uk/sounds/play/w3ct6zp4?at_medium=RSS&amp;at_campaign=rss
+158  | teknologi    | Tech Life                                                    | https://www.bbc.co.uk/sounds/play/w3ct6zp3?at_medium=RSS&amp;at_campaign=rss
+159  | teknologi    | The history behind the QR code                               | https://www.bbc.com/news/videos/c1jnpkdjjryo?at_medium=RSS&amp;at_campaign=rss
+160  | teknologi    | Tech Life                                                    | https://www.bbc.co.uk/sounds/play/w3ct6zp2?at_medium=RSS&amp;at_campaign=rss
+161  | teknologi    | Tech Now                                                     | https://www.bbc.co.uk/iplayer/episode/m002gw67?at_medium=RSS&amp;at_campaign=rss
+162  | teknologi    | Tech Life                                                    | https://www.bbc.co.uk/sounds/play/w3ct6zp1?at_medium=RSS&amp;at_campaign=rss
+163  | teknologi    | Tech Now                                                     | https://www.bbc.co.uk/iplayer/episode/m002gm6k?at_medium=RSS&amp;at_campaign=rss
+164  | teknologi    | Tech Life                                                    | https://www.bbc.co.uk/sounds/play/w3ct6zp0?at_medium=RSS&amp;at_campaign=rss
+165  | teknologi    | Tech Now                                                     | https://www.bbc.co.uk/iplayer/episode/m002g8zw?at_medium=RSS&amp;at_campaign=rss
+166  | teknologi    | The floating robot collecting rubbish in our waterways       | https://www.bbc.com/news/videos/cn5kn3dln3ko?at_medium=RSS&amp;at_campaign=rss
+167  | teknologi    | Tech Life                                                    | https://www.bbc.co.uk/sounds/play/w3ct6znz?at_medium=RSS&amp;at_campaign=rss
+168  | teknologi    | Tech Now                                                     | https://www.bbc.co.uk/iplayer/episode/m002fzws?at_medium=RSS&amp;at_campaign=rss
+169  | teknologi    | Tech Life                                                    | https://www.bbc.co.uk/sounds/play/w3ct6zny?at_medium=RSS&amp;at_campaign=rss
+170  | teknologi    | Publishers fear AI summaries are hitting online traffic      | https://www.bbc.com/news/articles/c0mlvryx0exo?at_medium=RSS&amp;at_campaign=rss
+171  | teknologi    | The green steel firms looking to revive US steelmaking       | https://www.bbc.com/news/articles/czer07x9zp2o?at_medium=RSS&amp;at_campaign=rss
+172  | teknologi    | Computer science graduates struggle to secure their first jo | https://www.bbc.com/news/articles/cm21dvg8l1go?at_medium=RSS&amp;at_campaign=rss
+173  | teknologi    | How to destroy harmful &#39;forever chemicals&#39;                   | https://www.bbc.com/news/articles/clydd630pxzo?at_medium=RSS&amp;at_campaign=rss
+174  | teknologi    | Will AI make language dubbing easy for film and TV?          | https://www.bbc.com/news/articles/c36xy6r91kwo?at_medium=RSS&amp;at_campaign=rss
+175  | teknologi    | Economic woes dominate as Bolivia prepares to go to the poll | https://www.bbc.com/news/articles/c62nn665g32o?at_medium=RSS&amp;at_campaign=rss
+176  | teknologi    | How to get AI to work in 22 languages                        | https://www.bbc.com/news/articles/cn0qqzz1e4zo?at_medium=RSS&amp;at_campaign=rss
+177  | teknologi    | Could aluminium become the packaging &#39;champion&#39;?             | https://www.bbc.com/news/articles/ce3nw5vnzgpo?at_medium=RSS&amp;at_campaign=rss
+178  | teknologi    | Artificial food colours are out, so what&#39;s next?             | https://www.bbc.com/news/articles/c4g83dpeendo?at_medium=RSS&amp;at_campaign=rss
+179  | teknologi    | Trucking&#39;s uneasy relationship with new tech                 | https://www.bbc.com/news/articles/c5yeyn4gl80o?at_medium=RSS&amp;at_campaign=rss
+180  | teknologi    | How will age verification for porn work and what about priva | https://www.bbc.com/news/articles/ceq7ye3q2zwo?at_medium=RSS&amp;at_campaign=rss
+181  | teknologi    | &#39;Autofocus&#39; specs promise sharp vision, near or far          | https://www.bbc.com/news/articles/cj6r06d7xdjo?at_medium=RSS&amp;at_campaign=rss
+182  | teknologi    | Why little Lithuania has big plans for space tech            | https://www.bbc.com/news/articles/c4g2ezl7xqyo?at_medium=RSS&amp;at_campaign=rss
+183  | teknologi    | Should we be letting flies eat our food waste?               | https://www.bbc.com/news/articles/cz9y1l397vno?at_medium=RSS&amp;at_campaign=rss
+184  | teknologi    | Supercell boss: &#39;We need to take bigger risks&#39;               | https://www.bbc.com/news/articles/cqx2jz1l477o?at_medium=RSS&amp;at_campaign=rss
+185  | teknologi    | Tech giants unleash AI on weather forecasts: are they any go | https://www.bbc.com/weather/articles/cwy6ykp7049o?at_medium=RSS&amp;at_campaign=rss
+186  | teknologi    | Why Ukraine is one of the world&#39;s most digital countries     | https://www.bbc.com/news/articles/cm234l04xmro?at_medium=RSS&amp;at_campaign=rss
+187  | teknologi    | From festivals to weddings: Why drone shows are booming      | https://www.bbc.com/news/articles/c79ewz7qej4o?at_medium=RSS&amp;at_campaign=rss
+188  | teknologi    | How airline fees have turned baggage into billions           | https://www.bbc.com/news/articles/c0qg3ylx2g9o?at_medium=RSS&amp;at_campaign=rss
+[teknologi] Mengumpulkan data: 188/100 [█████████████████████████████████████] 188.00%189  | olahraga     | &#39;Shambles of a night&#39; - Brook on rain-reduced T20            | https://www.bbc.com/sport/cricket/articles/c740mdm9yg4o?at_medium=RSS&amp;at_campaign=rss
+190  | olahraga     | &#39;Chance to see how far I can take things&#39; - Proud condemned  | https://www.bbc.com/sport/swimming/articles/c5yevrrv1kwo?at_medium=RSS&amp;at_campaign=rss
+191  | olahraga     | &#39;Football risks losing generation of black managers&#39;         | https://www.bbc.com/sport/football/articles/czjv39870wwo?at_medium=RSS&amp;at_campaign=rss
+192  | olahraga     | Tuchel&#39;s England analysed: How good are they?                | https://www.bbc.com/sport/football/articles/cnvrqz76mejo?at_medium=RSS&amp;at_campaign=rss
+193  | olahraga     | &#39;It was aggressive, horrible&#39; - Hatton&#39;s &#39;messy&#39; night after | https://www.bbc.com/sport/golf/articles/c07vk8rpm10o?at_medium=RSS&amp;at_campaign=rss
+194  | olahraga     | Mission improbable but Scotland aim to spoil England&#39;s party | https://www.bbc.com/sport/rugby-union/articles/cx23vzz74yvo?at_medium=RSS&amp;at_campaign=rss
+195  | olahraga     | Pellizzari wins stage with Pidcock second as riders warn the | https://www.bbc.com/sport/cycling/articles/cy4rmv11xdmo?at_medium=RSS&amp;at_campaign=rss
+196  | olahraga     | Fan takes catch despite being on crutches                    | https://www.bbc.com/sport/cricket/videos/ceq297np34lo?at_medium=RSS&amp;at_campaign=rss
+197  | olahraga     | Questions mount for rugby&#39;s rebel R360 circuit               | https://www.bbc.com/sport/rugby-union/articles/ce3yllp1geno?at_medium=RSS&amp;at_campaign=rss
+198  | olahraga     | England beaten by SA in rain-reduced opening T20             | https://www.bbc.com/sport/cricket/articles/cly65123mjgo?at_medium=RSS&amp;at_campaign=rss
+199  | olahraga     | Fans frustrated as Newcastle v Barcelona tickets bought by D | https://www.bbc.com/sport/football/articles/czdjlnr7dr6o?at_medium=RSS&amp;at_campaign=rss
+200  | olahraga     | Anderson on Man Utd radar - Thursday&#39;s gossip                | https://www.bbc.com/sport/football/articles/cvgqll9g451o?at_medium=RSS&amp;at_campaign=rss
+201  | olahraga     | England lose rain-reduced first T20 against South Africa     | https://www.bbc.com/sport/cricket/videos/c059l64gq32o?at_medium=RSS&amp;at_campaign=rss
+202  | olahraga     | &#39;Oh goodness me!&#39; - Salt drops Markram                       | https://www.bbc.com/sport/cricket/videos/c3rvw9w3pzno?at_medium=RSS&amp;at_campaign=rss
+203  | olahraga     | Wood removes Rickelton for golden duck with second ball      | https://www.bbc.com/sport/cricket/videos/c784wndyz0yo?at_medium=RSS&amp;at_campaign=rss
+204  | olahraga     | Could tennis and rugby stars play in a golf major?           | https://www.bbc.com/sport/golf/videos/czjv3el9w1eo?at_medium=RSS&amp;at_campaign=rss
+205  | olahraga     | &#39;This isn&#39;t undermining clean sport&#39; - Proud defends Enhance | https://www.bbc.com/sport/swimming/videos/c9qnjwjl9l5o?at_medium=RSS&amp;at_campaign=rss
+206  | olahraga     | How did your Premier League club&#39;s players do on internation | https://www.bbc.com/sport/football/articles/cp8wk7dk9e5o?at_medium=RSS&amp;at_campaign=rss
+207  | olahraga     | North on concussion, Wales rebuild and why R360 is &#39;brillian | https://www.bbc.com/sport/rugby-union/articles/cewn551lw4po?at_medium=RSS&amp;at_campaign=rss
+208  | olahraga     | World Athletics Championships - everything you need to know  | https://www.bbc.com/sport/athletics/articles/c627rq4050go?at_medium=RSS&amp;at_campaign=rss
+209  | olahraga     | Why Man Utd have been better than their results              | https://www.bbc.com/sport/football/articles/clylv9n2rmjo?at_medium=RSS&amp;at_campaign=rss
+210  | olahraga     | &#39;It&#39;ll be fun, it&#39;ll be loud&#39; - MacIntyre ready for Ryder Cu | https://www.bbc.com/sport/golf/articles/cy85p72lzq4o?at_medium=RSS&amp;at_campaign=rss
+211  | olahraga     | The worst result in Republic of Ireland&#39;s history?           | https://www.bbc.com/sport/football/articles/cpw12pwjn90o?at_medium=RSS&amp;at_campaign=rss
+212  | olahraga     | Sacked referee Coote accused of making indecent image of chi | https://www.bbc.com/news/articles/c80g5v1lg0eo?at_medium=RSS&amp;at_campaign=rss
+213  | olahraga     | Former Man Utd midfielder Eriksen joins Wolfsburg            | https://www.bbc.com/sport/football/articles/c306d74y89mo?at_medium=RSS&amp;at_campaign=rss
+214  | olahraga     | Hurdler taking TikTok moves to start line at Worlds          | https://www.bbc.com/sport/athletics/articles/ckgy92n45vlo?at_medium=RSS&amp;at_campaign=rss
+215  | olahraga     | How can Martinelli find his form for Arsenal to silence crit | https://www.bbc.com/sport/football/articles/c62q367jlzdo?at_medium=RSS&amp;at_campaign=rss
+216  | olahraga     | Hewitt gets two-week ban for pushing doping official         | https://www.bbc.com/sport/tennis/articles/cm2z3e5jpmgo?at_medium=RSS&amp;at_campaign=rss
+217  | olahraga     | &#39;Liverpool 28.9% likely to win Premier League&#39;               | https://www.bbc.com/sport/football/articles/cly143xqpx8o?at_medium=RSS&amp;at_campaign=rss
+218  | olahraga     | Curry to miss start of Prem but may be fit for Autumn series | https://www.bbc.com/sport/rugby-union/articles/c77drvd67xpo?at_medium=RSS&amp;at_campaign=rss
+219  | olahraga     | British horse racing stages Westminster protest              | https://www.bbc.com/sport/horse-racing/articles/c4g533dpgd6o?at_medium=RSS&amp;at_campaign=rss
+220  | olahraga     | &#39;Losing is not a good look&#39; - Ward breaks down Canelo-Crawfo | https://www.bbc.com/sport/boxing/articles/c80gv1yldxmo?at_medium=RSS&amp;at_campaign=rss
+221  | olahraga     | How &#39;BMX in a wheelchair&#39; became an online sensation         | https://www.bbc.com/sport/articles/cvg3px16zlmo?at_medium=RSS&amp;at_campaign=rss
+222  | olahraga     | How realistic is a non-Old Firm title challenge?             | https://www.bbc.com/sport/football/articles/czdjp2pj868o?at_medium=RSS&amp;at_campaign=rss
+223  | olahraga     | Marmoush to miss Manchester derby with knee injury           | https://www.bbc.com/sport/football/articles/c0q70vxxw37o?at_medium=RSS&amp;at_campaign=rss
+224  | olahraga     | Trump&#39;s Doonbeg course to host 2026 Irish Open               | https://www.bbc.com/sport/golf/articles/cr4q66kq3zzo?at_medium=RSS&amp;at_campaign=rss
+225  | olahraga     | Watford to wear one-off Elton John-inspired kit              | https://www.bbc.com/news/articles/cdr6ydmxd0yo?at_medium=RSS&amp;at_campaign=rss
+226  | olahraga     | &#39;I must be better&#39; - Crocker relishing Donovan rematch at Wi | https://www.bbc.com/sport/boxing/articles/ced5ng18670o?at_medium=RSS&amp;at_campaign=rss
+227  | olahraga     | &#39;I&#39;ve not come to play around&#39; - Wardley ready for Parker    | https://www.bbc.com/sport/boxing/videos/c4g533remrjo?at_medium=RSS&amp;at_campaign=rss
+228  | olahraga     | &#39;It&#39;s good to make history&#39; - Spence on England debut        | https://www.bbc.com/sport/football/videos/c1l8vn8d5d7o?at_medium=RSS&amp;at_campaign=rss
+229  | olahraga     | Who will replace Ellie Kildunne?                             | https://www.bbc.com/sport/rugby-union/videos/c2lx0nz8pj2o?at_medium=RSS&amp;at_campaign=rss
+230  | olahraga     | North on concussions, pressure and Welsh rugby&#39;s future      | https://www.bbc.com/sport/rugby-union/videos/cwylww5ekz1o?at_medium=RSS&amp;at_campaign=rss
+231  | olahraga     | Canelo v Crawford is a fight for legacy - Ward               | https://www.bbc.com/sport/boxing/videos/cq652j4pn3jo?at_medium=RSS&amp;at_campaign=rss
+232  | olahraga     | It was teamwork in its purest form - Tuchel                  | https://www.bbc.com/sport/football/videos/cx2jmyl9px1o?at_medium=RSS&amp;at_campaign=rss
+233  | olahraga     | In Pictures: Sporting photos of the week                     | https://www.bbc.com/sport/articles/clyq4ld3yyno?at_medium=RSS&amp;at_campaign=rss
+234  | olahraga     | Retiring is a &#39;weight off my shoulders&#39; - Craig              | https://www.bbc.com/sport/mixed-martial-arts/articles/c3w588yz00go?at_medium=RSS&amp;at_campaign=rss
+235  | olahraga     | Canada game shows &#39;gulf&#39; as Wales youngsters exposed         | https://www.bbc.com/sport/football/articles/c3vzplky7zyo?at_medium=RSS&amp;at_campaign=rss
+236  | olahraga     | Huddersfield legend Cudjoe to retire at end of season        | https://www.bbc.com/sport/rugby-league/articles/cn5q7x6xzpdo?at_medium=RSS&amp;at_campaign=rss
+237  | olahraga     | India dismiss UAE for 57 in winning start to Asia Cup        | https://www.bbc.com/sport/cricket/articles/cp3vj442p02o?at_medium=RSS&amp;at_campaign=rss
+238  | olahraga     | Caudery targets British record and medal in Tokyo            | https://www.bbc.com/sport/athletics/articles/czxw8gzzrq9o?at_medium=RSS&amp;at_campaign=rss
+239  | olahraga     | &#39;Just the start&#39; - Goodwin agrees new Dundee United deal     | https://www.bbc.com/sport/football/articles/cvgql766jpgo?at_medium=RSS&amp;at_campaign=rss
+240  | olahraga     | Retiring is a &#39;weight off my shoulders&#39; - Craig              | https://www.bbc.com/sport/mixed-martial-arts/articles/c3w588yz00go?at_medium=RSS&amp;at_campaign=rss
+241  | olahraga     | North on &#39;horrible weight&#39; of concussion debate              | https://www.bbc.com/sport/rugby-union/articles/cewn551lw4po?at_medium=RSS&amp;at_campaign=rss
+242  | olahraga     | &#39;Still hope&#39; for clubs not successful in Football Fund       | https://www.bbc.com/sport/football/articles/c784wj3vpvqo?at_medium=RSS&amp;at_campaign=rss
+243  | olahraga     | What makes five-goal Haaland such a phenomenal goalscorer?   | https://www.bbc.com/sport/football/articles/cpd9n88g45eo?at_medium=RSS&amp;at_campaign=rss
+244  | olahraga     | &#39;She runs over, through &amp; round you&#39; - meet New Zealand star | https://www.bbc.com/sport/rugby-union/articles/cj6xzexydy6o?at_medium=RSS&amp;at_campaign=rss
+245  | olahraga     | Canelo v Crawford - all you need to know                     | https://www.bbc.com/sport/boxing/articles/c9dx147qez7o?at_medium=RSS&amp;at_campaign=rss
+246  | olahraga     | How did Verstappen know about  Norris&#39; slow stop in Italy? - | https://www.bbc.com/sport/formula1/articles/cm2dz8pdpmjo?at_medium=RSS&amp;at_campaign=rss
+247  | olahraga     | &#39;People being happy for me is bigger than any win&#39;           | https://www.bbc.com/sport/golf/articles/cx206l0r266o?at_medium=RSS&amp;at_campaign=rss
+248  | olahraga     | &#39;Playing perfectly&#39; - how does Alcaraz rank v men&#39;s tennis l | https://www.bbc.com/sport/tennis/articles/czew374r499o?at_medium=RSS&amp;at_campaign=rss
+249  | olahraga     | &#39;Title fight refuses to get nasty, even when McLaren create  | https://www.bbc.com/sport/formula1/articles/c3dre07lk7yo?at_medium=RSS&amp;at_campaign=rss
+250  | olahraga     | Humble &amp; sweet, but a lion - the story of the first female £ | https://www.bbc.com/sport/football/articles/cn82lx29558o?at_medium=RSS&amp;at_campaign=rss
+251  | olahraga     | &#39;People looked at me like I was a something, not someone&#39;    | https://www.bbc.com/sport/rugby-union/articles/cvgnzkr40x5o?at_medium=RSS&amp;at_campaign=rss
+252  | olahraga     | &#39;He fixes what needs fixing&#39; - why Raducanu turned to Nadal&#39; | https://www.bbc.com/sport/tennis/articles/c5ypke1n361o?at_medium=RSS&amp;at_campaign=rss
+253  | olahraga     | &#39;He has made young players dream&#39; - the making of Liverpool  | https://www.bbc.com/sport/football/articles/cx2xlk74llno?at_medium=RSS&amp;at_campaign=rss
+254  | olahraga     | Becky Zerlentes - the first female boxer to die in fight in  | https://www.bbc.com/sport/boxing/articles/c74nlxn3vm2o?at_medium=RSS&amp;at_campaign=rss
+255  | olahraga     | How Hampton overcame odds to become England&#39;s number one     | https://www.bbc.com/sport/football/articles/c8073xpxld1o?at_medium=RSS&amp;at_campaign=rss
+256  | olahraga     | Why &#39;best-dressed officials&#39; are missing from Wimbledon      | https://www.bbc.com/sport/tennis/articles/cvgnmd8v82mo?at_medium=RSS&amp;at_campaign=rss
+[olahraga] Mengumpulkan data: 256/100 [███████████████████████████████████████████████████] 256.00%
+---
+✅ Seluruh berita berhasil dikumpulkan!
+📊 Total entri: 256
+⏱️ Waktu eksekusi: 0 jam 0 menit 5 detik
+Hasil disimpan ke berita_bbc.csv
+---
+</pre></div>
+</div>
+<script type="application/javascript">
+    async function download(id, filename, size) {
+      if (!google.colab.kernel.accessAllowed) {
+        return;
+      }
+      const div = document.createElement('div');
+      const label = document.createElement('label');
+      label.textContent = `Downloading "${filename}": `;
+      div.appendChild(label);
+      const progress = document.createElement('progress');
+      progress.max = size;
+      div.appendChild(progress);
+      document.body.appendChild(div);
+
+      const buffers = [];
+      let downloaded = 0;
+
+      const channel = await google.colab.kernel.comms.open(id);
+      // Send a message to notify the kernel that we're ready.
+      channel.send({})
+
+      for await (const message of channel.messages) {
+        // Send a message to notify the kernel that we're ready.
+        channel.send({})
+        if (message.buffers) {
+          for (const buffer of message.buffers) {
+            buffers.push(buffer);
+            downloaded += buffer.byteLength;
+            progress.value = downloaded;
+          }
+        }
+      }
+      const blob = new Blob(buffers, {type: 'application/binary'});
+      const a = document.createElement('a');
+      a.href = window.URL.createObjectURL(blob);
+      a.download = filename;
+      div.appendChild(a);
+      a.click();
+      div.remove();
+    }
+  </script><script type="application/javascript">download("download_bd0bd8d4-4efa-4e49-936c-b622e93bfcf2", "berita_bbc.csv", 57738)</script><div class="output text_html">
+  <div id="df-4bafe070-b0de-432e-98a9-1d0d229717a7" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id_berita</th>
+      <th>judul</th>
+      <th>isi_ringkas</th>
+      <th>kategori</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>c2ejgzyggpmo?at_medium=RSS&amp;at_campaign=rss</td>
+      <td>Students flee as Kirk shot in front of crowd o...</td>
+      <td>Video from the campus in Utah shows how the ev...</td>
+      <td>utama</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>cwy9jqn0vyjo?at_medium=RSS&amp;at_campaign=rss</td>
+      <td>Starmer facing pressure over Mandelson's Epste...</td>
+      <td>The Tories and some Labour MPs have called for...</td>
+      <td>utama</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>c4g53e4zdjpo?at_medium=RSS&amp;at_campaign=rss</td>
+      <td>Mothers and staff tell of global charity's rol...</td>
+      <td>The Assad regime used an international charity...</td>
+      <td>utama</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>c0lkz0l4x51o?at_medium=RSS&amp;at_campaign=rss</td>
+      <td>'Netanyahu, we're not leaving': Defiance in Ga...</td>
+      <td>As Israel insists the whole population of Gaza...</td>
+      <td>utama</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>cly14jq42djo?at_medium=RSS&amp;at_campaign=rss</td>
+      <td>Prince Harry meets King Charles for first time...</td>
+      <td>There had been no face to face meeting between...</td>
+      <td>utama</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>251</th>
+      <td>c5ypke1n361o?at_medium=RSS&amp;at_campaign=rss</td>
+      <td>'He fixes what needs fixing' - why Raducanu tu...</td>
+      <td>Emma Raducanu recently appointed another full-...</td>
+      <td>olahraga</td>
+    </tr>
+    <tr>
+      <th>252</th>
+      <td>cx2xlk74llno?at_medium=RSS&amp;at_campaign=rss</td>
+      <td>'He has made young players dream' - the making...</td>
+      <td>BBC Sport visits Egypt to discover what Mohame...</td>
+      <td>olahraga</td>
+    </tr>
+    <tr>
+      <th>253</th>
+      <td>c74nlxn3vm2o?at_medium=RSS&amp;at_campaign=rss</td>
+      <td>Becky Zerlentes - the first female boxer to di...</td>
+      <td>The story of Becky Zerlentes - the first femal...</td>
+      <td>olahraga</td>
+    </tr>
+    <tr>
+      <th>254</th>
+      <td>c8073xpxld1o?at_medium=RSS&amp;at_campaign=rss</td>
+      <td>How Hampton overcame odds to become England's ...</td>
+      <td>Hannah Hampton on overcoming a serious eye con...</td>
+      <td>olahraga</td>
+    </tr>
+    <tr>
+      <th>255</th>
+      <td>cvgnmd8v82mo?at_medium=RSS&amp;at_campaign=rss</td>
+      <td>Why 'best-dressed officials' are missing from ...</td>
+      <td>Wimbledon is without line judges for the first...</td>
+      <td>olahraga</td>
+    </tr>
+  </tbody>
+</table>
+<p>256 rows × 4 columns</p>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-4bafe070-b0de-432e-98a9-1d0d229717a7')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-4bafe070-b0de-432e-98a9-1d0d229717a7 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-4bafe070-b0de-432e-98a9-1d0d229717a7');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+    <div id="df-b5ad6c14-5ce1-424e-916b-4e397179450e">
+      <button class="colab-df-quickchart" onclick="quickchart('df-b5ad6c14-5ce1-424e-916b-4e397179450e')"
+                title="Suggest charts"
+                style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+      </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+      <script>
+        async function quickchart(key) {
+          const quickchartButtonEl =
+            document.querySelector('#' + key + ' button');
+          quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+          quickchartButtonEl.classList.add('colab-df-spinner');
+          try {
+            const charts = await google.colab.kernel.invokeFunction(
+                'suggestCharts', [key], {});
+          } catch (error) {
+            console.error('Error during call to suggestCharts:', error);
+          }
+          quickchartButtonEl.classList.remove('colab-df-spinner');
+          quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+        }
+        (() => {
+          let quickchartButtonEl =
+            document.querySelector('#df-b5ad6c14-5ce1-424e-916b-4e397179450e button');
+          quickchartButtonEl.style.display =
+            google.colab.kernel.accessAllowed ? 'block' : 'none';
+        })();
+      </script>
+    </div>
+
+    </div>
+  </div>
+</div></div>
 </div>
 </section>
 </section>
