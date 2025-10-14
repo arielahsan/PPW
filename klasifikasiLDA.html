@@ -1,0 +1,1768 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Klasifikasi Berita dengan LDA &#8212; 23-195 MOHAMMAD ARIEL RIFQI AHSAN</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'klasifikasiLDA';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/fotoArjuno.jpg" class="logo__image only-light" alt="23-195 MOHAMMAD ARIEL RIFQI AHSAN - Home"/>
+    <script>document.write(`<img src="_static/fotoArjuno.jpg" class="logo__image only-dark" alt="23-195 MOHAMMAD ARIEL RIFQI AHSAN - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to my book PPW
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Pengantar-Web-Mining.html">Pengantar Web Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Crawling.html">Crawling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Crawling%20PTA%20%26%20Berita.html">Crawling PTA &amp; Berita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Preprosesing%20PTA%20dan%20Berita.html">Preprosesing PTA dan Berita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TF_IDF_Dan_WordEmbeding.html">TF-IDF &amp; Word Embedding</a></li>
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FklasifikasiLDA.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/klasifikasiLDA.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Klasifikasi Berita dengan LDA</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="klasifikasi-berita-dengan-lda">
+<h1>Klasifikasi Berita dengan LDA<a class="headerlink" href="#klasifikasi-berita-dengan-lda" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Instal library jika belum ada (jalankan sekali saja)</span>
+<span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">gensim</span> <span class="n">pyLDAvis</span> <span class="n">nltk</span> <span class="n">scikit</span><span class="o">-</span><span class="n">learn</span>
+
+<span class="c1"># Import library utama</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">gensim</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">gensim</span><span class="w"> </span><span class="kn">import</span> <span class="n">corpora</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">classification_report</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">LabelEncoder</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">nltk.corpus</span><span class="w"> </span><span class="kn">import</span> <span class="n">stopwords</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">nltk.tokenize</span><span class="w"> </span><span class="kn">import</span> <span class="n">word_tokenize</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">nltk</span>
+
+<span class="c1"># Download resource NLTK</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt&#39;</span><span class="p">)</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;stopwords&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: gensim in /usr/local/lib/python3.12/dist-packages (4.3.3)
+Requirement already satisfied: pyLDAvis in /usr/local/lib/python3.12/dist-packages (3.4.1)
+Requirement already satisfied: nltk in /usr/local/lib/python3.12/dist-packages (3.9.1)
+Requirement already satisfied: scikit-learn in /usr/local/lib/python3.12/dist-packages (1.6.1)
+Requirement already satisfied: numpy&lt;2.0,&gt;=1.18.5 in /usr/local/lib/python3.12/dist-packages (from gensim) (1.26.4)
+Requirement already satisfied: scipy&lt;1.14.0,&gt;=1.7.0 in /usr/local/lib/python3.12/dist-packages (from gensim) (1.13.1)
+Requirement already satisfied: smart-open&gt;=1.8.1 in /usr/local/lib/python3.12/dist-packages (from gensim) (7.3.1)
+Requirement already satisfied: pandas&gt;=2.0.0 in /usr/local/lib/python3.12/dist-packages (from pyLDAvis) (2.2.2)
+Requirement already satisfied: joblib&gt;=1.2.0 in /usr/local/lib/python3.12/dist-packages (from pyLDAvis) (1.5.2)
+Requirement already satisfied: jinja2 in /usr/local/lib/python3.12/dist-packages (from pyLDAvis) (3.1.6)
+Requirement already satisfied: numexpr in /usr/local/lib/python3.12/dist-packages (from pyLDAvis) (2.13.1)
+Requirement already satisfied: funcy in /usr/local/lib/python3.12/dist-packages (from pyLDAvis) (2.0)
+Requirement already satisfied: setuptools in /usr/local/lib/python3.12/dist-packages (from pyLDAvis) (75.2.0)
+Requirement already satisfied: click in /usr/local/lib/python3.12/dist-packages (from nltk) (8.3.0)
+Requirement already satisfied: regex&gt;=2021.8.3 in /usr/local/lib/python3.12/dist-packages (from nltk) (2024.11.6)
+Requirement already satisfied: tqdm in /usr/local/lib/python3.12/dist-packages (from nltk) (4.67.1)
+Requirement already satisfied: threadpoolctl&gt;=3.1.0 in /usr/local/lib/python3.12/dist-packages (from scikit-learn) (3.6.0)
+Requirement already satisfied: python-dateutil&gt;=2.8.2 in /usr/local/lib/python3.12/dist-packages (from pandas&gt;=2.0.0-&gt;pyLDAvis) (2.9.0.post0)
+Requirement already satisfied: pytz&gt;=2020.1 in /usr/local/lib/python3.12/dist-packages (from pandas&gt;=2.0.0-&gt;pyLDAvis) (2025.2)
+Requirement already satisfied: tzdata&gt;=2022.7 in /usr/local/lib/python3.12/dist-packages (from pandas&gt;=2.0.0-&gt;pyLDAvis) (2025.2)
+Requirement already satisfied: wrapt in /usr/local/lib/python3.12/dist-packages (from smart-open&gt;=1.8.1-&gt;gensim) (1.17.3)
+Requirement already satisfied: MarkupSafe&gt;=2.0 in /usr/local/lib/python3.12/dist-packages (from jinja2-&gt;pyLDAvis) (3.0.3)
+Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.12/dist-packages (from python-dateutil&gt;=2.8.2-&gt;pandas&gt;=2.0.0-&gt;pyLDAvis) (1.17.0)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package punkt to /root/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+[nltk_data] Downloading package stopwords to /root/nltk_data...
+[nltk_data]   Package stopwords is already up-to-date!
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="c1"># Upload manual di Colab</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">google.colab</span><span class="w"> </span><span class="kn">import</span> <span class="n">files</span>
+<span class="n">uploaded</span> <span class="o">=</span> <span class="n">files</span><span class="o">.</span><span class="n">upload</span><span class="p">()</span>
+
+<span class="c1"># Baca file dengan deteksi otomatis dan encoding aman</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+    <span class="nb">list</span><span class="p">(</span><span class="n">uploaded</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">],</span>
+    <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span>
+    <span class="n">on_bad_lines</span><span class="o">=</span><span class="s1">&#39;skip&#39;</span>  <span class="c1"># lewati baris rusak kalau ada</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlah data:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nama kolom:&quot;</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+     <input type="file" id="files-9a153dd6-c74d-4c44-92aa-b0fbb3244076" name="files[]" multiple disabled
+        style="border:none" />
+     <output id="result-9a153dd6-c74d-4c44-92aa-b0fbb3244076">
+      Upload widget is only available when the cell has been executed in the
+      current browser session. Please rerun this cell to enable.
+      </output>
+      <script>// Copyright 2017 Google LLC
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+/**
+ * @fileoverview Helpers for google.colab Python module.
+ */
+(function(scope) {
+function span(text, styleAttributes = {}) {
+  const element = document.createElement('span');
+  element.textContent = text;
+  for (const key of Object.keys(styleAttributes)) {
+    element.style[key] = styleAttributes[key];
+  }
+  return element;
+}
+
+// Max number of bytes which will be uploaded at a time.
+const MAX_PAYLOAD_SIZE = 100 * 1024;
+
+function _uploadFiles(inputId, outputId) {
+  const steps = uploadFilesStep(inputId, outputId);
+  const outputElement = document.getElementById(outputId);
+  // Cache steps on the outputElement to make it available for the next call
+  // to uploadFilesContinue from Python.
+  outputElement.steps = steps;
+
+  return _uploadFilesContinue(outputId);
+}
+
+// This is roughly an async generator (not supported in the browser yet),
+// where there are multiple asynchronous steps and the Python side is going
+// to poll for completion of each step.
+// This uses a Promise to block the python side on completion of each step,
+// then passes the result of the previous step as the input to the next step.
+function _uploadFilesContinue(outputId) {
+  const outputElement = document.getElementById(outputId);
+  const steps = outputElement.steps;
+
+  const next = steps.next(outputElement.lastPromiseValue);
+  return Promise.resolve(next.value.promise).then((value) => {
+    // Cache the last promise value to make it available to the next
+    // step of the generator.
+    outputElement.lastPromiseValue = value;
+    return next.value.response;
+  });
+}
+
+/**
+ * Generator function which is called between each async step of the upload
+ * process.
+ * @param {string} inputId Element ID of the input file picker element.
+ * @param {string} outputId Element ID of the output display.
+ * @return {!Iterable<!Object>} Iterable of next steps.
+ */
+function* uploadFilesStep(inputId, outputId) {
+  const inputElement = document.getElementById(inputId);
+  inputElement.disabled = false;
+
+  const outputElement = document.getElementById(outputId);
+  outputElement.innerHTML = '';
+
+  const pickedPromise = new Promise((resolve) => {
+    inputElement.addEventListener('change', (e) => {
+      resolve(e.target.files);
+    });
+  });
+
+  const cancel = document.createElement('button');
+  inputElement.parentElement.appendChild(cancel);
+  cancel.textContent = 'Cancel upload';
+  const cancelPromise = new Promise((resolve) => {
+    cancel.onclick = () => {
+      resolve(null);
+    };
+  });
+
+  // Wait for the user to pick the files.
+  const files = yield {
+    promise: Promise.race([pickedPromise, cancelPromise]),
+    response: {
+      action: 'starting',
+    }
+  };
+
+  cancel.remove();
+
+  // Disable the input element since further picks are not allowed.
+  inputElement.disabled = true;
+
+  if (!files) {
+    return {
+      response: {
+        action: 'complete',
+      }
+    };
+  }
+
+  for (const file of files) {
+    const li = document.createElement('li');
+    li.append(span(file.name, {fontWeight: 'bold'}));
+    li.append(span(
+        `(${file.type || 'n/a'}) - ${file.size} bytes, ` +
+        `last modified: ${
+            file.lastModifiedDate ? file.lastModifiedDate.toLocaleDateString() :
+                                    'n/a'} - `));
+    const percent = span('0% done');
+    li.appendChild(percent);
+
+    outputElement.appendChild(li);
+
+    const fileDataPromise = new Promise((resolve) => {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        resolve(e.target.result);
+      };
+      reader.readAsArrayBuffer(file);
+    });
+    // Wait for the data to be ready.
+    let fileData = yield {
+      promise: fileDataPromise,
+      response: {
+        action: 'continue',
+      }
+    };
+
+    // Use a chunked sending to avoid message size limits. See b/62115660.
+    let position = 0;
+    do {
+      const length = Math.min(fileData.byteLength - position, MAX_PAYLOAD_SIZE);
+      const chunk = new Uint8Array(fileData, position, length);
+      position += length;
+
+      const base64 = btoa(String.fromCharCode.apply(null, chunk));
+      yield {
+        response: {
+          action: 'append',
+          file: file.name,
+          data: base64,
+        },
+      };
+
+      let percentDone = fileData.byteLength === 0 ?
+          100 :
+          Math.round((position / fileData.byteLength) * 100);
+      percent.textContent = `${percentDone}% done`;
+
+    } while (position < fileData.byteLength);
+  }
+
+  // All done.
+  yield {
+    response: {
+      action: 'complete',
+    }
+  };
+}
+
+scope.google = scope.google || {};
+scope.google.colab = scope.google.colab || {};
+scope.google.colab._files = {
+  _uploadFiles,
+  _uploadFilesContinue,
+};
+})(self);
+</script> </div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Saving detik_berita_10_pages.csv to detik_berita_10_pages (1).csv
+Jumlah data: 199
+Nama kolom: [&#39;id_berita&#39;, &#39;judul_berita&#39;, &#39;isi_berita_original&#39;, &#39;isi_berita_diproses&#39;, &#39;kategori_berita&#39;]
+</pre></div>
+</div>
+<div class="output text_html">
+  <div id="df-006ec1e7-d36b-42e5-a82c-41ec5a900918" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id_berita</th>
+      <th>judul_berita</th>
+      <th>isi_berita_original</th>
+      <th>isi_berita_diproses</th>
+      <th>kategori_berita</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>8140101</td>
+      <td>Gadis Pujaan Dipacari Teman, Pria di Bekasi Tu...</td>
+      <td>Seorang pria berinisial EP alias A (26)tewas d...</td>
+      <td>orang aria initial ep alias a teas team temann...</td>
+      <td>hukum</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>8140094</td>
+      <td>Info BSU Bulan Oktober 2025, Apakah Dana Cair ...</td>
+      <td>Setelah cair di bulan Juni dan Juli 2025, masi...</td>
+      <td>car buran junk julia banyan tanya danabsukemba...</td>
+      <td>hukum</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>8140088</td>
+      <td>Pansus DPRD DKI Segel 4 Parkir Ilegal: Potensi...</td>
+      <td>Panitia Khusus (Pansus) Perparkiran DPRD DKI J...</td>
+      <td>anita rhesus passus parker did dki jakarta heg...</td>
+      <td>hukum</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>8140084</td>
+      <td>KPK Tahan Eks Dirut PGN di Kasus Jual-Beli Gas...</td>
+      <td>KPKresmi menahan mantan Direktur Utama (Dirut)...</td>
+      <td>kpkresmi than manta director mama dirt pt sara...</td>
+      <td>hukum</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>8140077</td>
+      <td>DPR RI Sahkan Revisi UU BUMN Besok</td>
+      <td>Komisi VI DPRtelah menyepakati revisi UU BUMN ...</td>
+      <td>komi vi dprtelah part revisit uu burn baba par...</td>
+      <td>hukum</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-006ec1e7-d36b-42e5-a82c-41ec5a900918')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-006ec1e7-d36b-42e5-a82c-41ec5a900918 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-006ec1e7-d36b-42e5-a82c-41ec5a900918');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+    <div id="df-f776583f-1ec6-4ea6-bf21-958b71a634f9">
+      <button class="colab-df-quickchart" onclick="quickchart('df-f776583f-1ec6-4ea6-bf21-958b71a634f9')"
+                title="Suggest charts"
+                style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+      </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+      <script>
+        async function quickchart(key) {
+          const quickchartButtonEl =
+            document.querySelector('#' + key + ' button');
+          quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+          quickchartButtonEl.classList.add('colab-df-spinner');
+          try {
+            const charts = await google.colab.kernel.invokeFunction(
+                'suggestCharts', [key], {});
+          } catch (error) {
+            console.error('Error during call to suggestCharts:', error);
+          }
+          quickchartButtonEl.classList.remove('colab-df-spinner');
+          quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+        }
+        (() => {
+          let quickchartButtonEl =
+            document.querySelector('#df-f776583f-1ec6-4ea6-bf21-958b71a634f9 button');
+          quickchartButtonEl.style.display =
+            google.colab.kernel.accessAllowed ? 'block' : 'none';
+        })();
+      </script>
+    </div>
+
+    </div>
+  </div>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">nltk</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt&#39;</span><span class="p">)</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt_tab&#39;</span><span class="p">)</span>  <span class="c1"># 🔥 tambahkan ini untuk versi NLTK terbaru</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;stopwords&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package punkt to /root/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+[nltk_data] Downloading package punkt_tab to /root/nltk_data...
+[nltk_data]   Package punkt_tab is already up-to-date!
+[nltk_data] Downloading package stopwords to /root/nltk_data...
+[nltk_data]   Package stopwords is already up-to-date!
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Membersihkan teks dan tokenisasi</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">clean_text</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[^a-zA-Z\s]&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>  <span class="c1"># Hapus angka &amp; simbol</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="n">tokens</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">stop_words</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;indonesian&#39;</span><span class="p">))</span>
+    <span class="n">tokens</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">tokens</span> <span class="k">if</span> <span class="n">w</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stop_words</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">tokens</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;tokens&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;isi_berita_diproses&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">clean_text</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[[</span><span class="s1">&#39;isi_berita_diproses&#39;</span><span class="p">,</span> <span class="s1">&#39;tokens&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-fd38ff0b-55b9-45ac-910f-9632692fc26d" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>isi_berita_diproses</th>
+      <th>tokens</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>orang aria initial ep alias a teas team temann...</td>
+      <td>[orang, aria, initial, alias, teas, team, tema...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>car buran junk julia banyan tanya danabsukemba...</td>
+      <td>[car, buran, junk, julia, banyan, danabsukemba...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>anita rhesus passus parker did dki jakarta heg...</td>
+      <td>[anita, rhesus, passus, parker, did, dki, jaka...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>kpkresmi than manta director mama dirt pt sara...</td>
+      <td>[kpkresmi, than, manta, director, mama, dirt, ...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>komi vi dprtelah part revisit uu burn baba par...</td>
+      <td>[komi, dprtelah, part, revisit, burn, baba, pa...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-fd38ff0b-55b9-45ac-910f-9632692fc26d')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-fd38ff0b-55b9-45ac-910f-9632692fc26d button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-fd38ff0b-55b9-45ac-910f-9632692fc26d');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+    <div id="df-de906971-6243-465c-94f0-3ef4018a2db1">
+      <button class="colab-df-quickchart" onclick="quickchart('df-de906971-6243-465c-94f0-3ef4018a2db1')"
+                title="Suggest charts"
+                style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+      </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+      <script>
+        async function quickchart(key) {
+          const quickchartButtonEl =
+            document.querySelector('#' + key + ' button');
+          quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+          quickchartButtonEl.classList.add('colab-df-spinner');
+          try {
+            const charts = await google.colab.kernel.invokeFunction(
+                'suggestCharts', [key], {});
+          } catch (error) {
+            console.error('Error during call to suggestCharts:', error);
+          }
+          quickchartButtonEl.classList.remove('colab-df-spinner');
+          quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+        }
+        (() => {
+          let quickchartButtonEl =
+            document.querySelector('#df-de906971-6243-465c-94f0-3ef4018a2db1 button');
+          quickchartButtonEl.style.display =
+            google.colab.kernel.accessAllowed ? 'block' : 'none';
+        })();
+      </script>
+    </div>
+
+    </div>
+  </div>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Buat dictionary dan corpus untuk LDA</span>
+<span class="n">dictionary</span> <span class="o">=</span> <span class="n">corpora</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;tokens&#39;</span><span class="p">])</span>
+<span class="n">corpus</span> <span class="o">=</span> <span class="p">[</span><span class="n">dictionary</span><span class="o">.</span><span class="n">doc2bow</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;tokens&#39;</span><span class="p">]]</span>
+
+<span class="c1"># Tentukan jumlah topik</span>
+<span class="n">num_topics</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="c1"># Bangun model LDA</span>
+<span class="n">lda_model</span> <span class="o">=</span> <span class="n">gensim</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">LdaModel</span><span class="p">(</span>
+    <span class="n">corpus</span><span class="o">=</span><span class="n">corpus</span><span class="p">,</span>
+    <span class="n">id2word</span><span class="o">=</span><span class="n">dictionary</span><span class="p">,</span>
+    <span class="n">num_topics</span><span class="o">=</span><span class="n">num_topics</span><span class="p">,</span>
+    <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span>
+    <span class="n">passes</span><span class="o">=</span><span class="mi">10</span>
+<span class="p">)</span>
+
+<span class="c1"># Tampilkan kata kunci tiap topik</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">topic</span> <span class="ow">in</span> <span class="n">lda_model</span><span class="o">.</span><span class="n">show_topics</span><span class="p">(</span><span class="n">num_topics</span><span class="o">=</span><span class="n">num_topics</span><span class="p">,</span> <span class="n">formatted</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Topik </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">:&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">([</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">topic</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Topik 0:
+[&#39;program&#39;, &#39;liter&#39;, &#39;dpr&#39;, &#39;literdexlite&#39;, &#39;literpertamax&#39;, &#39;mbg&#39;, &#39;laku&#39;, &#39;dad&#39;, &#39;indonesia&#39;, &#39;data&#39;]
+
+Topik 1:
+[&#39;korban&#39;, &#39;anggota&#39;, &#39;jakarta&#39;, &#39;pensiun&#39;, &#39;laku&#39;, &#39;dpr&#39;, &#39;mohon&#39;, &#39;evakuasi&#39;, &#39;orang&#39;, &#39;with&#39;]
+
+Topik 2:
+[&#39;emas&#39;, &#39;indonesia&#39;, &#39;pancasila&#39;, &#39;harga&#39;, &#39;dpr&#39;, &#39;hard&#39;, &#39;ruu&#39;, &#39;batik&#39;, &#39;gram&#39;, &#39;uang&#39;]
+
+Topik 3:
+[&#39;laku&#39;, &#39;orang&#39;, &#39;korban&#39;, &#39;indonesia&#39;, &#39;scroll&#39;, &#39;with&#39;, &#39;continue&#39;, &#39;content&#39;, &#39;sangka&#39;, &#39;jakarta&#39;]
+
+Topik 4:
+[&#39;indonesia&#39;, &#39;kerja&#39;, &#39;asean&#39;, &#39;china&#39;, &#39;usaha&#39;, &#39;miliar&#39;, &#39;continue&#39;, &#39;with&#39;, &#39;content&#39;, &#39;scroll&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ubah hasil distribusi topik menjadi fitur numerik</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_lda_features</span><span class="p">(</span><span class="n">lda_model</span><span class="p">,</span> <span class="n">corpus</span><span class="p">,</span> <span class="n">num_topics</span><span class="p">):</span>
+    <span class="n">lda_features</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">corpus</span><span class="p">),</span> <span class="n">num_topics</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">doc</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">corpus</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">topic_num</span><span class="p">,</span> <span class="n">prob</span> <span class="ow">in</span> <span class="n">lda_model</span><span class="o">.</span><span class="n">get_document_topics</span><span class="p">(</span><span class="n">doc</span><span class="p">):</span>
+            <span class="n">lda_features</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">topic_num</span><span class="p">]</span> <span class="o">=</span> <span class="n">prob</span>
+    <span class="k">return</span> <span class="n">lda_features</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">get_lda_features</span><span class="p">(</span><span class="n">lda_model</span><span class="p">,</span> <span class="n">corpus</span><span class="p">,</span> <span class="n">num_topics</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ukuran fitur LDA:&quot;</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ukuran fitur LDA: (199, 5)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Encode kategori menjadi angka</span>
+<span class="n">le</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">le</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;kategori_berita&#39;</span><span class="p">])</span>
+
+<span class="c1"># Split train-test</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Latih model Logistic Regression</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Prediksi data uji</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># Evaluasi hasil</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Akurasi:&quot;</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Laporan Klasifikasi:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">target_names</span><span class="o">=</span><span class="n">le</span><span class="o">.</span><span class="n">classes_</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Akurasi: 0.7
+
+Laporan Klasifikasi:
+               precision    recall  f1-score   support
+
+     ekonomi       0.61      0.94      0.74        18
+       hukum       0.92      0.55      0.69        20
+     politik       0.00      0.00      0.00         2
+
+    accuracy                           0.70        40
+   macro avg       0.51      0.50      0.48        40
+weighted avg       0.73      0.70      0.68        40
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f&quot;{metric.capitalize()} is&quot;, len(result))
+/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f&quot;{metric.capitalize()} is&quot;, len(result))
+/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f&quot;{metric.capitalize()} is&quot;, len(result))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pyLDAvis</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pyLDAvis.gensim_models</span>
+<span class="n">pyLDAvis</span><span class="o">.</span><span class="n">enable_notebook</span><span class="p">()</span>
+
+<span class="n">lda_vis</span> <span class="o">=</span> <span class="n">pyLDAvis</span><span class="o">.</span><span class="n">gensim_models</span><span class="o">.</span><span class="n">prepare</span><span class="p">(</span><span class="n">lda_model</span><span class="p">,</span> <span class="n">corpus</span><span class="p">,</span> <span class="n">dictionary</span><span class="p">)</span>
+<span class="n">pyLDAvis</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="n">lda_vis</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+</pre></div>
+</div>
+<div class="output text_html">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bmabey/pyLDAvis@3.4.0/pyLDAvis/js/ldavis.v1.0.0.css">
+
+
+<div id="ldavis_el5461389587021001767549684514" style="background-color:white;"></div>
+<script type="text/javascript">
+
+var ldavis_el5461389587021001767549684514_data = {"mdsDat": {"x": [0.12960551190545022, -0.015310701885091012, -0.0020247854955413895, -0.11636164765528664, 0.00409162313046894], "y": [-0.014673955760420715, 0.13395685073668986, -0.08865075569231277, -0.032366371913404295, 0.0017342326294479148], "topics": [1, 2, 3, 4, 5], "cluster": [1, 1, 1, 1, 1], "Freq": [31.45836905758707, 21.13568203757256, 15.96426070913436, 15.923902801415576, 15.517785394290428]}, "tinfo": {"Term": ["liter", "emas", "literdexlite", "literpertamax", "pancasila", "korban", "dad", "dex", "pensiun", "turbo", "literpertamina", "evakuasi", "asean", "program", "china", "batik", "mohon", "gram", "ruu", "psk", "sangka", "laku", "anggota", "beras", "mbg", "sppg", "kerja", "bgn", "gugat", "indonesia", "literdexlite", "literpertamax", "dex", "turbo", "literpertamina", "liter", "dad", "fortifikasi", "irma", "airlangga", "jago", "hinayana", "shopee", "etanol", "belanda", "bicara", "gudang", "baratpertamax", "pertamax", "arief", "bgn", "kopeks", "atlet", "disco", "masak", "gizi", "sepakbola", "pariwisata", "juri", "hartarto", "sppg", "giza", "gratis", "sing", "program", "beras", "pertamina", "pangan", "mbg", "dapur", "rapat", "umkm", "bantu", "racun", "bbm", "rapt", "presiden", "data", "dpr", "perintah", "menteri", "kait", "content", "kerja", "scroll", "indonesia", "laku", "with", "continue", "detik", "gambasvideo", "jakarta", "video", "polantas", "evakuasi", "cpo", "pensiun", "gkr", "sar", "parkir", "runt", "runtuh", "hpe", "kemendag", "sidoarjo", "merek", "difabel", "mui", "laboratorium", "irjen", "syafii", "indikasi", "yulita", "wuk", "sentry", "ponpes", "jebak", "nobu", "santri", "suap", "suharyanto", "gkp", "tmi", "ponies", "dilansirdetikjatim", "hominy", "mohon", "edi", "anggota", "korban", "hak", "surat", "korean", "kayu", "lokasi", "duga", "kondisi", "mahkamah", "gula", "angora", "agung", "temu", "bank", "sakit", "jakarta", "rumah", "hidup", "dpr", "orang", "masyarakat", "nyata", "hadir", "uang", "laku", "with", "continue", "scroll", "content", "makan", "bangun", "rabu", "gambasvideo", "detik", "video", "indonesia", "psk", "gadai", "maggie", "rinah", "independensi", "ntp", "nitro", "misbakhun", "lps", "vpower", "topi", "panja", "ojk", "batik", "ortu", "buyback", "martin", "pleno", "baleg", "tekstil", "nilainilai", "waris", "reggy", "konsepsi", "sempurna", "patriot", "ducati", "rupbasan", "octane", "twibbon", "emas", "fadli", "kopi", "gram", "antam", "kpk", "zon", "pancasila", "ruu", "budaya", "tabung", "ron", "mas", "upacara", "tanga", "harga", "hard", "tumbuh", "indonesia", "sakti", "gugat", "nasional", "uang", "dpr", "digital", "bangsa", "september", "negara", "scroll", "continue", "with", "content", "jakarta", "laku", "video", "rabu", "gambasvideo", "detik", "perintah", "narkotika", "saham", "tangkap", "afghan", "ihsg", "pgn", "kompolnas", "halal", "lapas", "reformasi", "ganja", "kai", "pasir", "timah", "iae", "sangka", "lrt", "sabu", "andil", "amunisi", "indo", "pekanbaru", "maximum", "poorest", "obat", "tanka", "kemenbud", "kap", "tikam", "kios", "level", "bri", "jarang", "senjata", "barang", "komponen", "serang", "tbk", "laku", "inflasi", "transaksi", "polri", "rupiah", "industri", "orang", "gugat", "aman", "pasal", "korban", "kuat", "lake", "polisi", "scroll", "with", "continue", "content", "indonesia", "jakarta", "gambasvideo", "detik", "masyarakat", "video", "juta", "hukum", "uang", "milik", "data", "surplus", "migas", "cimb", "slot", "beasiswa", "tamsil", "cikande", "asean", "defisit", "china", "kartini", "maskapai", "johanes", "nazi", "kargo", "indri", "dwi", "galbay", "eva", "kwh", "credit", "cemar", "charles", "ika", "erica", "antre", "cicip", "ernst", "lpdp", "giro", "lamar", "garuda", "wanita", "non", "asli", "galba", "januariagustus", "nasi", "niaga", "milia", "sosial", "kerja", "jam", "miliar", "indonesia", "sulit", "usaha", "nilai", "sopir", "cari", "impor", "swasta", "negara", "era", "lihat", "perintah", "continue", "with", "scroll", "content", "laku", "tingkat", "detik", "gambasvideo", "rabu", "video", "jakarta", "masyarakat", "harga"], "Freq": [98.0, 62.0, 72.0, 68.0, 79.0, 148.0, 66.0, 63.0, 47.0, 61.0, 59.0, 42.0, 32.0, 148.0, 32.0, 30.0, 53.0, 34.0, 47.0, 22.0, 25.0, 226.0, 74.0, 67.0, 93.0, 56.0, 138.0, 45.0, 50.0, 211.0, 71.3824579336337, 67.77954720290775, 62.449632730206375, 60.686164675849234, 58.91505971472225, 96.40934100409247, 64.75056042491937, 26.750353236489747, 20.66007485268293, 23.057988250246233, 14.41215378485236, 14.38642989981805, 13.525281006920478, 12.61014920865461, 14.282015469865936, 12.580982141479087, 11.70836008358671, 10.85270740784613, 10.851224127711312, 23.286095643093862, 42.17126488610491, 9.928962175814915, 9.090389820075554, 9.908814629717735, 9.07501465590799, 28.82261474029878, 8.194589969273176, 8.190911900203874, 8.180765880592855, 8.950779330193097, 50.80509204130307, 43.19220810946372, 34.51195140987927, 26.734186441742384, 115.15573384549631, 54.41126242735761, 34.43702864303246, 48.31202546980948, 67.4964557248409, 18.84488236843516, 39.60349742346334, 37.618312544226306, 46.364586851436336, 33.19771042630711, 42.241889838489065, 27.47659074766974, 35.592675068440805, 63.78492451310648, 73.09874590111714, 60.900896525025, 52.84690726866057, 43.576513255086496, 60.13408863143172, 54.09551413346934, 58.27197080648299, 64.2266269845741, 65.93016120818365, 58.17080644463791, 58.14030264485705, 46.772471083671334, 46.667745753820235, 48.32396293024815, 42.29784086348223, 20.326799771449302, 40.38874475550247, 16.821177579988106, 45.19157274454843, 13.289481048102568, 14.878542599030354, 15.692398623662152, 16.427388418242113, 15.571449608085672, 9.80646226213909, 9.796734994612775, 9.730725578663453, 8.918251670749516, 8.910633465485079, 8.905169411509933, 8.060645486763002, 8.052761348255247, 8.04465360497889, 8.0399790690756, 7.186184748274003, 7.175956900524972, 7.149179539346673, 7.144610364538053, 7.132621744259309, 7.133442088502966, 6.306525428961058, 6.304290301459268, 6.302094281787378, 6.296237769236887, 6.2960426901795055, 8.590826195882526, 8.514264107149948, 8.511745562904416, 41.63113333796305, 7.0195909140072, 49.9125043368635, 86.1113779052971, 18.61669626633751, 15.89712305217316, 31.638694480874694, 8.940118008676661, 25.19689690865946, 21.69833068989638, 33.731318571616, 15.077468946689661, 21.994074221623546, 12.669529005586737, 10.925086065270415, 32.946136407866575, 20.14716876697033, 13.309285253163713, 45.91078874100748, 31.20750719153391, 19.11699675304529, 42.17146551954027, 37.76656936165697, 35.914124397921505, 25.126425519364656, 26.056759384385124, 29.298388080892213, 44.07343847942902, 36.091896630249956, 36.09079608990737, 35.914547682668655, 35.88752371211593, 23.972496087584226, 22.822308124894896, 25.52646641278918, 25.98972028227915, 25.956722475686238, 24.39073086366227, 23.11283237165288, 21.68314813282344, 14.062421172929039, 9.273543542094977, 10.723600732091725, 7.609440964485693, 7.5897464229226195, 6.780424203083098, 6.778638655466089, 15.055951577714481, 6.759990838196988, 5.964971070230876, 5.965110772477282, 5.942317760195399, 26.746469089133164, 5.886128960661819, 5.139641127564916, 5.136311209840866, 5.135022265482851, 5.1325726109183725, 5.131450475212783, 7.320937059682642, 5.114750496478779, 4.306549369790768, 4.306376653331903, 4.303482175694289, 4.296840758701561, 4.29520672894384, 4.2896520008180605, 4.28862126235328, 4.273754093687804, 50.03716332596092, 13.799051161830246, 11.088737226855244, 26.71215098904076, 7.62132538593498, 16.192890161134596, 13.349957787192663, 46.065799609872585, 28.85380171724726, 15.156672032121286, 15.210228730126797, 9.244537602546284, 11.69512421036984, 16.95906593295208, 10.52837483565308, 35.63587454584517, 30.314928746440618, 12.510872733544067, 47.425773872234934, 16.64611065984761, 19.137931671514774, 18.710605435946658, 25.102019350923847, 33.376415206862944, 14.742217864232027, 16.7387158733139, 17.65059205266481, 19.4088358734148, 24.368814699330425, 24.307337370478894, 24.290275625479943, 24.331710894742514, 22.159609247035682, 23.40586727089515, 17.838128070226624, 16.75078447931691, 16.67472807424336, 16.54855678969269, 16.241695592690178, 11.658888017915212, 11.64619130650221, 13.103717482460851, 9.994773022444859, 9.961364601221687, 8.361707913075525, 8.309548375024384, 17.361925775445275, 6.731653021078434, 7.479466029130183, 6.727031623334683, 6.723720522881013, 6.7217114003695535, 6.7202825523722725, 6.717627987121624, 22.955730495395755, 5.911404144370758, 5.9083169730306855, 14.7142628104155, 5.897476169472473, 5.884176998617629, 5.859303535033722, 5.087978663333368, 5.0868638707183145, 5.085045399928956, 5.0850131624559465, 5.081447975252639, 5.078697737501445, 5.068678469545744, 5.059724078117857, 14.910506520846466, 9.988057228873943, 8.377164568145574, 8.360839234501729, 18.655804832499463, 7.551185047311007, 10.812429035731947, 11.594519143580662, 70.83692327202405, 14.143121553643224, 11.63680292242692, 18.187245294681876, 10.838091450805862, 19.217886319437454, 35.37741674671993, 19.567149181864426, 18.49415990331657, 16.997943213514052, 31.625343712781916, 18.916773069386572, 17.304233871058234, 14.278652049851072, 25.41689447947044, 25.38944895083563, 25.382072462387757, 25.38197817644519, 27.4803340131968, 22.441922024493984, 20.50025001247668, 20.484114637275948, 20.04624933343779, 18.06256877433304, 14.181021729439117, 13.63654120948558, 14.711278937644858, 13.99454216029573, 14.218876148821705, 16.565217565100074, 15.64955276822161, 12.452473735348834, 12.445525887007387, 11.650316134099182, 9.189796177543192, 8.35783322572181, 30.33244120868191, 7.541658995773206, 29.26080518859263, 6.720301579080573, 6.714813697703912, 6.70201584753549, 5.909149067988637, 5.887213756830515, 5.086080361929135, 5.082557456913919, 7.2605933981214275, 5.066636655660477, 5.056096315724742, 7.231179894305633, 5.054224571867295, 5.047379076600889, 5.031772428350051, 4.268333677972874, 4.267445604592397, 4.266354514056474, 4.264066264121381, 4.263210957236875, 4.262545831148567, 9.190627838502772, 8.349043022029612, 11.63856343381254, 16.3447767409722, 7.486053914312405, 4.931139425447285, 7.383529913013324, 9.166075936851998, 15.31044588324368, 8.986111531416542, 20.904910928714845, 46.36395133143655, 21.476327540938364, 24.565662227886, 48.981795733707045, 11.288149067534452, 26.91203519764444, 20.810510991622873, 12.465199296546764, 12.420073413415816, 14.011217160132851, 12.208680195762918, 19.204574354271422, 16.222150325495775, 16.463010419195015, 20.69052481256403, 22.96634915190557, 22.946735194977435, 22.914403784025634, 22.94244109501067, 22.24544165109698, 15.777002952383171, 17.623807790608122, 17.548352968567773, 16.969614226791105, 16.943429405124647, 17.179585986556955, 15.970078009793943, 14.512045957263878], "Total": [98.0, 62.0, 72.0, 68.0, 79.0, 148.0, 66.0, 63.0, 47.0, 61.0, 59.0, 42.0, 32.0, 148.0, 32.0, 30.0, 53.0, 34.0, 47.0, 22.0, 25.0, 226.0, 74.0, 67.0, 93.0, 56.0, 138.0, 45.0, 50.0, 211.0, 72.33884423918161, 68.76531844922205, 63.40325711989489, 61.6147337897145, 59.82932041742121, 98.1972054353111, 66.06253343257964, 27.64678884604619, 21.40243981514038, 24.06333075831094, 15.145917856304406, 15.144351267811908, 14.25253279659382, 13.35941915577895, 15.144095501763255, 13.357880242791527, 12.461191743303614, 11.572463410747705, 11.572624972030978, 24.902207172652872, 45.33772607229159, 10.67500210101601, 9.78519276422194, 10.67514012358427, 9.784500811546218, 31.194206689189933, 8.891205563558016, 8.891321893559494, 8.890867602772929, 9.776124342109524, 56.83167018017733, 48.82469602647258, 39.1139418821014, 30.232303093477842, 148.6924563772796, 67.79701875911364, 42.273765893125585, 61.820226738953025, 93.3906232680196, 22.082463830939325, 53.90528626361446, 51.673361122471626, 67.83814705689633, 45.12080033853945, 61.21155988144109, 36.02928817933633, 53.5270814904369, 128.42967811147, 160.29057615834174, 122.63731462870365, 100.10200196242818, 74.67694950317589, 168.67774250974603, 138.92791852293925, 166.88663145197813, 211.22736297536574, 226.49183188162885, 166.88916284618088, 166.88685771953666, 127.38567277693433, 127.3807970913872, 156.01586892934225, 119.53269797682881, 21.083438152180094, 42.140434602888845, 17.56618205949531, 47.49496198456202, 14.045655896991432, 15.793992841831368, 16.67976619725968, 17.541194607092148, 16.663219374557915, 10.527524922073344, 10.527026513374887, 10.521228207127667, 9.647003738636275, 9.647507553883136, 9.645870778603125, 8.76744148375764, 8.766614498017193, 8.76597626422636, 8.766838703715903, 7.887541682815879, 7.88690593396682, 7.885944583322273, 7.884831256617466, 7.883803798362978, 7.889113027592272, 7.007947886861102, 7.007902794183448, 7.007186410333835, 7.007573101920053, 7.008212155781622, 9.627529737184945, 9.623103333145258, 9.62282123079226, 53.4021420998369, 7.888609958411436, 74.79909723709338, 148.11687137514946, 25.140731615716277, 21.01811677490422, 50.7757207312856, 10.470880971413642, 40.89510266409584, 35.31383855576698, 65.24040642871725, 22.460707919622358, 40.51033468939498, 17.465047337570287, 13.964898962975868, 76.54687466260913, 36.38706951654106, 19.074302061634896, 156.01586892934225, 81.00001247346107, 35.494500260036006, 160.29057615834174, 132.57336043056858, 125.74231867109663, 63.79201765269095, 69.41598286859603, 87.8070052474645, 226.49183188162885, 166.88916284618088, 166.88685771953666, 166.88663145197813, 168.67774250974603, 66.62657813267036, 60.668934074176185, 111.08318235391391, 127.3807970913872, 127.38567277693433, 119.53269797682881, 211.22736297536574, 22.46755032926977, 14.996201245950903, 9.994569764115498, 11.669994245567386, 8.332937109262975, 8.333152645320196, 7.502183093955571, 7.501534269182427, 16.707663750448358, 7.503603996127443, 6.669274181467631, 6.669907104001129, 6.671287379407024, 30.059000846364867, 6.673820141826974, 5.838233909073393, 5.838397579007424, 5.838388272996057, 5.838369561020574, 5.838826550439719, 8.354288553261853, 5.839781482637595, 5.006498332179058, 5.006909501585559, 5.0071586449746075, 5.006718986184032, 5.006870250832505, 5.006697372833603, 5.008262791084506, 5.009120129754341, 62.393714362059626, 16.79882040534441, 13.431306179429056, 34.04613720890797, 9.155461370023737, 23.286333492465605, 18.616209414058453, 79.49181810962035, 47.35547782045207, 22.591893500285142, 22.70723934107837, 12.469187001026064, 17.60369722013131, 30.828672911348225, 15.98939822878343, 104.87775019346334, 88.96112978671283, 21.825764135636355, 211.22736297536574, 37.95143761234094, 50.42423524519338, 49.39530076297767, 87.8070052474645, 160.29057615834174, 32.875690364661445, 43.0432428947255, 51.93377993096459, 74.62764712772838, 166.88663145197813, 166.88685771953666, 166.88916284618088, 168.67774250974603, 156.01586892934225, 226.49183188162885, 119.53269797682881, 111.08318235391391, 127.3807970913872, 127.38567277693433, 122.63731462870365, 12.384634290774159, 12.385952987414976, 14.032832888147398, 10.738098502194246, 10.739435440323595, 9.089473082717692, 9.09349453091608, 19.045253494903186, 7.441718943047568, 8.270249749970509, 7.441193997910099, 7.441519511220054, 7.441715519682986, 7.441748947561681, 7.44160915626093, 25.582487324718386, 6.617439683483695, 6.617140726242571, 16.510911379758173, 6.617786559730598, 6.6178517286248875, 6.617203299244185, 5.7938086105430875, 5.793269009496804, 5.793371291115357, 5.793364781696721, 5.794605841189458, 5.793696557928317, 5.793442036519416, 5.793481255591306, 17.346069911461203, 11.560793245505748, 9.913117305944887, 9.9128964316718, 25.66180464523818, 9.156586903919075, 14.201413278303496, 15.698061227877517, 226.49183188162885, 24.001850049492184, 18.1815923316203, 38.471774370514716, 17.46275941093087, 46.09194937069698, 132.57336043056858, 50.42423524519338, 46.72739869678055, 44.12401985514078, 148.11687137514946, 61.300135227399444, 53.23345118331853, 35.99717365654771, 166.88663145197813, 166.88916284618088, 166.88685771953666, 168.67774250974603, 211.22736297536574, 156.01586892934225, 127.3807970913872, 127.38567277693433, 125.74231867109663, 119.53269797682881, 56.32037119367658, 42.331250290700666, 87.8070052474645, 60.700508417748274, 128.42967811147, 17.32514933427116, 16.503824800602228, 13.208859830656856, 13.209426757835464, 12.38288438138815, 9.911397465943644, 9.088992503378968, 32.994569157550124, 8.263663015947477, 32.25480686786006, 7.441168450572644, 7.441557039439951, 7.440683323314114, 6.61628826743814, 6.617506131477499, 5.792684978192068, 5.792555338612789, 8.288234813241047, 5.792888470344876, 5.795039523393666, 8.291052133934482, 5.795255834077684, 5.795597525841399, 5.793311839888184, 4.968509850033979, 4.969180338236427, 4.968821853201401, 4.969427225752925, 4.968708995847349, 4.969246038616558, 10.803052594214646, 9.923192241687003, 14.09778225026175, 20.888970594614303, 9.091732113752283, 5.805675765339279, 9.144186599692448, 11.696830521864458, 22.780324663162983, 12.51068012872718, 42.239494795068104, 138.92791852293925, 49.36497225227059, 62.632073346963494, 211.22736297536574, 19.300738851921782, 102.3519955263319, 63.264847467957196, 24.439566797209203, 24.621240875136323, 32.301879111153504, 24.749117915672123, 74.62764712772838, 55.80166543561496, 62.566368083041475, 122.63731462870365, 166.88685771953666, 166.88916284618088, 166.88663145197813, 168.67774250974603, 226.49183188162885, 70.60908391582826, 127.38567277693433, 127.3807970913872, 111.08318235391391, 119.53269797682881, 156.01586892934225, 125.74231867109663, 104.87775019346334], "Category": ["Default", "Default", "Default", "Default", "Default", "Default", "Default", "Default", "Default", "Default", "Default", "Default", "Default", "Default", "Default", "Default", "Default", "Default", "Default", "Default", "Default", "Default", "Default", "Default", "Default", "Default", "Default", "Default", "Default", "Default", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5", "Topic5"], "logprob": [30.0, 29.0, 28.0, 27.0, 26.0, 25.0, 24.0, 23.0, 22.0, 21.0, 20.0, 19.0, 18.0, 17.0, 16.0, 15.0, 14.0, 13.0, 12.0, 11.0, 10.0, 9.0, 8.0, 7.0, 6.0, 5.0, 4.0, 3.0, 2.0, 1.0, -5.1048, -5.1566, -5.2385, -5.2672, -5.2968, -4.8043, -5.2023, -6.0863, -6.3447, -6.2349, -6.7048, -6.7066, -6.7683, -6.8384, -6.7139, -6.8407, -6.9126, -6.9885, -6.9886, -6.225, -5.6311, -7.0774, -7.1656, -7.0794, -7.1673, -6.0117, -7.2694, -7.2698, -7.2711, -7.1811, -5.4449, -5.6072, -5.8316, -6.0869, -4.6266, -5.3763, -5.8337, -5.4952, -5.1608, -6.4366, -5.6939, -5.7454, -5.5363, -5.8704, -5.6295, -6.0595, -5.8007, -5.2174, -5.0811, -5.2636, -5.4055, -5.5983, -5.2763, -5.3821, -5.3077, -5.2104, -5.1843, -5.3095, -5.31, -5.5276, -5.5298, -5.4949, -5.6281, -5.9632, -5.2766, -6.1525, -5.1643, -6.3882, -6.2752, -6.222, -6.1762, -6.2297, -6.6921, -6.6931, -6.6999, -6.7871, -6.7879, -6.7885, -6.8882, -6.8891, -6.8902, -6.8907, -7.003, -7.0044, -7.0082, -7.0088, -7.0105, -7.0104, -7.1336, -7.1339, -7.1343, -7.1352, -7.1352, -6.8245, -6.8334, -6.8337, -5.2463, -7.0265, -5.0649, -4.5195, -6.0511, -6.209, -5.5208, -6.7846, -5.7484, -5.8979, -5.4567, -6.262, -5.8844, -6.436, -6.5841, -5.4803, -5.9721, -6.3867, -5.1485, -5.5345, -6.0246, -5.2334, -5.3437, -5.394, -5.7512, -5.7149, -5.5976, -5.1893, -5.3891, -5.3891, -5.394, -5.3948, -5.7983, -5.8474, -5.7354, -5.7175, -5.7187, -5.781, -5.8348, -5.618, -6.051, -6.4674, -6.3221, -6.6652, -6.6678, -6.7805, -6.7808, -5.9828, -6.7835, -6.9087, -6.9086, -6.9125, -5.4082, -6.922, -7.0576, -7.0582, -7.0585, -7.0589, -7.0592, -6.7038, -7.0624, -7.2344, -7.2345, -7.2351, -7.2367, -7.2371, -7.2383, -7.2386, -7.2421, -4.7818, -6.07, -6.2886, -5.4094, -6.6636, -5.91, -6.103, -4.8645, -5.3323, -5.9761, -5.9726, -6.4705, -6.2354, -5.8638, -6.3405, -5.1212, -5.2829, -6.168, -4.8354, -5.8824, -5.7429, -5.7655, -5.4716, -5.1867, -6.0038, -5.8768, -5.8238, -5.7288, -5.5013, -5.5038, -5.5045, -5.5028, -5.5963, -5.5416, -5.8132, -5.8761, -5.8807, -5.8883, -5.907, -6.236, -6.237, -6.1191, -6.39, -6.3933, -6.5684, -6.5746, -5.8377, -6.7852, -6.6799, -6.7859, -6.7864, -6.7867, -6.7869, -6.7873, -5.5585, -6.9151, -6.9157, -6.0032, -6.9175, -6.9198, -6.924, -7.0651, -7.0654, -7.0657, -7.0657, -7.0664, -7.067, -7.0689, -7.0707, -5.99, -6.3906, -6.5665, -6.5685, -5.7659, -6.6703, -6.3113, -6.2415, -4.4316, -6.0428, -6.2379, -5.7913, -6.309, -5.7362, -5.1259, -5.7182, -5.7746, -5.8589, -5.2381, -5.752, -5.8411, -6.0333, -5.4566, -5.4577, -5.458, -5.458, -5.3786, -5.5811, -5.6716, -5.6724, -5.694, -5.7982, -6.0401, -6.0793, -6.0034, -6.0534, -6.0375, -5.8589, -5.9157, -6.1443, -6.1448, -6.2109, -6.4481, -6.543, -5.254, -6.6457, -5.2899, -6.7611, -6.7619, -6.7638, -6.8897, -6.8934, -7.0397, -7.0404, -6.6837, -7.0435, -7.0456, -6.6878, -7.046, -7.0473, -7.0504, -7.215, -7.2152, -7.2154, -7.216, -7.2162, -7.2163, -6.448, -6.544, -6.2119, -5.8723, -6.6531, -7.0706, -6.6669, -6.4507, -5.9377, -6.4705, -5.6262, -4.8297, -5.5992, -5.4648, -4.7747, -6.2424, -5.3736, -5.6307, -6.1432, -6.1469, -6.0263, -6.164, -5.711, -5.8798, -5.8651, -5.6365, -5.5322, -5.533, -5.5344, -5.5332, -5.5641, -5.9076, -5.7969, -5.8012, -5.8348, -5.8363, -5.8225, -5.8955, -5.9912], "loglift": [30.0, 29.0, 28.0, 27.0, 26.0, 25.0, 24.0, 23.0, 22.0, 21.0, 20.0, 19.0, 18.0, 17.0, 16.0, 15.0, 14.0, 13.0, 12.0, 11.0, 10.0, 9.0, 8.0, 7.0, 6.0, 5.0, 4.0, 3.0, 2.0, 1.0, 1.1432, 1.1421, 1.1414, 1.1413, 1.1411, 1.1381, 1.1364, 1.1235, 1.1212, 1.1138, 1.1068, 1.1052, 1.1041, 1.0988, 1.0979, 1.0966, 1.0942, 1.0923, 1.0921, 1.0894, 1.0841, 1.0841, 1.0829, 1.082, 1.0812, 1.0774, 1.0749, 1.0745, 1.0733, 1.0683, 1.0444, 1.0339, 1.0313, 1.0335, 0.9009, 0.9366, 0.9515, 0.91, 0.8318, 0.998, 0.8482, 0.8391, 0.7759, 0.8496, 0.7856, 0.8855, 0.7485, 0.4566, 0.3713, 0.4565, 0.5177, 0.6179, 0.1251, 0.2133, 0.1043, -0.034, -0.0776, 0.1026, 0.102, 0.1546, 0.1524, -0.0155, 0.1177, 1.5177, 1.5118, 1.5109, 1.5045, 1.4989, 1.4945, 1.4932, 1.4886, 1.4864, 1.4833, 1.4823, 1.4761, 1.4757, 1.4748, 1.4743, 1.4702, 1.4693, 1.4683, 1.4677, 1.4611, 1.4597, 1.4561, 1.4556, 1.4541, 1.4535, 1.4487, 1.4484, 1.4482, 1.4472, 1.447, 1.4403, 1.4318, 1.4315, 1.3052, 1.4375, 1.1497, 1.0118, 1.2538, 1.275, 1.0812, 1.3962, 1.0699, 1.0672, 0.8946, 1.1556, 0.9434, 1.2332, 1.3087, 0.7112, 0.9631, 1.1943, 0.3309, 0.6004, 0.9354, 0.219, 0.2985, 0.3011, 0.6225, 0.5744, 0.4566, -0.0826, 0.0229, 0.0229, 0.018, 0.0066, 0.532, 0.5765, 0.0836, -0.0353, -0.0366, -0.0352, -0.6583, 1.7993, 1.7705, 1.7599, 1.7502, 1.744, 1.7414, 1.7337, 1.7335, 1.7307, 1.7305, 1.7232, 1.7231, 1.7191, 1.7181, 1.7092, 1.7074, 1.7067, 1.7064, 1.706, 1.7057, 1.7028, 1.7023, 1.6842, 1.6841, 1.6834, 1.6819, 1.6815, 1.6802, 1.6797, 1.6761, 1.6141, 1.6381, 1.6432, 1.5922, 1.6514, 1.4715, 1.5023, 1.2892, 1.3394, 1.4357, 1.4341, 1.5356, 1.4259, 1.2372, 1.417, 0.7554, 0.7583, 1.2783, 0.341, 1.0107, 0.866, 0.8641, 0.5826, 0.2657, 1.0328, 0.8903, 0.7556, 0.488, -0.0892, -0.0917, -0.0924, -0.1014, -0.1169, -0.4349, -0.0674, -0.057, -0.1985, -0.2061, -0.1868, 1.777, 1.7758, 1.7688, 1.7656, 1.7621, 1.7539, 1.7472, 1.7448, 1.7371, 1.7368, 1.7365, 1.7359, 1.7356, 1.7354, 1.735, 1.729, 1.7245, 1.724, 1.7221, 1.7221, 1.7198, 1.7157, 1.7074, 1.7073, 1.7069, 1.7069, 1.706, 1.7056, 1.7037, 1.7019, 1.686, 1.6911, 1.669, 1.6671, 1.5185, 1.6446, 1.5647, 1.5343, 0.675, 1.3084, 1.3911, 1.0881, 1.3603, 0.9626, 0.5163, 0.8907, 0.9105, 0.8834, 0.2933, 0.6616, 0.7136, 0.9127, -0.0446, -0.0456, -0.0459, -0.0566, -0.2021, -0.1017, 0.0106, 0.0098, 0.0012, -0.0524, 0.4582, 0.7046, 0.0508, 0.3701, -0.3635, 1.8183, 1.81, 1.8042, 1.8036, 1.8022, 1.7876, 1.7793, 1.7791, 1.7718, 1.7658, 1.7613, 1.7604, 1.7586, 1.7502, 1.7462, 1.7331, 1.7324, 1.7308, 1.7292, 1.7268, 1.7264, 1.7264, 1.725, 1.7223, 1.7113, 1.7109, 1.7108, 1.7101, 1.71, 1.7098, 1.7015, 1.6905, 1.6715, 1.6179, 1.6689, 1.6999, 1.6493, 1.6194, 1.4658, 1.5323, 1.1598, 0.7658, 1.0309, 0.9273, 0.4017, 1.3268, 0.5273, 0.7513, 1.1899, 1.1789, 1.0279, 1.1565, 0.5058, 0.6278, 0.5281, 0.0836, -0.1201, -0.121, -0.1224, -0.1318, -0.4574, 0.3646, -0.1148, -0.119, -0.0157, -0.0905, -0.3431, -0.2003, -0.1146]}, "token.table": {"Topic": [4, 1, 2, 4, 1, 1, 2, 3, 4, 5, 4, 3, 4, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 3, 5, 5, 1, 4, 3, 5, 4, 5, 1, 3, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 3, 4, 5, 1, 1, 3, 4, 1, 2, 3, 5, 5, 1, 1, 3, 4, 5, 1, 4, 5, 1, 4, 5, 1, 2, 3, 4, 5, 3, 1, 2, 3, 5, 5, 5, 1, 2, 3, 5, 5, 5, 5, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 2, 1, 5, 1, 1, 4, 5, 1, 2, 3, 4, 5, 5, 1, 2, 3, 4, 5, 1, 2, 1, 2, 3, 4, 5, 2, 3, 1, 1, 2, 3, 4, 5, 3, 1, 2, 3, 4, 5, 5, 2, 1, 3, 4, 5, 1, 3, 4, 5, 5, 5, 1, 5, 2, 3, 1, 3, 1, 3, 5, 5, 1, 2, 3, 4, 5, 4, 3, 5, 5, 1, 2, 5, 1, 2, 2, 2, 3, 4, 1, 2, 5, 1, 1, 2, 3, 4, 1, 2, 3, 5, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 4, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 1, 2, 3, 4, 1, 2, 3, 2, 1, 2, 3, 4, 5, 4, 4, 5, 1, 2, 3, 5, 3, 2, 4, 1, 2, 3, 4, 5, 5, 1, 2, 3, 4, 5, 3, 4, 2, 1, 1, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 2, 5, 4, 5, 2, 5, 1, 1, 2, 3, 4, 5, 4, 1, 2, 3, 4, 5, 4, 5, 5, 2, 4, 4, 2, 1, 2, 3, 4, 5, 4, 4, 1, 4, 1, 2, 3, 4, 5, 3, 1, 1, 3, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 3, 4, 1, 2, 3, 4, 5, 5, 2, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 5, 4, 3, 4, 5, 1, 2, 3, 4, 5, 1, 5, 1, 1, 1, 1, 2, 3, 4, 5, 5, 1, 3, 4, 3, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 3, 2, 3, 4, 1, 5, 1, 2, 3, 4, 5, 4, 1, 2, 3, 5, 1, 2, 3, 4, 5, 2, 5, 1, 2, 4, 5, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 3, 1, 2, 3, 4, 2, 4, 1, 5, 1, 2, 3, 4, 5, 5, 1, 2, 3, 4, 5, 1, 2, 5, 1, 2, 3, 4, 5, 1, 3, 3, 2, 1, 2, 5, 3, 1, 2, 3, 4, 5, 4, 3, 3, 1, 2, 3, 4, 5, 3, 1, 2, 3, 1, 2, 3, 4, 5, 3, 1, 2, 1, 2, 3, 4, 5, 4, 3, 4, 1, 2, 1, 2, 3, 4, 5, 1, 1, 3, 4, 5, 4, 3, 2, 1, 2, 3, 4, 1, 2, 4, 2, 2, 4, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 3, 1, 2, 3, 4, 5, 1, 2, 5, 1, 2, 3, 1, 2, 3, 5, 4, 3, 3, 3, 5, 1, 2, 3, 4, 5, 2, 2, 3, 1, 3, 4, 5, 1, 3, 5, 4, 4, 1, 2, 4, 1, 2, 3, 3, 4, 2, 2, 1, 2, 3, 4, 5, 3, 4, 5, 2, 1, 1, 2, 3, 4, 5, 1, 2, 4, 1, 2, 1, 2, 4, 5, 1, 2, 3, 4, 5, 1, 2, 3, 5, 1, 2, 4, 5, 2, 2, 1, 2, 3, 4, 5, 1, 2, 3, 5, 5, 1, 2, 4, 5, 2, 1, 2, 3, 5, 5, 1, 2, 3, 5, 4, 4, 3, 4, 5, 3, 1, 2, 3, 4, 5, 4, 4, 1, 2, 3, 4, 5, 2, 3, 3, 4, 5, 1, 2, 3, 4, 5, 1, 3, 1, 2, 3, 4, 5, 1, 2, 4, 5, 1, 2, 3, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 3, 1, 4, 5, 3, 1, 2, 3, 4, 5, 2, 2, 1, 2, 3], "Freq": [0.9312635750134513, 0.07160810849052529, 0.7876891933957781, 0.07160810849052529, 0.9558111564441806, 0.2140072051708067, 0.19260648465372604, 0.064202161551242, 0.3852129693074521, 0.128404323102484, 0.9066475544119472, 0.06056600856243264, 0.9084901284364896, 0.1203223077876512, 0.6684572654869512, 0.08021487185843414, 0.08021487185843414, 0.053476581238956086, 0.11451443339049301, 0.7443438170382046, 0.057257216695246506, 0.057257216695246506, 0.057257216695246506, 0.8737953967227824, 0.1092244245903478, 0.8049617296480749, 0.9236129087086771, 0.04015708298733379, 0.06061603624675128, 0.9092405437012692, 0.10999004232509071, 0.769930296275635, 0.9197570468828292, 0.85640347835843, 0.3717192043158215, 0.1626271518881719, 0.3949516545855603, 0.023232450269738844, 0.04646490053947769, 0.1483461039384053, 0.37910671006481356, 0.08241450218800295, 0.19779480525120707, 0.19779480525120707, 0.16489374054353242, 0.5496458018117748, 0.16489374054353242, 0.05496458018117748, 0.08244687027176621, 0.6780845585510977, 0.17689162396985159, 0.0147409686641543, 0.0147409686641543, 0.10318678064908009, 0.03896842072584169, 0.15587368290336676, 0.7403999937909921, 0.07793684145168338, 0.950532277318238, 0.06653581102785945, 0.8982334488761026, 0.033267905513929726, 0.6861449059842388, 0.03267356695163042, 0.1633678347581521, 0.09802070085489126, 0.969079548060415, 0.9244527016070359, 0.7964951997648279, 0.14749911106756072, 0.014749911106756072, 0.029499822213512144, 0.9263808231809081, 0.022056686266212096, 0.04411337253242419, 0.9732083057875404, 0.8649925474523554, 0.08649925474523554, 0.08852732950315817, 0.044263664751579085, 0.6639549712736862, 0.13279099425473725, 0.08852732950315817, 0.8564233769786671, 0.12184601154808326, 0.28430736027886094, 0.04061533718269442, 0.48738404619233305, 0.8627746803857453, 0.8627238136716723, 0.031003130916168613, 0.031003130916168613, 0.031003130916168613, 0.8990907965688898, 0.8050198051320372, 0.8801855647945447, 0.9084811371946597, 0.355707867008792, 0.2134247202052752, 0.1422831468035168, 0.14821161125366333, 0.13635468235337025, 0.3475408476889922, 0.21571500891040893, 0.14381000594027263, 0.14980208952111732, 0.13781792235942794, 0.9677686330713358, 0.12061195417009812, 0.8442836791906869, 0.9839162475707351, 0.8604112360586982, 0.04528480189782622, 0.09056960379565245, 0.49832718528229486, 0.17129996994078886, 0.11679543405053786, 0.10900907178050201, 0.10900907178050201, 0.9680936873347022, 0.368958290013524, 0.20410458596492814, 0.13345299851552994, 0.15700352766532935, 0.1413031748987964, 0.977867743967138, 0.9328834364454565, 0.1216704487611204, 0.1520880609514005, 0.4562641828542015, 0.1825056731416806, 0.0912528365708403, 0.9352492318149513, 0.10391658131277237, 0.9367558537154277, 0.455422906009693, 0.2620241377042069, 0.20587610819616256, 0.02495467978135304, 0.04990935956270608, 0.7989022682053544, 0.02831751066712326, 0.6229852346767117, 0.19822257466986282, 0.08495253200136978, 0.08495253200136978, 0.8631769068601438, 0.8873553182251162, 0.032054510946316735, 0.8013627736579184, 0.1442452992584253, 0.032054510946316735, 0.5017771383957517, 0.16128550877006304, 0.05376183625668768, 0.28672979336900095, 0.8050703572566419, 0.804921738117204, 0.9730961988999743, 0.8631272681316317, 0.9492071065934827, 0.02373017766483707, 0.11905597844023119, 0.8333918490816183, 0.9766052813710882, 0.9335697601270931, 0.8612261865966957, 0.8445706664604868, 0.3689724124294861, 0.20411239836524764, 0.13345810662343113, 0.16486001406423847, 0.14130858348363298, 0.9407092466566507, 0.10077402267780654, 0.8061921814224523, 0.8049510869285923, 0.8807018476200149, 0.04096287663348906, 0.06144431495023359, 0.9296598015441657, 0.06411446907201143, 0.8562165406959535, 0.9255530745833371, 0.7930415081842415, 0.20560335397369223, 0.8948215985363535, 0.07669899416025887, 0.05113266277350591, 0.9629897562926557, 0.11899040155640123, 0.0991586679636677, 0.3768029382619372, 0.3966346718546708, 0.3702758842900101, 0.5430712969586815, 0.024685058952667344, 0.04937011790533469, 0.3313357968803645, 0.37455350951693384, 0.08643542527313858, 0.05762361684875905, 0.14405904212189763, 0.039776089864261066, 0.7557457074209603, 0.07955217972852213, 0.07955217972852213, 0.07955217972852213, 0.05250652086450915, 0.8926108546966556, 0.33722593307803045, 0.12364950879527782, 0.33722593307803045, 0.12364950879527782, 0.07868605105154043, 0.32418696946951764, 0.08581419780075468, 0.3432567912030187, 0.11441893040100623, 0.1430236630012578, 0.9206102219090587, 0.1408668938390324, 0.5352941965883231, 0.25356040891025833, 0.05634675753561296, 0.9244370889465477, 0.9352766495547811, 0.10391962772830901, 0.9498908883162777, 0.11811604820702404, 0.2598553060554529, 0.18898567713123846, 0.3307249349796673, 0.11811604820702404, 0.9406567656285219, 0.9311476432413551, 0.8630641916380086, 0.18574770772169297, 0.2476636102955906, 0.1238318051477953, 0.43341131801728355, 0.9600456471832868, 0.9125296210376413, 0.9066386262550385, 0.3029910476488028, 0.1088874077487885, 0.22250905061708953, 0.12782434822683866, 0.23197752085611462, 0.8631575890668458, 0.04339152557673125, 0.19526186509529064, 0.06508728836509688, 0.4122194929789469, 0.2603491534603875, 0.3749710952048222, 0.5832883703186124, 0.9125529589340807, 0.9811965449445774, 0.9243414715980766, 0.30766101121251094, 0.29484180241198965, 0.14101129680573418, 0.14101129680573418, 0.10896327480443095, 0.34437373757903955, 0.08102911472447989, 0.020257278681119973, 0.12154367208671983, 0.42540285230351943, 0.10935909816556386, 0.765513687158947, 0.8070115336174231, 0.10087644170217788, 0.8878962717785425, 0.9407738101239562, 0.8997996998071279, 0.3373557311023767, 0.1065333887691716, 0.1598000831537574, 0.24857790712806707, 0.14204451835889548, 0.9406680973483511, 0.5892045710588212, 0.06695506489304787, 0.12051911680748616, 0.1473011427647053, 0.08034607787165743, 0.8630068817045325, 0.906685975168167, 0.9407124763398289, 0.8595265312031273, 0.0955029479114586, 0.8628714596010642, 0.9499358614984692, 0.3886907726979565, 0.12956359089931882, 0.09357370453839693, 0.05758381817747504, 0.33110695452048144, 0.8630389535090814, 0.8797498005636429, 0.10921099864972546, 0.8736879891978037, 0.07663962065385173, 0.5211494204461918, 0.13795131717693312, 0.12262339304616278, 0.15327924130770346, 0.798896005356858, 0.9367679655115229, 0.1489058452902469, 0.8189821490963579, 0.07426567883775556, 0.5806225800042708, 0.040508552093321215, 0.2160456111643798, 0.0877685295355293, 0.03938890420845754, 0.6302224673353206, 0.01969445210422877, 0.1378611647296014, 0.17725006893805892, 0.04294364333155129, 0.6870982933048206, 0.25766185998930774, 0.06525271086534426, 0.17944495487969672, 0.26101084346137704, 0.3099503766103852, 0.19575813259603278, 0.8628068850636451, 0.912466882706958, 0.3757036140889413, 0.1690666263400236, 0.09392590352223533, 0.3193480719756001, 0.05635554211334119, 0.29140123708520094, 0.19426749139013394, 0.10154891595393366, 0.3134770883795343, 0.09713374569506697, 0.09256642891246586, 0.8330978602121928, 0.9406428882321276, 0.057649946362735585, 0.8647491954410338, 0.057649946362735585, 0.3196605558669302, 0.19179633352015815, 0.12786422234677208, 0.07991513896673255, 0.25572844469354417, 0.9776245624753696, 0.010183589192451766, 0.9814920427156004, 0.988870575073579, 0.9861385619686944, 0.17116963998101667, 0.6113201427893452, 0.024452805711573808, 0.14671683426944285, 0.048905611423147616, 0.8050380900437201, 0.059852772651901406, 0.8977915897785211, 0.9066950795147031, 0.9004889867609508, 0.0445221942059257, 0.6678329130888855, 0.1780887768237028, 0.0445221942059257, 0.1335665826177771, 0.48028881111498645, 0.3602166083362398, 0.030018050694686653, 0.045027076042029976, 0.10506317743140328, 0.8563993685490054, 0.17041874570355867, 0.6816749828142347, 0.17041874570355867, 0.9198220914223374, 0.9406633535025376, 0.3101581107472024, 0.2862997945358791, 0.1192915810566163, 0.15905544140882172, 0.1272443531270574, 0.8629901910983768, 0.7174167775678961, 0.12849255717633962, 0.010707713098028301, 0.1392002702743679, 0.5294599404704491, 0.16982677335844593, 0.14984715296333465, 0.08990829177800079, 0.05993886118533386, 0.9329321563290139, 0.969472240120736, 0.07993170552764653, 0.07993170552764653, 0.07993170552764653, 0.7193853497488187, 0.20756138676718838, 0.14369634468497655, 0.0957975631233177, 0.15966260520552952, 0.39915651301382377, 0.3294865318484249, 0.1482689393317912, 0.13179461273936996, 0.23064057229389742, 0.16474326592421246, 0.9331424411079724, 0.11235504352583499, 0.7864853046808449, 0.018725840587639164, 0.07490336235055665, 0.933041734289472, 0.9689426202063399, 0.17098649042246727, 0.7694392069011028, 0.3036726119348314, 0.08097936318262171, 0.38465197511745314, 0.060734522386966285, 0.16195872636524342, 0.9068528693843066, 0.1339985968321442, 0.254597333981074, 0.254597333981074, 0.09379901778250095, 0.254597333981074, 0.2633851838688816, 0.043897530644813595, 0.6584629596722039, 0.23709849308650116, 0.047419698617300235, 0.17387222826343418, 0.20548536067496767, 0.33193789032110166, 0.11969900173121976, 0.8378930121185384, 0.9330617384744749, 0.8872987337762068, 0.1436164595288135, 0.04787215317627116, 0.7659544508203385, 0.9600208157104514, 0.23513913733950148, 0.39189856223250247, 0.0627037699572004, 0.21946319485020138, 0.09405565493580059, 0.8630553349252685, 0.7986801345809226, 0.8993766358380605, 0.30926273473676147, 0.28663375414626674, 0.052800954711154396, 0.26400477355577195, 0.08297292883181405, 0.8990353159798349, 0.31449777592864514, 0.10063928829716645, 0.5786759077087071, 0.7764449037479043, 0.08087967747374003, 0.04852780648424402, 0.016175935494748005, 0.06470374197899202, 0.8995627534903348, 0.8997537256855889, 0.9592460596137516, 0.2039705364458409, 0.18130714350741414, 0.15864375056898736, 0.385277679953255, 0.0679901788152803, 0.9406433209500324, 0.7989264049046774, 0.9067274690933733, 0.04210972946246571, 0.9474689129054784, 0.4974016284088037, 0.09784950067058433, 0.13046600089411245, 0.10600362572646636, 0.1712366261735226, 0.9505190072766626, 0.804281314467159, 0.04731066555689171, 0.07096599833533757, 0.07096599833533757, 0.8801390275538451, 0.8564007335939263, 0.9486118846290702, 0.1388997938478574, 0.4166993815435722, 0.02777995876957148, 0.3889194227740007, 0.2339377412989228, 0.28592390603201673, 0.4678754825978456, 0.9348192366769638, 0.8877805716038808, 0.8630705723838454, 0.6725567506689437, 0.1307749237411835, 0.1307749237411835, 0.05604639588907864, 0.018682131963026212, 0.7734084351139426, 0.13450581480242482, 0.02690116296048496, 0.00672529074012124, 0.06052761666109117, 0.979189972986923, 0.3510882491261817, 0.23405883275078782, 0.1530384675678228, 0.11702941637539391, 0.1530384675678228, 0.7313700056825765, 0.1773018195594125, 0.06648818233477968, 0.7420422517447905, 0.1484084503489581, 0.11130633776171858, 0.7493903256041886, 0.02775519724459958, 0.08326559173379874, 0.11102078897839832, 0.8464073288747975, 0.7989616164036584, 0.9425882968346904, 0.7217792145758507, 0.24059307152528356, 0.23456786511267735, 0.3827159904469999, 0.14814812533432253, 0.12345677111193545, 0.11111109400074191, 0.9121385605933007, 0.9601986051044527, 0.7989298537802675, 0.1145294367823732, 0.1717941551735598, 0.6299119023030526, 0.1145294367823732, 0.2534025745764388, 0.6123895552263938, 0.1267012872882194, 0.906736043289047, 0.968839459684117, 0.05242655782469495, 0.6815452517210344, 0.2097062312987798, 0.3952419445402601, 0.13174731484675337, 0.4479408704789615, 0.07817848102938584, 0.8990525318379371, 0.8561707502490338, 0.9497281751497044, 0.34754131889042045, 0.21571530138026096, 0.14381020092017396, 0.14980229262518122, 0.1378181092151667, 0.7988562543378901, 0.8070295150507093, 0.10087868938133866, 0.8876552359756713, 0.899765497807096, 0.26957406178811083, 0.13478703089405542, 0.3465952222989997, 0.23106348153266645, 0.03851058025544441, 0.07041552699038559, 0.07041552699038559, 0.7745707968942414, 0.9822815495184005, 0.9504593763326454, 0.8930844572613734, 0.06615440424158321, 0.033077202120791606, 0.9084421466572676, 0.24550353325760058, 0.04091725554293343, 0.1636690221717337, 0.04091725554293343, 0.49100706651520115, 0.18939620463770515, 0.14204715347827887, 0.165721679057992, 0.497165037173976, 0.8973869646679609, 0.03519164567325336, 0.01759582283662668, 0.05278746850988005, 0.8561762593196917, 0.8562637910062605, 0.15543446409054382, 0.10362297606036254, 0.05181148803018127, 0.10362297606036254, 0.569926368331994, 0.14273400572129377, 0.7612480305135668, 0.047578001907097926, 0.047578001907097926, 0.9812325234260477, 0.3636493240149316, 0.08081096089220702, 0.04040548044610351, 0.4848657653532421, 0.9126194001514375, 0.044038818853287774, 0.1761552754131511, 0.6605822827993166, 0.08807763770657555, 0.9080455133521506, 0.06254144062781818, 0.18762432188345451, 0.6879558469059999, 0.12508288125563635, 0.9263988321973274, 0.8630563046533442, 0.12740426801548496, 0.7644256080929097, 0.12740426801548496, 0.8563364499367518, 0.3135333755399329, 0.4311083913674077, 0.05225556258998881, 0.14370279712246922, 0.05225556258998881, 0.8630447959058032, 0.9406390956380728, 0.226599739193236, 0.1982747717940815, 0.21243725549365874, 0.1416248369957725, 0.226599739193236, 0.8561384653645411, 0.8996481231304917, 0.2200027328213408, 0.6600081984640225, 0.16500204961600562, 0.13745223220394392, 0.04581741073464798, 0.5956263395504238, 0.09163482146929595, 0.13745223220394392, 0.9900229417234434, 0.7985434360497499, 0.12527474281805817, 0.3302697765203352, 0.28471532458649584, 0.1708291947518975, 0.09110890386767867, 0.7353885865859541, 0.03870466245189232, 0.09676165612973081, 0.1354663185816231, 0.3568106882716587, 0.06487467059484704, 0.5514347000561998, 0.3614975927897867, 0.21494451463176506, 0.04885102605267388, 0.1172424625264173, 0.26379554068443894, 0.351368292616817, 0.20078188149532403, 0.150586411121493, 0.150586411121493, 0.14222049939252118, 0.9328850514516293, 0.07093314269210203, 0.07093314269210203, 0.8511977123052245, 0.8561964201683965, 0.3475360473433358, 0.21571202938551878, 0.14380801959034586, 0.14980002040661028, 0.13781601877408145, 0.8875470379141774, 0.8874755001612843, 0.21486651288845673, 0.053716628222114184, 0.6983161668874843], "Term": ["afghan", "agung", "agung", "agung", "airlangga", "aman", "aman", "aman", "aman", "aman", "amunisi", "andil", "andil", "anggota", "anggota", "anggota", "anggota", "anggota", "angora", "angora", "angora", "angora", "angora", "antam", "antam", "antre", "arief", "arief", "asean", "asean", "asli", "asli", "atlet", "baleg", "bangsa", "bangsa", "bangsa", "bangsa", "bangsa", "bangun", "bangun", "bangun", "bangun", "bangun", "bank", "bank", "bank", "bank", "bank", "bantu", "bantu", "bantu", "bantu", "bantu", "barang", "barang", "barang", "barang", "baratpertamax", "batik", "batik", "batik", "bbm", "bbm", "bbm", "bbm", "beasiswa", "belanda", "beras", "beras", "beras", "beras", "bgn", "bgn", "bgn", "bicara", "bri", "bri", "budaya", "budaya", "budaya", "budaya", "budaya", "buyback", "cari", "cari", "cari", "cari", "cemar", "charles", "china", "china", "china", "china", "cicip", "cikande", "cimb", "content", "content", "content", "content", "content", "continue", "continue", "continue", "continue", "continue", "cpo", "credit", "credit", "dad", "dapur", "dapur", "dapur", "data", "data", "data", "data", "data", "defisit", "detik", "detik", "detik", "detik", "detik", "dex", "difabel", "digital", "digital", "digital", "digital", "digital", "dilansirdetikjatim", "dilansirdetikjatim", "disco", "dpr", "dpr", "dpr", "dpr", "dpr", "ducati", "duga", "duga", "duga", "duga", "duga", "dwi", "edi", "emas", "emas", "emas", "emas", "era", "era", "era", "era", "erica", "ernst", "etanol", "eva", "evakuasi", "evakuasi", "fadli", "fadli", "fortifikasi", "gadai", "galba", "galbay", "gambasvideo", "gambasvideo", "gambasvideo", "gambasvideo", "gambasvideo", "ganja", "garuda", "garuda", "giro", "giza", "giza", "giza", "gizi", "gizi", "gkp", "gkr", "gram", "gram", "gratis", "gratis", "gratis", "gudang", "gugat", "gugat", "gugat", "gugat", "gula", "gula", "gula", "gula", "hadir", "hadir", "hadir", "hadir", "hadir", "hak", "hak", "hak", "hak", "hak", "halal", "halal", "hard", "hard", "hard", "hard", "hard", "harga", "harga", "harga", "harga", "harga", "hartarto", "hidup", "hidup", "hidup", "hidup", "hinayana", "hominy", "hominy", "hpe", "hukum", "hukum", "hukum", "hukum", "hukum", "iae", "ihsg", "ika", "impor", "impor", "impor", "impor", "independensi", "indikasi", "indo", "indonesia", "indonesia", "indonesia", "indonesia", "indonesia", "indri", "industri", "industri", "industri", "industri", "industri", "inflasi", "inflasi", "irjen", "irma", "jago", "jakarta", "jakarta", "jakarta", "jakarta", "jakarta", "jam", "jam", "jam", "jam", "jam", "januariagustus", "januariagustus", "jarang", "jarang", "jebak", "johanes", "juri", "juta", "juta", "juta", "juta", "juta", "kai", "kait", "kait", "kait", "kait", "kait", "kap", "kargo", "kartini", "kayu", "kayu", "kemenbud", "kemendag", "kerja", "kerja", "kerja", "kerja", "kerja", "kios", "kompolnas", "komponen", "komponen", "kondisi", "kondisi", "kondisi", "kondisi", "kondisi", "konsepsi", "kopeks", "kopi", "kopi", "korban", "korban", "korban", "korban", "korban", "korean", "korean", "korean", "korean", "korean", "kpk", "kpk", "kpk", "kuat", "kuat", "kuat", "kuat", "kuat", "kwh", "laboratorium", "lake", "lake", "lake", "lake", "lake", "laku", "laku", "laku", "laku", "laku", "lamar", "lamar", "lapas", "level", "level", "level", "lihat", "lihat", "lihat", "lihat", "lihat", "liter", "liter", "literdexlite", "literpertamax", "literpertamina", "lokasi", "lokasi", "lokasi", "lokasi", "lokasi", "lpdp", "lps", "lps", "lrt", "maggie", "mahkamah", "mahkamah", "mahkamah", "mahkamah", "mahkamah", "makan", "makan", "makan", "makan", "makan", "martin", "mas", "mas", "mas", "masak", "maskapai", "masyarakat", "masyarakat", "masyarakat", "masyarakat", "masyarakat", "maximum", "mbg", "mbg", "mbg", "mbg", "menteri", "menteri", "menteri", "menteri", "menteri", "merek", "migas", "milia", "milia", "milia", "milia", "miliar", "miliar", "miliar", "miliar", "miliar", "milik", "milik", "milik", "milik", "milik", "misbakhun", "mohon", "mohon", "mohon", "mohon", "mui", "narkotika", "nasi", "nasi", "nasional", "nasional", "nasional", "nasional", "nasional", "nazi", "negara", "negara", "negara", "negara", "negara", "niaga", "niaga", "niaga", "nilai", "nilai", "nilai", "nilai", "nilai", "nilainilai", "nilainilai", "nitro", "nobu", "non", "non", "non", "ntp", "nyata", "nyata", "nyata", "nyata", "nyata", "obat", "octane", "ojk", "orang", "orang", "orang", "orang", "orang", "ortu", "pancasila", "pancasila", "pancasila", "pangan", "pangan", "pangan", "pangan", "pangan", "panja", "pariwisata", "parkir", "pasal", "pasal", "pasal", "pasal", "pasal", "pasir", "patriot", "pekanbaru", "pensiun", "pensiun", "perintah", "perintah", "perintah", "perintah", "perintah", "pertamax", "pertamina", "pertamina", "pertamina", "pertamina", "pgn", "pleno", "polantas", "polisi", "polisi", "polisi", "polisi", "polri", "polri", "polri", "ponies", "ponpes", "poorest", "presiden", "presiden", "presiden", "presiden", "presiden", "program", "program", "program", "program", "program", "psk", "rabu", "rabu", "rabu", "rabu", "rabu", "racun", "racun", "racun", "rapat", "rapat", "rapat", "rapt", "rapt", "rapt", "rapt", "reformasi", "reggy", "rinah", "ron", "ron", "rumah", "rumah", "rumah", "rumah", "rumah", "runt", "runtuh", "rupbasan", "rupiah", "rupiah", "rupiah", "rupiah", "ruu", "ruu", "ruu", "sabu", "saham", "sakit", "sakit", "sakit", "sakti", "sakti", "sakti", "sangka", "sangka", "santri", "sar", "scroll", "scroll", "scroll", "scroll", "scroll", "sempurna", "senjata", "senjata", "sentry", "sepakbola", "september", "september", "september", "september", "september", "serang", "serang", "serang", "shopee", "sidoarjo", "sing", "sing", "sing", "slot", "sopir", "sopir", "sopir", "sopir", "sopir", "sosial", "sosial", "sosial", "sosial", "sppg", "sppg", "sppg", "sppg", "suap", "suharyanto", "sulit", "sulit", "sulit", "sulit", "sulit", "surat", "surat", "surat", "surat", "surplus", "swasta", "swasta", "swasta", "swasta", "syafii", "tabung", "tabung", "tabung", "tabung", "tamsil", "tanga", "tanga", "tanga", "tanga", "tangkap", "tanka", "tbk", "tbk", "tbk", "tekstil", "temu", "temu", "temu", "temu", "temu", "tikam", "timah", "tingkat", "tingkat", "tingkat", "tingkat", "tingkat", "tmi", "topi", "transaksi", "transaksi", "transaksi", "tumbuh", "tumbuh", "tumbuh", "tumbuh", "tumbuh", "turbo", "twibbon", "uang", "uang", "uang", "uang", "uang", "umkm", "umkm", "umkm", "umkm", "upacara", "upacara", "upacara", "usaha", "usaha", "usaha", "usaha", "usaha", "video", "video", "video", "video", "video", "vpower", "wanita", "wanita", "wanita", "waris", "with", "with", "with", "with", "with", "wuk", "yulita", "zon", "zon", "zon"]}, "R": 30, "lambda.step": 0.01, "plot.opts": {"xlab": "PC1", "ylab": "PC2"}, "topic.order": [1, 2, 3, 4, 5]};
+
+function LDAvis_load_lib(url, callback){
+  var s = document.createElement('script');
+  s.src = url;
+  s.async = true;
+  s.onreadystatechange = s.onload = callback;
+  s.onerror = function(){console.warn("failed to load library " + url);};
+  document.getElementsByTagName("head")[0].appendChild(s);
+}
+
+if(typeof(LDAvis) !== "undefined"){
+   // already loaded: just create the visualization
+   !function(LDAvis){
+       new LDAvis("#" + "ldavis_el5461389587021001767549684514", ldavis_el5461389587021001767549684514_data);
+   }(LDAvis);
+}else if(typeof define === "function" && define.amd){
+   // require.js is available: use it to load d3/LDAvis
+   require.config({paths: {d3: "https://d3js.org/d3.v5"}});
+   require(["d3"], function(d3){
+      window.d3 = d3;
+      LDAvis_load_lib("https://cdn.jsdelivr.net/gh/bmabey/pyLDAvis@3.4.0/pyLDAvis/js/ldavis.v3.0.0.js", function(){
+        new LDAvis("#" + "ldavis_el5461389587021001767549684514", ldavis_el5461389587021001767549684514_data);
+      });
+    });
+}else{
+    // require.js not available: dynamically load d3 & LDAvis
+    LDAvis_load_lib("https://d3js.org/d3.v5.js", function(){
+         LDAvis_load_lib("https://cdn.jsdelivr.net/gh/bmabey/pyLDAvis@3.4.0/pyLDAvis/js/ldavis.v3.0.0.js", function(){
+                 new LDAvis("#" + "ldavis_el5461389587021001767549684514", ldavis_el5461389587021001767549684514_data);
+            })
+         });
+}
+</script></div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">topics</span> <span class="o">=</span> <span class="n">lda_model</span><span class="o">.</span><span class="n">show_topics</span><span class="p">(</span><span class="n">num_topics</span><span class="o">=</span><span class="n">num_topics</span><span class="p">,</span> <span class="n">num_words</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">formatted</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">topic</span> <span class="ow">in</span> <span class="n">topics</span><span class="p">:</span>
+    <span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span> <span class="k">for</span> <span class="n">w</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">topic</span><span class="p">]</span>
+    <span class="n">weights</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span> <span class="k">for</span> <span class="n">w</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">topic</span><span class="p">]</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="n">weights</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Topik </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Bobot Kata&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+</pre></div>
+</div>
+<img alt="_images/fdb94937103e06f67ec0321999efe705645dc15483cccb2e1f0157d791f37517.png" src="_images/fdb94937103e06f67ec0321999efe705645dc15483cccb2e1f0157d791f37517.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+</pre></div>
+</div>
+<img alt="_images/0609050d782ed99dcb425fe1a0d519f9c208672e8b5493f96d1dcb0f7f66d43b.png" src="_images/0609050d782ed99dcb425fe1a0d519f9c208672e8b5493f96d1dcb0f7f66d43b.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+</pre></div>
+</div>
+<img alt="_images/115f66aff78e117ae2ea3a1f8a61008547c755bedca9a57dc345affb848ba508.png" src="_images/115f66aff78e117ae2ea3a1f8a61008547c755bedca9a57dc345affb848ba508.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+</pre></div>
+</div>
+<img alt="_images/ce094f43ca6d74ba6eb4aea692a39293f97c361a7154ed4880210ca5d8e8ca8b.png" src="_images/ce094f43ca6d74ba6eb4aea692a39293f97c361a7154ed4880210ca5d8e8ca8b.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+</pre></div>
+</div>
+<img alt="_images/92994b6debcb9729099c6a0173c11da11998c6e690c457ebd2fbc44e0dc14a90.png" src="_images/92994b6debcb9729099c6a0173c11da11998c6e690c457ebd2fbc44e0dc14a90.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By PPW
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
